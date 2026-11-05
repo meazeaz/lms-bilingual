@@ -1,26 +1,152 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/*
+ * Design system: "Playful claymorphism × clean SaaS"
+ * Latar pastel hangat, aksen indigo lembut / coral hangat / mint,
+ * kartu & tombol bertekstur 3D (bayangan berlapis + border bawah yang bisa "ditekan").
+ */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fredoka), var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+
+  /* Indigo lembut: warna utama */
+  --color-brand-50: #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-200: #c7d2fe;
+  --color-brand-300: #a5b4fc;
+  --color-brand-400: #818cf8;
+  --color-brand-500: #6366f1;
+  --color-brand-600: #5048e5;
+  --color-brand-700: #4338ca;
+  --color-brand-800: #3730a3;
+  --color-brand-900: #312e81;
+  --color-brand-950: #1e1b4b;
+
+  /* Coral hangat */
+  --color-coral-50: #fff4f1;
+  --color-coral-100: #ffe4dc;
+  --color-coral-200: #ffc9b9;
+  --color-coral-300: #ffa58c;
+  --color-coral-400: #ff8a6e;
+  --color-coral-500: #f9714f;
+  --color-coral-600: #e2563a;
+  --color-coral-700: #bb412a;
+
+  /* Mint */
+  --color-mint-50: #ecfdf6;
+  --color-mint-100: #d1faea;
+  --color-mint-200: #a7f3d6;
+  --color-mint-300: #6ee7bd;
+  --color-mint-400: #3dd6a3;
+  --color-mint-500: #1fbf8c;
+  --color-mint-600: #149a72;
+  --color-mint-700: #127a5d;
+
+  /* Level Duta Inggris */
+  --color-bronze-50: #fbf3ea;
+  --color-bronze-100: #f5e0c8;
+  --color-bronze-500: #b8702f;
+  --color-bronze-700: #7f4a17;
+  --color-silver-50: #f3f5f9;
+  --color-silver-100: #e2e7ef;
+  --color-silver-500: #7c889a;
+  --color-silver-700: #4a5568;
+  --color-gold-50: #fef9e6;
+  --color-gold-100: #fcefbf;
+  --color-gold-500: #e0a81a;
+  --color-gold-700: #8f6609;
+
+  --color-ink: #0f172a;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
 }
 
 body {
-  background: var(--background);
+  background: linear-gradient(160deg, #f8fafc 0%, #f1f4ff 45%, #eef2ff 100%) fixed;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+@layer base {
+  ::selection {
+    background: var(--color-brand-200);
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-brand-300);
+    outline-offset: 2px;
+  }
+}
+
+/* Kartu tanah liat: lapisan bayangan luar + highlight dalam */
+@utility clay {
+  background: #ffffff;
+  border: 1px solid rgb(226 232 240 / 0.8);
+  box-shadow:
+    0 1px 0 rgb(255 255 255) inset,
+    0 -3px 0 rgb(99 102 241 / 0.05) inset,
+    0 2px 4px -2px rgb(15 23 42 / 0.06),
+    0 12px 28px -14px rgb(79 70 229 / 0.22);
+}
+
+@utility clay-soft {
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 0.9) inset,
+    0 -4px 8px rgb(15 23 42 / 0.05) inset,
+    0 10px 24px -12px rgb(15 23 42 / 0.18);
+}
+
+/* Tombol 3D: border bawah tebal yang hilang saat ditekan */
+@utility press {
+  border-bottom-width: 4px;
+  transition:
+    transform 120ms ease,
+    border-bottom-width 120ms ease,
+    filter 150ms ease;
+  &:hover {
+    filter: brightness(1.04);
+  }
+  &:active {
+    transform: translateY(3px);
+    border-bottom-width: 1px;
+  }
+}
+
+@utility glass {
+  background: rgb(255 255 255 / 0.7);
+  backdrop-filter: blur(14px) saturate(1.4);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  border: 1px solid rgb(255 255 255 / 0.8);
+}
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white;
+  }
+  .clay {
+    box-shadow: none;
+  }
 }

@@ -1,17 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
-  turbopack: {
-    rules: {
-      "*.css": {
-        loaders: ["@tailwindcss/turbopack"],
-        as: "*.css",
-      },
-    },
-  },
+  // Seluruh halaman LMS bergantung pada sesi login & data terbaru,
+  // jadi dirender dinamis per permintaan (tanpa Cache Components).
+  cacheComponents: false,
+  serverExternalPackages: ["better-sqlite3", "pg"],
 };
 
 export default nextConfig;

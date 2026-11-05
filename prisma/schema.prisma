@@ -1,0 +1,541 @@
+// Skema database LMS Program Bilingual SMP IT Al Madany
+// Mengacu pada Dokumen Master "Program Akselerasi Bilingual 2028" (v3.0)
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+enum Role {
+  ADMIN
+  TEACHER
+  STUDENT
+}
+
+enum AmbassadorLevel {
+  NONE
+  BRONZE
+  SILVER
+  GOLD
+}
+
+enum ReviewStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+// ─────────────────────────── Pengguna ───────────────────────────
+
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         Role
+  title        String? // jabatan admin, mis. "Ketua EDT"
+  active       Boolean  @default(true)
+  createdAt    DateTime @default(now())
+
+  teacher Teacher?
+  student Student?
+
+  observationsMade Observation[]   @relation("Observer")
+  assessmentsMade  Assessment[]    @relation("Assessor")
+  reviewsDone      DailyLog[]      @relation("DailyReviewer")
+  levelChangesMade LevelChange[]   @relation("LevelChanger")
+  announcements    Announcement[]
+}
+
+model Teacher {
+  id              String          @id @default(cuid())
+  userId          String          @unique
+  user            User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  nip             String?
+  subject         String
+  whatsapp        String?
+  cefrLevel       String          @default("A2") // A2, A2+, B1, B1+, B2, B2+, C1, C1+
+  toeflScore      Int?
+  ambassadorLevel AmbassadorLevel @default(NONE)
+  levelSince      DateTime?
+  buddyId         String? // pasangan English Buddy (guru B1+)
+  buddy           Teacher?        @relation("Buddy", fields: [buddyId], references: [id])
+  buddies         Teacher[]       @relation("Buddy")
+  isPilot         Boolean         @default(false)
+
+  dailyLogs         DailyLog[]
+  assessments       Assessment[]
+  registrations     AmbassadorRegistration[]
+  levelChanges      LevelChange[]
+  observations      Observation[]
+  reflections       Reflection[]
+  lessonPlans       LessonPlan[]
+  microTeachings    MicroTeaching[]
+  phraseMasteries   PhraseMastery[]
+  challengeProgress ChallengeProgress[]
+  badges            TeacherBadge[]
+  cefrHistory       CefrRecord[]
+  classes           TeachingAssignment[]
+  studentAssessments StudentAssessment[]
+  materials         Material[]
+  clubSessions      ClubSession[]
+}
+
+model ClassRoom {
+  id       String               @id @default(cuid())
+  name     String               @unique // 7A, 8B, ...
+  grade    Int // 7, 8, 9
+  students Student[]
+  teachers TeachingAssignment[]
+}
+
+model TeachingAssignment {
+  id        String    @id @default(cuid())
+  teacherId String
+  teacher   Teacher   @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  classId   String
+  classRoom ClassRoom @relation(fields: [classId], references: [id], onDelete: Cascade)
+  isHomeroom Boolean  @default(false)
+
+  @@unique([teacherId, classId])
+}
+
+model Student {
+  id                 String    @id @default(cuid())
+  userId             String    @unique
+  user               User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  nis                String?
+  classId            String
+  classRoom          ClassRoom @relation(fields: [classId], references: [id])
+  cefrLevel          String    @default("A1") // Pre A1, A1, A2, A2+, B1, B1+, B2
+  pareAlumni         Boolean   @default(false)
+  isStudentAmbassador Boolean  @default(false)
+
+  assessments  StudentAssessment[]
+  quizAttempts QuizAttempt[]
+  attendances  ClubAttendance[]
+  competitions CompetitionEntry[]
+  materialReads MaterialRead[]
+}
+
+// ─────────────────── Fase 1: ELITE English Habit ───────────────────
+
+model DailyLog {
+  id                 String       @id @default(cuid())
+  teacherId          String
+  teacher            Teacher      @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  date               DateTime // tanggal (00:00 waktu lokal)
+  mirrorMorning      Boolean      @default(false) // kirim voice note Mirror Morning
+  voiceNoteOnTime    Boolean      @default(false) // dikirim sebelum 06.15
+  dailyMission       Boolean      @default(false)
+  missionAnswer      String?
+  englishZoneMinutes Int          @default(0)
+  buddySession       Boolean      @default(false)
+  buddyNote          String?
+  englishInClassPct  Int? // estimasi % Inggris di kelas hari ini
+  status             ReviewStatus @default(PENDING)
+  reviewerId         String?
+  reviewer           User?        @relation("DailyReviewer", fields: [reviewerId], references: [id])
+  reviewNote         String?
+  createdAt          DateTime     @default(now())
+
+  @@unique([teacherId, date])
+}
+
+// ─────────────────── Sistem Duta Inggris ───────────────────
+
+model Assessment {
+  id              String          @id @default(cuid())
+  teacherId       String
+  teacher         Teacher         @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  assessorId      String
+  assessor        User            @relation("Assessor", fields: [assessorId], references: [id])
+  secondExaminer  String?
+  date            DateTime
+  targetLevel     AmbassadorLevel
+  // Tes lisan: 5 aspek skor 1-4 → total × 5
+  oralFluency       Int
+  oralPronunciation Int
+  oralGrammar       Int
+  oralVocabulary    Int
+  oralConfidence    Int
+  oralScore         Float
+  // Tes tertulis 0-100 (Gold: boleh diganti TOEFL ≥550 / IELTS ≥6.0 → 100)
+  writtenScore      Float
+  writtenWaived     Boolean @default(false)
+  // Simulasi mengajar: 4 aspek skor 1-4 → (jumlah ÷ 16) × 100
+  simInstruction    Int
+  simAdaptation     Int
+  simConsistency    Int
+  simClarity        Int
+  simulationScore   Float
+  finalScore        Float
+  passed            Boolean
+  awardedLevel      AmbassadorLevel
+  strengths         String?
+  improvements      String?
+  notes             String?
+  acknowledged      Boolean @default(false) // guru telah menerima hasil
+  createdAt         DateTime @default(now())
+
+  appeals Appeal[]
+}
+
+model Appeal {
+  id           String       @id @default(cuid())
+  assessmentId String
+  assessment   Assessment   @relation(fields: [assessmentId], references: [id], onDelete: Cascade)
+  reasonType   String // PROSEDUR, BOBOT, INFO_BARU, NILAI, LAINNYA
+  explanation  String
+  evidence     String?
+  request      String // ASESMEN_ULANG, KOREKSI_NILAI, PENJELASAN
+  status       String       @default("DIAJUKAN") // DIAJUKAN, DITERIMA, DITERIMA_SEBAGIAN, DITOLAK
+  decision     String?
+  revisedScore Float?
+  decidedAt    DateTime?
+  createdAt    DateTime     @default(now())
+}
+
+model AmbassadorRegistration {
+  id                  String          @id @default(cuid())
+  teacherId           String
+  teacher             Teacher         @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  targetLevel         AmbassadorLevel
+  motivation          String
+  hoursPerWeek        String // 1-2, 3-4, 5+
+  readyToMentor       Boolean         @default(false)
+  commitmentAgreement Boolean         @default(true)
+  status              ReviewStatus    @default(PENDING)
+  adminNote           String?
+  assessmentDate      DateTime?
+  createdAt           DateTime        @default(now())
+}
+
+model LevelChange {
+  id          String          @id @default(cuid())
+  teacherId   String
+  teacher     Teacher         @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  fromLevel   AmbassadorLevel
+  toLevel     AmbassadorLevel
+  reason      String
+  changedById String
+  changedBy   User            @relation("LevelChanger", fields: [changedById], references: [id])
+  createdAt   DateTime        @default(now())
+}
+
+model CefrRecord {
+  id        String   @id @default(cuid())
+  teacherId String
+  teacher   Teacher  @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  date      DateTime
+  cefrLevel String
+  toefl     Int?
+  source    String // TOEFL Prediction, Cambridge Placement, Pemetaan EDT
+}
+
+// ─────────────────── Observasi, Refleksi, RPP ───────────────────
+
+model Observation {
+  id               String   @id @default(cuid())
+  teacherId        String
+  teacher          Teacher  @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  observerId       String
+  observer         User     @relation("Observer", fields: [observerId], references: [id])
+  date             DateTime
+  subject          String
+  className        String
+  checklist        String // JSON boolean[10] sesuai Lampiran 4
+  englishPctBucket String // <20, 20-40, 40-60, 60-80, >80
+  englishPct       Int // nilai tengah bucket untuk statistik
+  score            Int // 0-100 = (ya ÷ 10) × 100
+  strengths        String
+  improvements     String
+  recommendation   String // PERTAHANKAN, SIAP_NAIK, PENDAMPINGAN
+  recommendationNote String?
+  feedbackGiven    Boolean  @default(false)
+  createdAt        DateTime @default(now())
+}
+
+model Reflection {
+  id               String       @id @default(cuid())
+  teacherId        String
+  teacher          Teacher      @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  date             DateTime
+  subject          String
+  className        String
+  targetLevel      AmbassadorLevel
+  achieved         String // YA, SEBAGIAN, TIDAK
+  fluentSentences  String
+  difficultSentences String
+  studentResponse  String // SANGAT_POSITIF, POSITIF, BIASA, BINGUNG
+  challenge        String
+  nextChange       String
+  proudOf          String
+  status           ReviewStatus @default(PENDING)
+  reviewNote       String?
+  createdAt        DateTime     @default(now())
+}
+
+model LessonPlan {
+  id               String   @id @default(cuid())
+  teacherId        String
+  teacher          Teacher  @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  title            String
+  subject          String
+  className        String
+  date             DateTime
+  targetLevel      AmbassadorLevel
+  cambridgeSkills  String // JSON string[] (Reading, Writing, Use of English, Listening, Speaking)
+  objectives       String
+  englishSentences String // minimal 3 kalimat, dipisah baris
+  vocabulary       String?
+  opening          String
+  mainActivity     String
+  closing          String
+  assessmentPlan   String?
+  postReflection   String?
+  status           String   @default("DIAJUKAN") // DRAF, DIAJUKAN, DISETUJUI, REVISI
+  reviewNote       String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model MicroTeaching {
+  id          String   @id @default(cuid())
+  teacherId   String
+  teacher     Teacher  @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  date        DateTime
+  week        Int // 1-4 (Bulan 4)
+  focus       String
+  opening     Int // 1-4
+  delivery    Int
+  cfu         Int
+  closing     Int
+  score       Float // (jumlah ÷ 16) × 100
+  result      String // LULUS (≥70), PENDAMPINGAN (60-69), BELUM_SIAP (<60)
+  notes       String?
+  createdAt   DateTime @default(now())
+}
+
+// ─────────────────── Pocket Book & Gamifikasi ───────────────────
+
+model Phrase {
+  id         String @id @default(cuid())
+  number     Int    @unique
+  category   String // Opening, Instructions, Classroom Management, Feedback & Motivation, Closing
+  indonesian String
+  english    String
+
+  masteries PhraseMastery[]
+}
+
+model PhraseMastery {
+  id         String       @id @default(cuid())
+  teacherId  String
+  teacher    Teacher      @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  phraseId   String
+  phrase     Phrase       @relation(fields: [phraseId], references: [id], onDelete: Cascade)
+  status     ReviewStatus @default(PENDING)
+  createdAt  DateTime     @default(now())
+
+  @@unique([teacherId, phraseId])
+}
+
+model WeeklyChallenge {
+  id          String @id @default(cuid())
+  week        Int    @unique
+  title       String
+  description String
+  target      String
+  points      Int    @default(10)
+
+  progress ChallengeProgress[]
+}
+
+model ChallengeProgress {
+  id          String          @id @default(cuid())
+  teacherId   String
+  teacher     Teacher         @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  challengeId String
+  challenge   WeeklyChallenge @relation(fields: [challengeId], references: [id], onDelete: Cascade)
+  evidence    String
+  status      ReviewStatus    @default(PENDING)
+  createdAt   DateTime        @default(now())
+
+  @@unique([teacherId, challengeId])
+}
+
+model Badge {
+  id          String @id @default(cuid())
+  code        String @unique
+  name        String
+  description String
+  icon        String // nama ikon lucide
+  color       String // kelas warna
+  audience    String @default("TEACHER")
+
+  teachers TeacherBadge[]
+}
+
+model TeacherBadge {
+  id        String   @id @default(cuid())
+  teacherId String
+  teacher   Teacher  @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  badgeId   String
+  badge     Badge    @relation(fields: [badgeId], references: [id], onDelete: Cascade)
+  awardedAt DateTime @default(now())
+  note      String?
+
+  @@unique([teacherId, badgeId])
+}
+
+// ─────────────────── Pengembangan Siswa ───────────────────
+
+model StudentAssessment {
+  id         String   @id @default(cuid())
+  studentId  String
+  student    Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  teacherId  String
+  teacher    Teacher  @relation(fields: [teacherId], references: [id])
+  date       DateTime
+  type       String // OBSERVASI (kelas 7), SPEAKING (kelas 8), TOEFL (kelas 9), KUIS_KELAS
+  semester   String // mis. "Ganjil 2026/2027"
+  score      Float // 0-100, atau skor TOEFL untuk type TOEFL
+  cefrLevel  String
+  listening  Int? // 1-4 komponen Cambridge (opsional)
+  speaking   Int?
+  reading    Int?
+  writing    Int?
+  useOfEnglish Int?
+  notes      String?
+  createdAt  DateTime @default(now())
+}
+
+model Material {
+  id         String   @id @default(cuid())
+  title      String
+  category   String // Kosakata Mapel, Ungkapan Sehari-hari, Grammar, Reading, Listening
+  subject    String? // Matematika, IPA, IPS, PJOK, Umum
+  grade      Int? // null = semua kelas
+  cefrLevel  String
+  summary    String
+  content    String // markdown sederhana
+  vocabulary String // JSON {en, id}[]
+  authorId   String?
+  author     Teacher? @relation(fields: [authorId], references: [id])
+  published  Boolean  @default(true)
+  createdAt  DateTime @default(now())
+
+  quizzes Quiz[]
+  reads   MaterialRead[]
+}
+
+model MaterialRead {
+  id         String   @id @default(cuid())
+  studentId  String
+  student    Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  materialId String
+  material   Material @relation(fields: [materialId], references: [id], onDelete: Cascade)
+  readAt     DateTime @default(now())
+
+  @@unique([studentId, materialId])
+}
+
+model Quiz {
+  id         String   @id @default(cuid())
+  materialId String
+  material   Material @relation(fields: [materialId], references: [id], onDelete: Cascade)
+  title      String
+  questions  String // JSON {q, options[], answer}[]
+  passScore  Int      @default(70)
+  createdAt  DateTime @default(now())
+
+  attempts QuizAttempt[]
+}
+
+model QuizAttempt {
+  id        String   @id @default(cuid())
+  quizId    String
+  quiz      Quiz     @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  studentId String
+  student   Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  score     Float
+  answers   String // JSON number[]
+  createdAt DateTime @default(now())
+}
+
+model ClubSession {
+  id        String   @id @default(cuid())
+  type      String // ENGLISH_CLUB (Sabtu 08.00-09.30), PEER_TUTORING (Kamis sore)
+  date      DateTime
+  topic     String
+  activity  String? // debat, storytelling, drama, games
+  leaderId  String?
+  leader    Teacher? @relation(fields: [leaderId], references: [id])
+  notes     String?
+  createdAt DateTime @default(now())
+
+  attendances ClubAttendance[]
+}
+
+model ClubAttendance {
+  id        String      @id @default(cuid())
+  sessionId String
+  session   ClubSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  studentId String
+  student   Student     @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  role      String      @default("PESERTA") // PESERTA, TUTOR
+  present   Boolean     @default(true)
+
+  @@unique([sessionId, studentId])
+}
+
+model Competition {
+  id        String   @id @default(cuid())
+  name      String
+  level     String // KECAMATAN, KABUPATEN, PROVINSI, NASIONAL
+  category  String // Speech, Storytelling, Spelling Bee, ...
+  organizer String?
+  date      DateTime
+  createdAt DateTime @default(now())
+
+  entries CompetitionEntry[]
+}
+
+model CompetitionEntry {
+  id            String      @id @default(cuid())
+  competitionId String
+  competition   Competition @relation(fields: [competitionId], references: [id], onDelete: Cascade)
+  studentId     String
+  student       Student     @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  result        String // PESERTA, FINALIS, HARAPAN, JUARA_3, JUARA_2, JUARA_1
+  points        Int
+  notes         String?
+
+  @@unique([competitionId, studentId])
+}
+
+model Announcement {
+  id        String   @id @default(cuid())
+  title     String
+  body      String
+  audience  String   @default("ALL") // ALL, TEACHER, STUDENT
+  authorId  String
+  author    User     @relation(fields: [authorId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model MonthlyReport {
+  id               String   @id @default(cuid())
+  month            String   @unique // YYYY-MM
+  executiveSummary String?
+  challenges       String?
+  recommendations  String?
+  nextMonthPlan    String?
+  updatedAt        DateTime @updatedAt
+  createdAt        DateTime @default(now())
+}
