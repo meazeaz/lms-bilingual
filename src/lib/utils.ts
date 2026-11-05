@@ -13,6 +13,12 @@ export const formatDate = (d: Date | string) => dateFmt.format(new Date(d));
 export const formatLongDate = (d: Date | string) => longDateFmt.format(new Date(d));
 export const formatMonth = (d: Date | string) => monthFmt.format(new Date(d));
 
+const dateTimeFmt = new Intl.DateTimeFormat("id-ID", {
+  day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit", timeZone: "Asia/Jakarta",
+});
+/** Tanggal + jam WIB, mis. "6 Nov 2026, 07.15". */
+export const formatDateTime = (d: Date | string) => dateTimeFmt.format(new Date(d));
+
 /** Tanggal lokal tanpa jam, dalam bentuk Date UTC tengah malam — kunci unik log harian. */
 export function dayKey(d: Date | string = new Date()) {
   const x = typeof d === "string" ? new Date(d + (d.length === 10 ? "T00:00:00" : "")) : d;

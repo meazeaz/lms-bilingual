@@ -24,11 +24,13 @@ export async function encryptSession(payload: SessionPayload) {
     .sign(getKey());
 }
 
-export async function decryptSession(token: string | undefined): Promise<SessionPayload | null> {
+export async function decryptSession(
+  token: string | undefined,
+): Promise<(SessionPayload & { issuedAt: number }) | null> {
   if (!token) return null;
   try {
     const { payload } = await jwtVerify(token, getKey(), { algorithms: ["HS256"] });
-    return { userId: String(payload.userId), role: payload.role as Role };
+    return { userId: String(payload.userId), role: payload.role as Role, issuedAt: (payload.iat ?? 0) * 1000 };
   } catch {
     return null;
   }

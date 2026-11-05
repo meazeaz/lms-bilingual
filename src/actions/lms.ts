@@ -7,6 +7,8 @@ import { db } from "@/lib/db";
 import { requireAdmin, requireStudent, requireTeacher, getCurrentUser } from "@/lib/auth";
 import { failure, success, type ActionState } from "@/lib/action-state";
 import { syncTeacherBadges } from "@/lib/metrics";
+import { logAudit } from "@/lib/audit";
+import { invalidatePublicStats } from "@/lib/public-stats";
 import {
   awardedLevel,
   cefrFromToefl,
@@ -1448,6 +1450,8 @@ export async function saveAnnouncement(_prev: ActionState, fd: FormData): Promis
   const title = String(fd.get("title") || "").trim();
   const body = String(fd.get("body") || "").trim();
   const audience = String(fd.get("audience") || "ALL").trim();
+  // Hanya pengumuman untuk semua warga sekolah yang boleh tampil di halaman depan publik
+  const isPublic = audience === "ALL" && fd.get("isPublic") === "on";
 
   if (title.length < 3) return failure("Judul pengumuman minimal 3 karakter.");
   if (body.length < 5) return failure("Isi pengumuman minimal 5 karakter.");
@@ -1455,7 +1459,7 @@ export async function saveAnnouncement(_prev: ActionState, fd: FormData): Promis
   if (id) {
     await db.announcement.update({
       where: { id },
-      data: { title, body, audience },
+      data: { title, body, audience, isPublic },
     });
   } else {
     await db.announcement.create({
@@ -1463,6 +1467,7 @@ export async function saveAnnouncement(_prev: ActionState, fd: FormData): Promis
         title,
         body,
         audience,
+        isPublic,
         authorId: admin.id,
       },
     });
@@ -1473,15 +1478,19 @@ export async function saveAnnouncement(_prev: ActionState, fd: FormData): Promis
   revalidatePath("/guru");
   revalidatePath("/siswa");
 
+  invalidatePublicStats();
+  await logAudit("announcement.save", { actorId: admin.id, target: title, detail: `Audiens: ${audience}${isPublic ? " · tampil di halaman depan" : ""}` });
   return success("Pengumuman berhasil dipublikasikan.");
 }
 
 export async function deleteAnnouncement(fd: FormData): Promise<void> {
-  await requireAdmin();
+  const admin = await requireAdmin();
   const id = String(fd.get("id") || "").trim();
   if (!id) return;
 
-  await db.announcement.delete({ where: { id } });
+  const removed = await db.announcement.delete({ where: { id } });
+  invalidatePublicStats();
+  await logAudit("announcement.delete", { actorId: admin.id, target: removed.title });
 
   revalidatePath("/admin/pengumuman");
   revalidatePath("/admin");
@@ -1491,7 +1500,7 @@ export async function deleteAnnouncement(fd: FormData): Promise<void> {
 
 // ───────────── Sprint 5: Manajemen Pengguna & Kelas ─────────────
 export async function createUser(_prev: ActionState, fd: FormData): Promise<ActionState> {
-  await requireAdmin();
+  const admin = await requireAdmin();
   const name = String(fd.get("name") || "").trim();
   const email = String(fd.get("email") || "").trim().toLowerCase();
   const password = String(fd.get("password") || "").trim();
@@ -1573,6 +1582,7 @@ export async function createUser(_prev: ActionState, fd: FormData): Promise<Acti
   revalidatePath("/admin/guru");
   revalidatePath("/admin/siswa");
 
+  await logAudit("user.create", { actorId: admin.id, target: email, detail: `${name} · ${role}` });
   return success(`Akun ${name} (${role}) berhasil dibuat.`);
 }
 
@@ -1589,6 +1599,7 @@ export async function toggleUserStatus(fd: FormData): Promise<void> {
     where: { id: userId },
     data: { active: !user.active },
   });
+  await logAudit("user.toggle", { actorId: admin.id, target: user.email, detail: user.active ? "Dinonaktifkan" : "Diaktifkan" });
 
   revalidatePath("/admin/pengguna");
   revalidatePath("/admin/guru");
@@ -1596,7 +1607,7 @@ export async function toggleUserStatus(fd: FormData): Promise<void> {
 }
 
 export async function resetUserPassword(_prev: ActionState, fd: FormData): Promise<ActionState> {
-  await requireAdmin();
+  const admin = await requireAdmin();
   const userId = String(fd.get("userId") || "").trim();
   const newPassword = String(fd.get("newPassword") || "").trim();
 
@@ -1604,10 +1615,13 @@ export async function resetUserPassword(_prev: ActionState, fd: FormData): Promi
   if (newPassword.length < 6) return failure("Password baru minimal 6 karakter.");
 
   const passwordHash = await bcrypt.hash(newPassword, 10);
-  await db.user.update({
+  // passwordChangedAt membuat sesi lama pengguna tersebut otomatis tidak berlaku
+  const target = await db.user.update({
     where: { id: userId },
-    data: { passwordHash },
+    data: { passwordHash, passwordChangedAt: new Date() },
+    select: { email: true },
   });
+  await logAudit("user.reset_password", { actorId: admin.id, target: target.email });
 
   revalidatePath("/admin/pengguna");
   return success("Password pengguna berhasil diperbarui.");
@@ -1679,6 +1693,7 @@ export async function deleteUser(fd: FormData): Promise<void> {
       where: { id: userId },
     });
   });
+  await logAudit("user.delete", { actorId: admin.id, target: target.email, detail: `${target.name} · ${target.role}` });
 
   revalidatePath("/admin/pengguna");
   revalidatePath("/admin/guru");
@@ -1687,7 +1702,7 @@ export async function deleteUser(fd: FormData): Promise<void> {
 }
 
 export async function saveClassRoom(_prev: ActionState, fd: FormData): Promise<ActionState> {
-  await requireAdmin();
+  const admin = await requireAdmin();
   const id = String(fd.get("id") || "").trim() || null;
   const name = String(fd.get("name") || "").trim().toUpperCase();
   const grade = Number(fd.get("grade") || 7);
@@ -1711,6 +1726,7 @@ export async function saveClassRoom(_prev: ActionState, fd: FormData): Promise<A
 
   revalidatePath("/admin/pengguna");
   revalidatePath("/admin/siswa");
+  await logAudit("class.save", { actorId: admin.id, target: name, detail: `Jenjang ${grade}` });
   return success(`Kelas ${name} berhasil disimpan.`);
 }
 

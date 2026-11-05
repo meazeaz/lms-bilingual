@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Megaphone, Plus, Trash2, Users, X } from "lucide-react";
 import { deleteAnnouncement, saveAnnouncement } from "@/actions/lms";
 import { ActionForm, SubmitButton } from "@/components/forms";
-import { Button, Card, CardBody, CardHeader, Field, Input, Pill, Select, Textarea } from "@/components/ui";
+import { Button, Card, CardBody, CardHeader, Checkbox, Field, Input, Pill, Select, Textarea } from "@/components/ui";
 import { formatDate } from "@/lib/utils";
 
 export interface AnnouncementItem {
@@ -12,6 +12,7 @@ export interface AnnouncementItem {
   title: string;
   body: string;
   audience: string;
+  isPublic: boolean;
   createdAt: Date;
   author: {
     name: string;
@@ -83,6 +84,12 @@ export function PengumumanClient({
                 />
               </Field>
 
+              <Checkbox
+                name="isPublic"
+                label="Tampilkan juga di halaman depan (publik)"
+                description="Hanya berlaku untuk audiens Semua Warga Sekolah. Dapat dibaca siapa saja tanpa login, jadi jangan cantumkan data pribadi."
+              />
+
               <div className="flex justify-end gap-2 pt-2 border-t border-slate-200/60">
                 <Button type="button" variant="ghost" onClick={() => setOpenNew(false)}>
                   Batal
@@ -113,6 +120,7 @@ export function PengumumanClient({
                         <Pill tone={isAll ? "info" : isTeacher ? "warning" : "success"}>
                           {isAll ? "Semua Audiens" : isTeacher ? "Khusus Guru" : "Khusus Siswa"}
                         </Pill>
+                        {a.isPublic && <Pill tone="coral">Tampil di halaman depan</Pill>}
                         <span className="text-xs text-slate-400">
                           {formatDate(a.createdAt)} · Diterbitkan oleh {a.author.name}
                         </span>

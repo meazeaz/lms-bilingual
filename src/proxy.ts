@@ -23,6 +23,12 @@ export async function proxy(req: NextRequest) {
   const area = pathname.split("/")[1];
 
   if (pathname === "/login") {
+    // Sesi kedaluwarsa/dicabut di server: hapus cookie agar tidak terjadi pengalihan berulang
+    if (req.nextUrl.searchParams.has("expired")) {
+      const res = NextResponse.next();
+      res.cookies.delete("lms_session");
+      return res;
+    }
     if (role && HOME[role]) return NextResponse.redirect(new URL(HOME[role], req.url));
     return NextResponse.next();
   }

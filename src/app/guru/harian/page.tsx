@@ -30,7 +30,7 @@ export default async function DailyPage() {
     cells.push({ date: new Date(d), level: l ? Number(l.mirrorMorning) + Number(l.dailyMission) + Number(l.englishZoneMinutes > 0) : 0, status: l?.status });
   }
 
-  const activePrompt = getDailyPrompt(today);
+  const activePrompt = await getDailyPrompt(today);
 
   return (
     <>

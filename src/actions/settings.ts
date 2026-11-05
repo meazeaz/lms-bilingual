@@ -1,10 +1,9 @@
 "use server";
 
-import { promises as fs } from "node:fs";
-import path from "node:path";
 import { revalidatePath } from "next/cache";
 import { type ActionState, failure, success } from "@/lib/action-state";
 import { requireAdmin } from "@/lib/auth";
+import { logAudit } from "@/lib/audit";
 import { db } from "@/lib/db";
 import {
   DEFAULT_SUBJECTS,
@@ -54,6 +53,7 @@ export async function addSubjectAction(
 
   settings.subjects.push(name);
   await saveSystemSettings(settings);
+  await logAudit("settings.subjects", { detail: "Tambah mata pelajaran" });
   revalidateAll();
 
   return success(`Mata pelajaran "${name}" berhasil ditambahkan.`);
@@ -90,6 +90,7 @@ export async function updateSubjectAction(
 
   settings.subjects[index] = newName;
   await saveSystemSettings(settings);
+  await logAudit("settings.subjects", { detail: "Ubah mata pelajaran" });
 
   // Perbarui relasi di database jika nama berubah
   if (oldName !== newName) {
@@ -125,6 +126,7 @@ export async function deleteSubjectAction(
   }
 
   await saveSystemSettings(settings);
+  await logAudit("settings.subjects", { detail: "Hapus mata pelajaran" });
   revalidateAll();
 
   return success(`Mata pelajaran "${name}" telah dihapus dari daftar.`);
@@ -135,6 +137,7 @@ export async function resetSubjectsAction(): Promise<ActionState> {
   const settings = await getSystemSettings();
   settings.subjects = [...DEFAULT_SUBJECTS];
   await saveSystemSettings(settings);
+  await logAudit("settings.subjects", { detail: "Reset ke daftar bawaan" });
   revalidateAll();
 
   return success("Daftar mata pelajaran telah direset ke standar sekolah.");
@@ -172,6 +175,7 @@ export async function addMaterialCategoryAction(
   });
 
   await saveSystemSettings(settings);
+  await logAudit("settings.categories", { detail: "Tambah kategori" });
   revalidateAll();
 
   return success(`Kategori materi "${label}" berhasil ditambahkan.`);
@@ -203,6 +207,7 @@ export async function updateMaterialCategoryAction(
   cat.active = active;
 
   await saveSystemSettings(settings);
+  await logAudit("settings.categories", { detail: "Ubah kategori" });
   revalidateAll();
 
   return success(`Kategori "${label}" berhasil diperbarui.`);
@@ -227,12 +232,19 @@ export async function deleteMaterialCategoryAction(
   }
 
   await saveSystemSettings(settings);
+  await logAudit("settings.categories", { detail: "Hapus kategori" });
   revalidateAll();
 
   return success("Kategori materi berhasil dihapus.");
 }
 
 // ────────────────────── PROFIL SEKOLAH & SEMESTER ──────────────────────
+
+/** Menghapus berkas logo lama dari database bila sebelumnya diunggah ke /api/files. */
+async function removeStoredLogo(logoUrl: string | undefined) {
+  const id = logoUrl?.match(/^\/api\/files\/([\w-]+)/)?.[1];
+  if (id) await db.storedFile.deleteMany({ where: { id } });
+}
 
 export async function updateSchoolLogoAction(
   _prevState: ActionState,
@@ -243,8 +255,11 @@ export async function updateSchoolLogoAction(
   const settings = await getSystemSettings();
 
   if (actionType === "RESET") {
+    const previousLogo = settings.profile.logoUrl;
     settings.profile.logoUrl = "/logo-almadany.png";
     await saveSystemSettings(settings);
+    await removeStoredLogo(previousLogo);
+    await logAudit("settings.logo", { detail: "Reset ke logo bawaan" });
     revalidateAll();
     return success("Logo resmi sekolah berhasil di-reset ke logo bawaan SMPIT Al Madany.");
   }
@@ -254,8 +269,11 @@ export async function updateSchoolLogoAction(
     if (!url) {
       return failure("Masukkan tautan URL logo yang valid.");
     }
+    const previousLogo = settings.profile.logoUrl;
     settings.profile.logoUrl = url;
     await saveSystemSettings(settings);
+    await removeStoredLogo(previousLogo);
+    await logAudit("settings.logo", { detail: `Tautan: ${url}` });
     revalidateAll();
     return success("Tautan logo resmi sekolah berhasil diperbarui.");
   }
@@ -283,21 +301,21 @@ export async function updateSchoolLogoAction(
     );
   }
 
-  const ext = file.name.split(".").pop()?.toLowerCase() || "png";
-  const safeExt = ["png", "jpg", "jpeg", "webp", "svg"].includes(ext) ? ext : "png";
-  const fileName = `custom-school-logo.${safeExt}`;
-
-  const uploadsDir = path.join(process.cwd(), "public", "uploads");
-  await fs.mkdir(uploadsDir, { recursive: true });
-  const filePath = path.join(uploadsDir, fileName);
-
-  const bytes = await file.arrayBuffer();
-  const buffer = Buffer.from(bytes);
-  await fs.writeFile(filePath, buffer);
-
-  // Simpan path dengan timestamp query string untuk mencegah cache browser usang
-  settings.profile.logoUrl = `/uploads/${fileName}?v=${Date.now()}`;
+  // Simpan berkas di database (portabel di hosting mana pun, tidak bergantung disk server)
+  const previousLogo = settings.profile.logoUrl;
+  const stored = await db.storedFile.create({
+    data: {
+      name: file.name.slice(0, 200) || "logo",
+      mimeType: file.type,
+      size: file.size,
+      data: new Uint8Array(await file.arrayBuffer()),
+    },
+    select: { id: true },
+  });
+  settings.profile.logoUrl = `/api/files/${stored.id}`;
   await saveSystemSettings(settings);
+  await removeStoredLogo(previousLogo);
+  await logAudit("settings.logo", { detail: `Unggah ${file.name} (${Math.round(file.size / 1024)} KB)` });
   revalidateAll();
 
   return success("Logo resmi sekolah berhasil diunggah dan diterapkan.");
@@ -345,6 +363,7 @@ export async function updateSchoolProfileAction(
   };
 
   await saveSystemSettings(settings);
+  await logAudit("settings.profile", { detail: name });
   revalidateAll();
 
   return success("Profil sekolah dan semester berhasil disimpan.");

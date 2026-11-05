@@ -6,6 +6,7 @@ import { db } from "@/lib/db";
 import { type ActionState, failure, success } from "@/lib/action-state";
 import { type EliteDailyPromptItem } from "@/lib/elite-prompts";
 import { deleteDailyPrompt, saveDailyPrompt } from "@/lib/elite-prompts-server";
+import { logAudit } from "@/lib/audit";
 
 export async function saveDailyPromptAction(
   _prev: ActionState,
@@ -42,6 +43,7 @@ export async function saveDailyPromptAction(
   };
 
   await saveDailyPrompt(item);
+  await logAudit("elite.prompt_save", { actorId: admin.id, target: date, detail: theme });
 
   revalidatePath("/admin/elite");
   revalidatePath("/guru/harian");
@@ -51,11 +53,12 @@ export async function saveDailyPromptAction(
 }
 
 export async function deleteDailyPromptAction(fd: FormData): Promise<void> {
-  await requireAdmin();
+  const admin = await requireAdmin();
   const date = String(fd.get("date") || "").trim();
   if (!date) return;
 
   await deleteDailyPrompt(date);
+  await logAudit("elite.prompt_delete", { actorId: admin.id, target: date });
 
   revalidatePath("/admin/elite");
   revalidatePath("/guru/harian");

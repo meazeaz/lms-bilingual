@@ -14,7 +14,9 @@ import {
   Eye,
   FileSpreadsheet,
   FileText,
+  FileUp,
   GraduationCap,
+  History,
   Home,
   LayoutDashboard,
   LogOut,
@@ -27,6 +29,7 @@ import {
   Sunrise,
   Target,
   Trophy,
+  UserCog,
   Users,
   X,
   type LucideIcon,
@@ -66,8 +69,11 @@ const NAV: Record<"ADMIN" | "TEACHER" | "STUDENT", NavGroup[]> = {
         { href: "/admin/pengumuman", label: "Kelola Pengumuman", icon: Megaphone },
         { href: "/admin/pengguna", label: "Manajemen Pengguna", icon: Settings },
         { href: "/admin/pengaturan", label: "Master Data & Pengaturan", icon: SlidersHorizontal },
+        { href: "/admin/data", label: "Impor & Ekspor Excel", icon: FileUp },
+        { href: "/admin/log", label: "Log Aktivitas", icon: History },
       ],
     },
+    { title: "Akun", items: [{ href: "/admin/akun", label: "Akun Saya", icon: UserCog }] },
   ],
   TEACHER: [
     { items: [{ href: "/guru", label: "Dashboard", icon: LayoutDashboard, exact: true }] },
@@ -97,6 +103,7 @@ const NAV: Record<"ADMIN" | "TEACHER" | "STUDENT", NavGroup[]> = {
         { href: "/guru/materi", label: "Kelola Materi & Kuis", icon: BookOpen },
       ],
     },
+    { title: "Akun", items: [{ href: "/guru/akun", label: "Akun Saya", icon: UserCog }] },
   ],
   STUDENT: [
     {
@@ -106,12 +113,14 @@ const NAV: Record<"ADMIN" | "TEACHER" | "STUDENT", NavGroup[]> = {
         { href: "/siswa/nilai", label: "Nilai & Target CEFR", icon: Award },
         { href: "/siswa/club", label: "English Club", icon: MessagesSquare },
         { href: "/siswa/prestasi", label: "Prestasi Lomba", icon: Trophy },
+        { href: "/siswa/akun", label: "Akun Saya", icon: UserCog },
       ],
     },
   ],
 };
 
 const ROLE_LABEL = { ADMIN: "Admin · EDT", TEACHER: "Guru", STUDENT: "Siswa" };
+const ACCOUNT_HREF = { ADMIN: "/admin/akun", TEACHER: "/guru/akun", STUDENT: "/siswa/akun" };
 
 function Logo({ logoUrl }: { logoUrl?: string }) {
   return (
@@ -174,11 +183,13 @@ function NavList({ role, counts, onNavigate }: { role: keyof typeof NAV; counts:
 function UserCard({ name, subtitle, role }: { name: string; subtitle: string; role: keyof typeof NAV }) {
   return (
     <div className="clay flex items-center gap-3 rounded-2xl p-3">
-      <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-coral-300 to-coral-500 text-sm font-black text-white">{initials(name)}</span>
-      <div className="min-w-0 flex-1">
-        <p className="truncate text-sm font-extrabold text-ink">{name}</p>
-        <p className="truncate text-xs text-slate-500">{subtitle || ROLE_LABEL[role]}</p>
-      </div>
+      <Link href={ACCOUNT_HREF[role]} title="Akun Saya" className="flex min-w-0 flex-1 items-center gap-3 rounded-xl transition hover:opacity-80">
+        <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-coral-300 to-coral-500 text-sm font-black text-white">{initials(name)}</span>
+        <span className="min-w-0 flex-1">
+          <span className="block truncate text-sm font-extrabold text-ink">{name}</span>
+          <span className="block truncate text-xs text-slate-500">{subtitle || ROLE_LABEL[role]}</span>
+        </span>
+      </Link>
       <form action={logout}>
         <button type="submit" title="Keluar" aria-label="Keluar" className="grid size-9 place-items-center rounded-xl text-slate-400 transition hover:bg-rose-50 hover:text-rose-600">
           <LogOut className="size-4" />

@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState, type ReactNode } from "react";
 import { AnimatePresence, motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "motion/react";
@@ -9,6 +8,10 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import type { PublicStats } from "@/lib/public-stats";
+
+export type SearchEntry = { en: string; id: string; tag: string };
+export type LandingSchool = { name: string; logoUrl: string; address: string; phone: string; email: string; npsn: string; accreditation: string };
 
 const GRAD = {
   brand: "from-brand-300 to-brand-500", coral: "from-coral-300 to-coral-500", mint: "from-mint-300 to-mint-500",
@@ -16,7 +19,8 @@ const GRAD = {
 } as const;
 type Tone = keyof typeof GRAD;
 
-const PHRASES: [string, string][] = [
+/** Cadangan bila database belum berisi frasa Pocket Book. */
+const FALLBACK_PHRASES: [string, string][] = [
   ["Good morning, students.", "Selamat pagi, anak-anak."], ["Open your book to page...", "Buka buku halaman..."], ["Work in pairs.", "Kerjakan berpasangan."],
   ["Raise your hand.", "Angkat tangan kalau mau bertanya."], ["Repeat after me.", "Ulangi setelah saya."], ["Don't make noise, please.", "Jangan ramai, tolong."],
   ["Time is almost up.", "Waktu hampir habis."], ["I'm proud of you.", "Saya bangga dengan kalian."], ["See you tomorrow.", "Sampai jumpa besok."],
@@ -79,7 +83,7 @@ function Tilt({ children, className }: { children: ReactNode; className?: string
 }
 
 function PathCard({ icon, tone, title, level, aud, desc, progress, meta, className, children }: {
-  icon: LucideIcon; tone: Tone; title: string; level: string; aud: string; desc: string; progress: number; meta: string; className?: string; children?: ReactNode;
+  icon: LucideIcon; tone: Tone; title: string; level: string; aud: string; desc: string; progress?: number; meta: string; className?: string; children?: ReactNode;
 }) {
   return (
     <Tilt className={className}>
@@ -94,19 +98,19 @@ function PathCard({ icon, tone, title, level, aud, desc, progress, meta, classNa
       <p className="mt-1 text-sm text-slate-600">{desc}</p>
       {children}
       <div className="mt-auto pt-5">
-        <div className="mb-1.5 flex justify-between text-xs font-bold"><span className="text-slate-500">{meta}</span><span className="tabular-nums text-ink">{progress}%</span></div>
-        <Bar value={progress} tone={tone} />
+        <div className="mb-1.5 flex justify-between gap-3 text-xs font-bold"><span className="text-slate-500">{meta}</span>{progress != null && <span className="tabular-nums text-ink">{progress}%</span>}</div>
+        {progress != null && <Bar value={progress} tone={tone} />}
       </div>
     </Tilt>
   );
 }
 
-function SearchBox() {
+function SearchBox({ entries }: { entries: SearchEntry[] }) {
   const [q, setQ] = useState("");
   const results = useMemo(() => {
     const s = q.trim().toLowerCase();
-    return s ? PHRASES.filter(([en, id]) => (en + id).toLowerCase().includes(s)).slice(0, 5) : [];
-  }, [q]);
+    return s ? entries.filter((e) => (e.en + " " + e.id + " " + e.tag).toLowerCase().includes(s)).slice(0, 6) : [];
+  }, [q, entries]);
   return (
     <div className="relative w-full max-w-xl">
       <form onSubmit={(e) => e.preventDefault()} className="clay flex items-center gap-2 rounded-[22px] p-2 pl-4" role="search">
@@ -118,18 +122,19 @@ function SearchBox() {
       </form>
       <div className="mt-3 flex flex-wrap items-center gap-2">
         <span className="text-xs font-bold text-slate-500">Coba:</span>
-        {["work in pairs", "photosynthesis", "proud"].map((c) => (
+        {["pairs", "photosynthesis", "fraction"].map((c) => (
           <button key={c} type="button" onClick={() => setQ(c)} className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-bold text-slate-600 shadow-[0_3px_0_#e2e8f0] active:translate-y-0.5 active:shadow-none">{c}</button>
         ))}
       </div>
       <AnimatePresence>
         {q.trim() && (
           <motion.ul initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="clay absolute inset-x-0 top-[68px] z-40 rounded-[22px] p-2">
-            {results.length === 0 && <li className="px-3 py-3 text-sm text-slate-500">Belum ada yang cocok. Coba “instruction” atau “IPA”.</li>}
-            {results.map(([en, id]) => (
-              <li key={en} className="flex items-center gap-3 rounded-2xl px-3 py-2 hover:bg-brand-50">
+            {results.length === 0 && <li className="px-3 py-3 text-sm text-slate-500">Belum ada yang cocok. Coba “pairs”, “fraction”, atau “IPA”.</li>}
+            {results.map((r) => (
+              <li key={r.tag + r.en} className="flex items-center gap-3 rounded-2xl px-3 py-2 hover:bg-brand-50">
                 <ClayIcon icon={Languages} tone="mint" size={34} />
-                <span className="min-w-0"><span className="block truncate text-sm font-extrabold text-ink">{en}</span><span className="block truncate text-xs text-slate-500">{id}</span></span>
+                <span className="min-w-0 flex-1"><span className="block truncate text-sm font-extrabold text-ink">{r.en}</span><span className="block truncate text-xs text-slate-500">{r.id}</span></span>
+                <span className="hidden shrink-0 rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-extrabold text-slate-500 sm:inline">{r.tag}</span>
               </li>
             ))}
           </motion.ul>
@@ -203,7 +208,11 @@ function HeroVisual() {
   );
 }
 
-export function Landing({ daysLeft }: { daysLeft: number }) {
+export function Landing({ daysLeft, stats, school, searchEntries }: { daysLeft: number; stats: PublicStats; school: LandingSchool; searchEntries: SearchEntry[] }) {
+  const entries = searchEntries.length > 0 ? searchEntries : FALLBACK_PHRASES.map(([en, id]) => ({ en, id, tag: "Kelas" }));
+  const certified = stats.levels.BRONZE + stats.levels.SILVER + stats.levels.GOLD;
+  const nf = (n: number) => n.toLocaleString("id-ID");
+  const navLinks: [string, string][] = [["#capaian", "Capaian"], ["#paths", "Learning Paths"], ...(stats.announcements.length ? ([["#kabar", "Kabar Terbaru"]] as [string, string][]) : [])];
   const [open, setOpen] = useState(false);
   const [aud, setAud] = useState<"semua" | "guru" | "siswa">("semua");
   const show = (a: "guru" | "siswa") => aud === "semua" || aud === a;
@@ -214,18 +223,12 @@ export function Landing({ daysLeft }: { daysLeft: number }) {
       <header className="fixed inset-x-0 top-3 z-50 px-4">
         <motion.nav initial={{ y: -24, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="glass mx-auto flex max-w-6xl items-center justify-between gap-3 rounded-[22px] py-2 pl-2.5 pr-2 shadow-[0_12px_32px_-18px_rgb(63_60_196/0.35)]">
           <Link href="/" className="flex items-center gap-2.5">
-            <Image
-              src="/logo-almadany.png"
-              alt="Logo SMPIT Al Madany Parung Panjang"
-              width={40}
-              height={40}
-              className="size-10 object-contain drop-shadow-xs"
-              priority
-            />
-            <span className="leading-tight"><span className="block font-[family-name:var(--font-display)] text-[17px] font-semibold">Bilingual 2028</span><span className="hidden text-[11px] font-semibold text-slate-500 sm:block">SMPIT Al Madany Parung Panjang</span></span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={school.logoUrl} alt={`Logo ${school.name}`} width={40} height={40} className="size-10 object-contain drop-shadow-xs" />
+            <span className="leading-tight"><span className="block font-[family-name:var(--font-display)] text-[17px] font-semibold">Bilingual 2028</span><span className="hidden text-[11px] font-semibold text-slate-500 sm:block">{school.name}</span></span>
           </Link>
           <ul className="hidden items-center gap-1 md:flex">
-            {[["#paths", "Learning Paths"], ["#paths", "Duta Inggris"], ["#paths", "Untuk Siswa"]].map(([h, l]) => (
+            {navLinks.map(([h, l]) => (
               <li key={l}><a href={h} className="rounded-xl px-3.5 py-2 text-sm font-bold text-slate-600 hover:bg-white hover:text-ink">{l}</a></li>
             ))}
           </ul>
@@ -236,7 +239,7 @@ export function Landing({ daysLeft }: { daysLeft: number }) {
         </motion.nav>
         {open && (
           <ul className="glass mx-auto mt-2 grid max-w-6xl gap-1 rounded-[22px] p-2 md:hidden">
-            {["Learning Paths", "Duta Inggris", "Untuk Siswa"].map((l) => <li key={l}><a href="#paths" onClick={() => setOpen(false)} className="block rounded-xl px-4 py-3 text-sm font-bold text-slate-700 hover:bg-white">{l}</a></li>)}
+            {navLinks.map(([h, l]) => <li key={l}><a href={h} onClick={() => setOpen(false)} className="block rounded-xl px-4 py-3 text-sm font-bold text-slate-700 hover:bg-white">{l}</a></li>)}
           </ul>
         )}
       </header>
@@ -256,9 +259,9 @@ export function Landing({ daysLeft }: { daysLeft: number }) {
             <motion.p variants={item} className="mt-5 max-w-[52ch] text-lg text-slate-600">
               Satu tempat untuk guru, siswa, dan Tim EDT. Latihan Mirror Morning tiap pagi, hafalan Pocket Book, asesmen Duta Inggris Bronze sampai Gold, dan progres siswa per kelas.
             </motion.p>
-            <motion.div variants={item} className="mt-7"><SearchBox /></motion.div>
+            <motion.div variants={item} className="mt-7"><SearchBox entries={entries} /></motion.div>
             <motion.dl variants={item} className="mt-8 grid max-w-md grid-cols-3 gap-3">
-              {[["3", "level Duta Inggris"], ["50", "kalimat instruksi"], ["5", "skill Cambridge"]].map(([n, l]) => (
+              {[[nf(stats.teachers), "guru aktif"], [nf(stats.students), "siswa belajar"], [nf(stats.phraseTotal || 50), "kalimat Pocket Book"]].map(([n, l]) => (
                 <div key={l} className="rounded-2xl bg-white/70 px-3 py-2.5 ring-1 ring-slate-200">
                   <dt className="sr-only">{l}</dt><dd className="font-[family-name:var(--font-display)] text-2xl font-bold text-ink">{n}</dd><dd className="text-xs font-semibold leading-tight text-slate-500">{l}</dd>
                 </div>
@@ -269,7 +272,53 @@ export function Landing({ daysLeft }: { daysLeft: number }) {
         </div>
       </section>
 
-      <section id="paths" className="scroll-mt-28 px-4 pb-20 pt-10">
+      <section id="capaian" className="scroll-mt-28 px-4 pt-6">
+        <div className="mx-auto max-w-6xl">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-xs font-extrabold uppercase tracking-wider text-brand-500">Capaian program saat ini</p>
+              <h2 className="mt-1 text-3xl font-semibold text-ink sm:text-4xl">Data langsung dari LMS</h2>
+            </div>
+            <p className="inline-flex items-center gap-2 text-xs font-bold text-slate-500">
+              <span className="relative flex size-2"><span className="absolute inline-flex size-full animate-ping rounded-full bg-mint-400 opacity-70" /><span className="relative inline-flex size-2 rounded-full bg-mint-600" /></span>
+              Diperbarui otomatis dari data terverifikasi
+            </p>
+          </div>
+          <motion.div initial="hidden" animate="show" variants={{ hidden: {}, show: { transition: { staggerChildren: 0.07, delayChildren: 0.3 } } }} className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {([
+              { icon: Award, tone: "gold", value: nf(certified), label: "Guru bersertifikat Duta Inggris", hint: `${stats.dutaPct}% dari ${nf(stats.teachers)} guru` },
+              { icon: Sunrise, tone: "coral", value: `${stats.eliteParticipationPct}%`, label: "Partisipasi ELITE rata-rata", hint: `${stats.eliteWorkdays} hari kerja terakhir` },
+              { icon: GraduationCap, tone: "brand", value: `${stats.studentsOnTrackPct}%`, label: "Siswa capai target CEFR", hint: `${nf(stats.studentsOnTrack)} dari ${nf(stats.students)} siswa` },
+              { icon: Trophy, tone: "mint", value: nf(stats.competitionWins), label: "Gelar juara lomba", hint: `${nf(stats.studentAmbassadors)} Student Ambassador` },
+            ] as { icon: LucideIcon; tone: Tone; value: string; label: string; hint: string }[]).map((c) => (
+              <motion.div key={c.label} variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 200, damping: 22 } } }} className="clay flex items-start gap-4 rounded-[24px] p-5">
+                <ClayIcon icon={c.icon} tone={c.tone} size={46} />
+                <div className="min-w-0">
+                  <p className="font-[family-name:var(--font-display)] text-3xl font-bold leading-none tabular-nums text-ink">{c.value}</p>
+                  <p className="mt-1.5 text-sm font-bold text-slate-700">{c.label}</p>
+                  <p className="text-xs text-slate-500">{c.hint}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+          <div className="clay mt-4 flex flex-col gap-4 rounded-[24px] p-5 sm:flex-row sm:items-center">
+            <p className="shrink-0 text-sm font-extrabold text-ink">Sebaran Duta Inggris</p>
+            <div className="flex h-4 flex-1 overflow-hidden rounded-full bg-slate-100 shadow-[inset_0_1px_2px_rgb(15_23_42/0.08)]">
+              {([["GOLD", "bg-gold-500"], ["SILVER", "bg-silver-500"], ["BRONZE", "bg-bronze-500"]] as const).map(([k, c]) => (
+                <motion.div key={k} className={c} initial={{ width: 0 }} animate={{ width: `${stats.teachers ? (stats.levels[k] / stats.teachers) * 100 : 0}%` }} transition={{ type: "spring", stiffness: 60, damping: 18, delay: 0.5 }} />
+              ))}
+            </div>
+            <div className="flex flex-wrap gap-2 text-xs font-extrabold">
+              <span className="rounded-full bg-gold-100 px-2.5 py-1 text-gold-700">Gold {stats.levels.GOLD}</span>
+              <span className="rounded-full bg-silver-100 px-2.5 py-1 text-silver-700">Silver {stats.levels.SILVER}</span>
+              <span className="rounded-full bg-bronze-100 px-2.5 py-1 text-bronze-700">Bronze {stats.levels.BRONZE}</span>
+              <span className="rounded-full bg-slate-100 px-2.5 py-1 text-slate-600">Belum {stats.teachers - certified}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="paths" className="scroll-mt-28 px-4 pb-20 pt-16">
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <div>
@@ -288,10 +337,15 @@ export function Landing({ daysLeft }: { daysLeft: number }) {
           </div>
           <motion.div key={aud} initial="hidden" animate="show" variants={{ hidden: {}, show: { transition: { staggerChildren: 0.07 } } }} className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {show("guru") && (
-              <PathCard icon={Award} tone="brand" title="Bronze Ambassador" level="A2–B1" aud="Guru" progress={64} meta="4 syarat · asesmen 3 komponen" className="md:col-span-2 lg:row-span-2"
+              <PathCard icon={Award} tone="brand" title="Bronze Ambassador" level="A2–B1" aud="Guru" progress={stats.dutaPct} meta={`${nf(certified)} dari ${nf(stats.teachers)} guru sudah Duta`} className="md:col-span-2 lg:row-span-2"
                 desc="Jalur pertama Duta Inggris. Hafal 20 kalimat instruksi, aktif di ELITE minimal 70%, lalu lulus asesmen dengan nilai akhir ≥ 66,5.">
                 <ul className="mt-5 grid gap-2">
-                  {[["Partisipasi ELITE ≥ 70%", "86%", true], ["Hafal 20 kalimat Pocket Book", "32/50", true], ["English Zone 3×30 menit/minggu", "2/3", false], ["Asesmen: lisan 50% · tertulis 30% · simulasi 20%", "12 Nov", false]].map(([l, v, d]) => (
+                  {([
+                    ["Partisipasi ELITE ≥ 70%", `rata-rata ${stats.eliteParticipationPct}%`, stats.eliteParticipationPct >= 70],
+                    ["Hafal 20 kalimat Pocket Book", `rata-rata ${stats.phraseAvgMastered}/${stats.phraseTotal || 50}`, stats.phraseAvgMastered >= 20],
+                    ["English Zone 3×30 menit/minggu", "syarat", false],
+                    ["Asesmen: lisan 50% · tertulis 30% · simulasi 20%", "nilai ≥ 66,5", false],
+                  ] as [string, string, boolean][]).map(([l, v, d]) => (
                     <li key={String(l)} className="flex items-center gap-2.5 rounded-2xl bg-brand-50/50 px-3 py-2.5">
                       <span className={cn("grid size-6 shrink-0 place-items-center rounded-full", d ? "bg-mint-500 text-white" : "border-2 border-slate-300 text-transparent")}><Check className="size-3.5" strokeWidth={3.5} /></span>
                       <span className="min-w-0 flex-1 text-sm font-semibold text-slate-700">{l}</span><span className="text-xs font-extrabold tabular-nums text-slate-500">{v}</span>
@@ -301,7 +355,7 @@ export function Landing({ daysLeft }: { daysLeft: number }) {
               </PathCard>
             )}
             {show("guru") && (
-              <PathCard icon={Sunrise} tone="coral" title="ELITE English Habit" level="Semua level" aud="Guru" progress={90} meta="18 dari 20 hari" className="lg:row-span-2"
+              <PathCard icon={Sunrise} tone="coral" title="ELITE English Habit" level="Semua level" aud="Guru" progress={stats.eliteParticipationPct} meta={`Rata-rata partisipasi ${stats.eliteWorkdays} hari kerja`} className="lg:row-span-2"
                 desc="Mirror Morning 05.30, voice note sebelum 06.15, Misi Harian sebelum 20.00.">
                 <ol className="mt-4 grid gap-2">
                   {["Greetings & Gratitude", "Instructions", "Student Interaction", "Reflection"].map((w, i) => (
@@ -313,14 +367,32 @@ export function Landing({ daysLeft }: { daysLeft: number }) {
                 </ol>
               </PathCard>
             )}
-            {show("guru") && <PathCard icon={BookMarked} tone="mint" title="Pocket Book 50 Kalimat" level="Bronze → Gold" aud="Guru" progress={64} meta="32 dari 50 dihafal" desc="Opening, instruksi, manajemen kelas, pujian, closing." />}
-            {show("guru") && <PathCard icon={Medal} tone="slate" title="Silver Ambassador" level="B1–B2" aud="Guru" progress={12} meta="Setelah 6 bulan sebagai Bronze" desc="Inggris 50% di kelas, mentor 1 guru Bronze, nilai akhir ≥ 76,2."><Lock className="mt-2 size-4 text-slate-400" /></PathCard>}
-            {show("siswa") && <PathCard icon={GraduationCap} tone="brand" title="Classroom English Kelas 7" level="A1 → A2" aud="Siswa" progress={45} meta="9 dari 20 kuis lulus" className="lg:col-span-2" desc="Pahami instruksi guru tanpa terjemahan: “Work in pairs”, “Raise your hand”, “Submit your assignment”." />}
-            {show("siswa") && <PathCard icon={Languages} tone="mint" title="Glosarium Sains & Matematika" level="A2+" aud="Siswa" progress={30} meta="IPA · Matematika · IPS · PJOK" desc="Photosynthesis, fraction, supply and demand, warm-up." />}
-            {show("siswa") && <PathCard icon={Trophy} tone="coral" title="Jalur Lomba Speech" level="B1" aud="Siswa" progress={50} meta="Target: 2 juara kecamatan" desc="Seleksi kelas, seleksi sekolah, lalu kecamatan dan kabupaten." />}
+            {show("guru") && <PathCard icon={BookMarked} tone="mint" title={`Pocket Book ${stats.phraseTotal || 50} Kalimat`} level="Bronze → Gold" aud="Guru" progress={Math.round((stats.phraseAvgMastered / (stats.phraseTotal || 50)) * 100)} meta={`Rata-rata ${stats.phraseAvgMastered} kalimat dihafal per guru`} desc="Opening, instruksi, manajemen kelas, pujian, closing." />}
+            {show("guru") && <PathCard icon={Medal} tone="slate" title="Silver Ambassador" level="B1–B2" aud="Guru" progress={stats.silverPlusPct} meta={`${stats.levels.SILVER + stats.levels.GOLD} guru Silver/Gold`} desc="Inggris 50% di kelas, mentor 1 guru Bronze, nilai akhir ≥ 76,2."><Lock className="mt-2 size-4 text-slate-400" /></PathCard>}
+            {show("siswa") && <PathCard icon={GraduationCap} tone="brand" title="Classroom English & Target CEFR" level="A1 → B2" aud="Siswa" progress={stats.studentsOnTrackPct} meta={`${nf(stats.studentsOnTrack)} dari ${nf(stats.students)} siswa capai target akhir tahun`} className="lg:col-span-2" desc="Pahami instruksi guru tanpa terjemahan: “Work in pairs”, “Raise your hand”, “Submit your assignment”." />}
+            {show("siswa") && <PathCard icon={Languages} tone="mint" title="Glosarium Sains & Matematika" level="A2+" aud="Siswa" meta={`${nf(stats.materials)} materi · ${nf(stats.quizAttempts)} pengerjaan kuis`} desc="Photosynthesis, fraction, supply and demand, warm-up." />}
+            {show("siswa") && <PathCard icon={Trophy} tone="coral" title="Jalur Lomba Speech" level="B1" aud="Siswa" meta={`${nf(stats.competitionWins)} gelar juara · ${nf(stats.clubSessions)} sesi English Club`} desc="Seleksi kelas, seleksi sekolah, lalu kecamatan dan kabupaten." />}
           </motion.div>
         </div>
       </section>
+
+      {stats.announcements.length > 0 && (
+        <section id="kabar" className="scroll-mt-28 px-4 pb-20">
+          <div className="mx-auto max-w-6xl">
+            <p className="text-xs font-extrabold uppercase tracking-wider text-brand-500">Kabar terbaru</p>
+            <h2 className="mt-1 text-3xl font-semibold text-ink sm:text-4xl">Pengumuman sekolah</h2>
+            <div className="mt-7 grid gap-5 md:grid-cols-3">
+              {stats.announcements.map((a) => (
+                <article key={a.id} className="clay flex flex-col rounded-[24px] p-5">
+                  <p className="text-xs font-bold text-coral-600">{new Date(a.createdAt).toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric", timeZone: "Asia/Jakarta" })}</p>
+                  <h3 className="mt-1.5 text-lg font-semibold leading-snug text-ink">{a.title}</h3>
+                  <p className="mt-2 line-clamp-4 whitespace-pre-line text-sm text-slate-600">{a.body}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <footer className="px-4 pb-12">
         <div className="clay mx-auto flex max-w-6xl flex-col items-start justify-between gap-5 rounded-[28px] p-6 sm:flex-row sm:items-center sm:p-8">
@@ -329,6 +401,21 @@ export function Landing({ daysLeft }: { daysLeft: number }) {
             <p className="text-sm text-slate-600">“Don&apos;t be afraid to make mistakes. That&apos;s how you learn.”</p>
           </div>
           <Link href="/login" className="press inline-flex h-12 items-center gap-2 rounded-2xl border-coral-700 bg-coral-500 px-6 font-bold text-white">Masuk ke LMS <ArrowRight className="size-4" /></Link>
+        </div>
+        <div className="mx-auto mt-8 grid max-w-6xl gap-6 px-2 text-sm text-slate-500 sm:grid-cols-[1.4fr_1fr]">
+          <div className="flex items-start gap-3">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={school.logoUrl} alt="" width={44} height={44} className="size-11 shrink-0 object-contain" />
+            <div>
+              <p className="font-extrabold text-ink">{school.name}</p>
+              <p className="mt-0.5 max-w-[48ch]">{school.address}</p>
+            </div>
+          </div>
+          <div className="space-y-1 sm:text-right">
+            <p>{school.phone} · {school.email}</p>
+            <p>NPSN {school.npsn} · {school.accreditation}</p>
+            <p className="text-xs">© {new Date().getFullYear()} Program Akselerasi Bilingual 2028</p>
+          </div>
         </div>
       </footer>
     </div>

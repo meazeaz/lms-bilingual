@@ -40,6 +40,8 @@ model User {
   title        String? // jabatan admin, mis. "Ketua EDT"
   active       Boolean  @default(true)
   createdAt    DateTime @default(now())
+  lastLoginAt       DateTime? // login sukses terakhir
+  passwordChangedAt DateTime? // sesi yang terbit sebelum waktu ini otomatis tidak berlaku
 
   teacher Teacher?
   student Student?
@@ -49,6 +51,7 @@ model User {
   reviewsDone      DailyLog[]      @relation("DailyReviewer")
   levelChangesMade LevelChange[]   @relation("LevelChanger")
   announcements    Announcement[]
+  auditLogs        AuditLog[]
 }
 
 model Teacher {
@@ -524,6 +527,7 @@ model Announcement {
   title     String
   body      String
   audience  String   @default("ALL") // ALL, TEACHER, STUDENT
+  isPublic  Boolean  @default(false) // tampil di halaman depan (publik)
   authorId  String
   author    User     @relation(fields: [authorId], references: [id])
   createdAt DateTime @default(now())
@@ -538,4 +542,67 @@ model MonthlyReport {
   nextMonthPlan    String?
   updatedAt        DateTime @updatedAt
   createdAt        DateTime @default(now())
+}
+
+// ===================================================================
+// Infrastruktur sistem (menggantikan penyimpanan file JSON di folder data/)
+// ===================================================================
+
+// Pengaturan sistem key-value (nilai berupa JSON). Kunci utama: "system".
+model AppSetting {
+  key       String   @id
+  value     String // JSON
+  updatedAt DateTime @updatedAt
+}
+
+// Naskah ELITE harian buatan Admin (Mirror Morning & Misi Harian) per tanggal.
+model ElitePrompt {
+  date           String   @id // YYYY-MM-DD
+  theme          String
+  category       String // GREETING, INSTRUCTION, FOCUS, PRAISE, CLOSING, GENERAL
+  mirrorPrompt   String
+  mirrorAudioTip String?
+  dailyMission   String
+  targetCefr     String
+  authorName     String?
+  notes          String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+// Berkas unggahan (logo sekolah, dsb.) disimpan di database agar portabel di hosting mana pun.
+model StoredFile {
+  id        String   @id @default(cuid())
+  name      String
+  mimeType  String
+  size      Int
+  data      Bytes
+  createdAt DateTime @default(now())
+}
+
+// Jejak aktivitas penting (perubahan data oleh admin, login, impor, dsb.).
+model AuditLog {
+  id        String   @id @default(cuid())
+  actorId   String?
+  actor     User?    @relation(fields: [actorId], references: [id], onDelete: SetNull)
+  action    String // mis. "user.create", "settings.profile", "auth.login"
+  target    String? // objek yang diubah, mis. email pengguna
+  detail    String?
+  ip        String?
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([actorId])
+}
+
+// Percobaan login untuk pembatasan brute-force (per email & per IP).
+model LoginAttempt {
+  id        String   @id @default(cuid())
+  email     String
+  ip        String?
+  success   Boolean
+  createdAt DateTime @default(now())
+
+  @@index([email, createdAt])
+  @@index([ip, createdAt])
 }

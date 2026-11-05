@@ -39,7 +39,7 @@ export default async function AdminElitePage({
     getAllScheduledPrompts(),
   ]);
 
-  const activePrompt = getDailyPrompt(targetDateObj);
+  const activePrompt = await getDailyPrompt(targetDateObj);
 
   // Status live harian per guru untuk tanggal yang dipilih
   const teachersStatus: TeacherDailyStatus[] = teachers.map((t) => {

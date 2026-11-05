@@ -68,6 +68,11 @@ const TABLES = [
   "CompetitionEntry",
   "Announcement",
   "MonthlyReport",
+  "AppSetting",
+  "ElitePrompt",
+  "StoredFile",
+  "AuditLog",
+  "LoginAttempt",
 ];
 
 async function migrate() {
@@ -109,7 +114,7 @@ async function migrate() {
           let val = row[col];
 
           // Penyesuaian tipe data SQLite -> PostgreSQL
-          if (typeof val === "number" && (col.startsWith("is") || col === "active" || col === "passed" || col === "mirrorMorning" || col === "voiceNoteOnTime" || col === "dailyMission" || col === "buddySession" || col === "acknowledged" || col === "feedbackGiven" || col === "readyToMentor" || col === "commitmentAgreement" || col === "pareAlumni" || col === "isStudentAmbassador" || col === "isHomeroom" || col === "published" || col === "present" || col === "writtenWaived")) {
+          if (typeof val === "number" && (col.startsWith("is") || col === "active" || col === "passed" || col === "mirrorMorning" || col === "voiceNoteOnTime" || col === "dailyMission" || col === "buddySession" || col === "acknowledged" || col === "feedbackGiven" || col === "readyToMentor" || col === "commitmentAgreement" || col === "pareAlumni" || col === "isStudentAmbassador" || col === "isHomeroom" || col === "published" || col === "present" || col === "writtenWaived" || col === "success")) {
             val = Boolean(val);
           } else if (typeof val === "number" && (col.endsWith("At") || col === "date" || col === "levelSince" || col === "assessmentDate" || col === "decidedAt")) {
             val = new Date(val).toISOString();

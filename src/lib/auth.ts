@@ -13,28 +13,40 @@ export const getCurrentUser = cache(async () => {
     include: { teacher: true, student: { include: { classRoom: true } } },
   });
   if (!user || !user.active) return null;
+  // Sesi yang terbit sebelum password diganti/di-reset dianggap tidak berlaku (toleransi 1 detik pembulatan iat)
+  if (user.passwordChangedAt && session.issuedAt < user.passwordChangedAt.getTime() - 1000) return null;
   return user;
 });
 
+/** Sesi tidak valid lagi (akun nonaktif / password diganti): kirim ke login dan biarkan proxy menghapus cookie. */
+const EXPIRED = "/login?expired=1";
+
 export async function requireAdmin() {
   const user = await getCurrentUser();
-  if (!user) redirect("/login");
+  if (!user) redirect(EXPIRED);
   if (user.role !== "ADMIN") redirect("/login");
   return user;
 }
 
 export async function requireTeacher() {
   const user = await getCurrentUser();
-  if (!user) redirect("/login");
+  if (!user) redirect(EXPIRED);
   if (user.role !== "TEACHER" || !user.teacher) redirect("/login");
   return { ...user, teacher: user.teacher };
 }
 
 export async function requireStudent() {
   const user = await getCurrentUser();
-  if (!user) redirect("/login");
+  if (!user) redirect(EXPIRED);
   if (user.role !== "STUDENT" || !user.student) redirect("/login");
   return { ...user, student: user.student };
+}
+
+/** Pengguna login dengan peran apa pun (untuk halaman akun bersama). */
+export async function requireUser() {
+  const user = await getCurrentUser();
+  if (!user) redirect(EXPIRED);
+  return user;
 }
 
 /** Guru hanya boleh melihat siswa di kelas yang diampunya; admin boleh semua. */
