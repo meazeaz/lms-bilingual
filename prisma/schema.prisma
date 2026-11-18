@@ -42,6 +42,7 @@ model User {
   createdAt    DateTime @default(now())
   lastLoginAt       DateTime? // login sukses terakhir
   passwordChangedAt DateTime? // sesi yang terbit sebelum waktu ini otomatis tidak berlaku
+  avatarFileId      String? // foto profil (StoredFile privat), disajikan lewat /api/avatar/[id]
 
   teacher Teacher?
   student Student?
@@ -52,6 +53,7 @@ model User {
   levelChangesMade LevelChange[]   @relation("LevelChanger")
   announcements    Announcement[]
   auditLogs        AuditLog[]
+  phasesCompleted PhaseProgress[] @relation("PhaseCompleter")
 }
 
 model Teacher {
@@ -77,6 +79,7 @@ model Teacher {
   observations      Observation[]
   reflections       Reflection[]
   lessonPlans       LessonPlan[]
+  modulAjar         ModulAjar[]
   microTeachings    MicroTeaching[]
   phraseMasteries   PhraseMastery[]
   challengeProgress ChallengeProgress[]
@@ -577,6 +580,7 @@ model StoredFile {
   mimeType  String
   size      Int
   data      Bytes
+  isPrivate Boolean  @default(false) // true = hanya untuk pengguna login (mis. foto profil)
   createdAt DateTime @default(now())
 }
 
@@ -605,4 +609,64 @@ model LoginAttempt {
 
   @@index([email, createdAt])
   @@index([ip, createdAt])
+}
+
+// Progres Peta Jalan (Bab 1.3) untuk seluruh sekolah. Diselesaikan manual oleh admin secara berurutan:
+// fase berikutnya terkunci sampai fase sebelumnya selesai.
+model PhaseProgress {
+  code          String    @id // F0..F5, sesuai PHASES di src/lib/program.ts
+  materialRead  Boolean   @default(false)
+  checklist     String    @default("[]") // JSON string[]: id butir checklist yang sudah dicentang
+  completedAt   DateTime?
+  completedById String?
+  completedBy   User?     @relation("PhaseCompleter", fields: [completedById], references: [id], onDelete: SetNull)
+  updatedAt     DateTime  @updatedAt
+}
+
+/// Modul Ajar (RPP) Kurikulum Merdeka.
+/// teacherId kosong = RPP induk buatan admin (perpustakaan); terisi = salinan pribadi guru (sourceId → induk).
+model ModulAjar {
+  id        String      @id @default(cuid())
+  sourceId  String?
+  source    ModulAjar?  @relation("ModulAjarCopies", fields: [sourceId], references: [id], onDelete: SetNull)
+  copies    ModulAjar[] @relation("ModulAjarCopies")
+  teacherId String?
+  teacher   Teacher?    @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+
+  title     String // mis. "Vocabulary & Language"
+  subject   String  @default("Bahasa Inggris")
+  book      String? // mis. "Rise Up! Teens 1"
+  unit      Int?
+  unitTitle String?
+  meeting   Int     @default(1) // pertemuan ke-
+  phase     String  @default("D")
+  grade     Int     @default(7)
+  semester  String  @default("I (Ganjil)")
+  duration  String  @default("2 x 40 menit")
+
+  schoolName String?
+  authorName String?
+  year       String?
+  className  String? // diisi guru pada salinannya
+  teachDate  DateTime?
+
+  prerequisites     String // kompetensi awal
+  profiles          String // JSON string[] profil pelajar Pancasila
+  resources         String // sarana & prasarana (satu per baris)
+  learningModel     String
+  approach          String // pendekatan (satu per baris)
+  objectives        String // JSON string[]
+  steps             String // JSON {sequence, minutes, tag?, details: string[]}[]
+  assessment        String?
+  reflectionStudent String? // pertanyaan refleksi peserta didik (satu per baris)
+  reflectionTeacher String? // pertanyaan refleksi guru (satu per baris)
+  attachments       String? // lampiran (satu per baris)
+  teacherNotes      String? // catatan guru setelah mengajar (hanya salinan)
+
+  published Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([teacherId])
+  @@index([sourceId])
 }

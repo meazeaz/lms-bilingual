@@ -5,6 +5,7 @@ import { requireTeacher } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { getMaterialCategories, getSchoolSubjects } from "@/lib/settings-server";
 import { MaterialItem, MaterialManagementView } from "./materi-client";
+import { sortCoreFirst } from "@/lib/curriculum";
 
 export const metadata: Metadata = {
   title: "Kelola Materi & Kuis Siswa",
@@ -32,7 +33,7 @@ export default async function GuruMateriPage() {
     getMaterialCategories(),
   ]);
 
-  const materials: MaterialItem[] = materialsRaw.map((m) => ({
+  const materials: MaterialItem[] = sortCoreFirst(materialsRaw).map((m) => ({
     id: m.id,
     title: m.title,
     category: m.category,

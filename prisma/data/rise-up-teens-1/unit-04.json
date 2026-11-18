@@ -1,0 +1,475 @@
+{
+  "unit": 4,
+  "title": "It's Time to Wake Up!",
+  "summary": "Siswa belajar menceritakan rutinitas harian dengan present simple, menanyakan waktu kegiatan, dan memakai adverbs of frequency (always, usually, sometimes).",
+  "content": "## Tujuan Belajar\n\n• Menceritakan rutinitas dan kebiasaan sehari-hari dalam bahasa Inggris.\n• Bertanya dan menjawab jam berapa kita melakukan sesuatu (What time do you …?).\n• Menggunakan present simple, termasuk akhiran -s/-es untuk he/she.\n• Menyatakan seberapa sering sesuatu dilakukan dengan always, usually, often, sometimes, never.\n\n## Kosakata Inti\n\nKosakata unit ini berupa frasa kegiatan sehari-hari, dari pagi (wake up, take a shower, get dressed, have breakfast, pack my bag, go to school) sampai malam (do my homework, have dinner, go to bed). Perhatikan pasangan kata kerjanya: have breakfast, do chores, play video games, practice the flute.\n\nI wake up at 6:00 and take a shower.\nAfter school, I chat with friends and do my homework.\nMy sister practices the flute before dinner.\n\n## Tata Bahasa: Present Simple & Adverbs of Frequency\n\nPresent simple dipakai untuk kebiasaan dan rutinitas. Untuk I/you/we/they pakai kata kerja dasar (I wake up). Untuk he/she/it tambahkan -s atau -es (she wakes up, he goes, she does, he has). Dalam pertanyaan, setelah do/does kata kerja kembali ke bentuk dasar: What time do you wake up? When does he pack his bag?\n\nKeterangan waktu: at + jam (at 7:00), in the morning/afternoon/evening, before/after. Adverbs of frequency menunjukkan seberapa sering: always (100%) → usually → often → sometimes → never (0%). Letakkan sebelum kata kerja utama, tetapi sesudah am/is/are.\n\nI always have breakfast at 6:30.\nShe usually goes to school by bus.\nWhat time do you go to bed?\nWhen does he pack his bag?\nMy brother often plays video games after dinner.\nI am never late for school.\n\n## Contoh Percakapan\n\nLia: What time do you wake up on school days?\nBayu: I wake up at 5:30. Then I take a shower and get dressed.\nLia: Wow, that's early! Do you have breakfast at home?\nBayu: Yes, I always have breakfast with my family.\nLia: When does your sister go to school?\nBayu: She goes to school at 6:45. She usually walks with her friend.\nLia: How often do you do chores?\nBayu: I sometimes do chores on weekdays, but I always help on Sundays.\n\n## Ayo Berlatih\n\nWhat time do you wake up on school days?\nContoh: I wake up at 5:00.\n\nWhat do you do after school?\nContoh: I have lunch and do my homework.\n\nHow often do you play video games?\nContoh: I sometimes play video games on the weekend.\n\nWhat time does your father go to work?\nContoh: He goes to work at 7:00.\n\n## Tips\n\n• Ingat aturan -s: he/she/it → wakes, goes, does, has. Tetapi setelah does, kembali ke bentuk dasar: Does she wake up early?\n\n• Tulis jadwal harianmu dalam bahasa Inggris (misalnya \"6:00 – wake up\") dan tempel di kamar. Baca keras-keras setiap pagi!",
+  "vocabulary": [
+    {
+      "en": "wake up",
+      "id": "bangun tidur"
+    },
+    {
+      "en": "take a shower",
+      "id": "mandi"
+    },
+    {
+      "en": "get dressed",
+      "id": "berpakaian"
+    },
+    {
+      "en": "have breakfast",
+      "id": "sarapan"
+    },
+    {
+      "en": "pack my bag",
+      "id": "menyiapkan tasku"
+    },
+    {
+      "en": "go to school",
+      "id": "berangkat ke sekolah"
+    },
+    {
+      "en": "do chores",
+      "id": "mengerjakan pekerjaan rumah tangga"
+    },
+    {
+      "en": "chat with friends",
+      "id": "mengobrol dengan teman"
+    },
+    {
+      "en": "have lunch",
+      "id": "makan siang"
+    },
+    {
+      "en": "send a text message",
+      "id": "mengirim pesan singkat"
+    },
+    {
+      "en": "go home",
+      "id": "pulang ke rumah"
+    },
+    {
+      "en": "learn English",
+      "id": "belajar bahasa Inggris"
+    },
+    {
+      "en": "do my homework",
+      "id": "mengerjakan PR-ku"
+    },
+    {
+      "en": "practice the flute",
+      "id": "berlatih seruling"
+    },
+    {
+      "en": "play video games",
+      "id": "bermain gim video"
+    },
+    {
+      "en": "study with my tutor",
+      "id": "belajar dengan guru lesku"
+    },
+    {
+      "en": "have dinner",
+      "id": "makan malam"
+    },
+    {
+      "en": "go to bed",
+      "id": "pergi tidur"
+    }
+  ],
+  "quiz": {
+    "title": "Progress Test Unit 4: It's Time to Wake Up!",
+    "questions": [
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"wake up\".",
+        "options": [
+          "to put on clothes",
+          "to wash your body with water",
+          "to eat food in the morning",
+          "to stop sleeping"
+        ],
+        "answer": 3
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"take a shower\".",
+        "options": [
+          "to put books and things into a school bag",
+          "to wash your body with water",
+          "to stop sleeping",
+          "to help at home with small jobs"
+        ],
+        "answer": 1
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"pack my bag\".",
+        "options": [
+          "to put books and things into a school bag",
+          "to put on clothes",
+          "to help at home with small jobs",
+          "to eat food in the morning"
+        ],
+        "answer": 0
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"do chores\".",
+        "options": [
+          "to stop sleeping",
+          "to eat food in the morning",
+          "to help at home with small jobs",
+          "to wash your body with water"
+        ],
+        "answer": 2
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"get dressed\".",
+        "options": [
+          "to help at home with small jobs",
+          "to stop sleeping",
+          "to put books and things into a school bag",
+          "to put on clothes"
+        ],
+        "answer": 3
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"have breakfast\".",
+        "options": [
+          "to wash your body with water",
+          "to eat food in the morning",
+          "to put on clothes",
+          "to put books and things into a school bag"
+        ],
+        "answer": 1
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "I go _____ at 7:00 in the morning. School starts at 7:30.",
+        "fillInAnswer": "to school",
+        "fillInHint": "Pilih dari kotak kata: my homework / to school / lunch / learn / video games / practice the / to bed / home / chat with",
+        "explanation": "Go to school = berangkat ke sekolah."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "I _____ many interesting subjects at school.",
+        "fillInAnswer": "learn",
+        "fillInHint": "Pilih dari kotak kata: my homework / to school / lunch / learn / video games / practice the / to bed / home / chat with",
+        "explanation": "Learn = belajar (mata pelajaran)."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "My friends and I have _____ together at school at 12:00.",
+        "fillInAnswer": "lunch",
+        "fillInHint": "Pilih dari kotak kata: my homework / to school / lunch / learn / video games / practice the / to bed / home / chat with",
+        "explanation": "Have lunch = makan siang, pukul 12:00."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "I go _____ when the school day finishes.",
+        "fillInAnswer": "home",
+        "fillInHint": "Pilih dari kotak kata: my homework / to school / lunch / learn / video games / practice the / to bed / home / chat with",
+        "explanation": "Go home = pulang (tanpa 'to')."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "I _____ friends online after school.",
+        "fillInAnswer": "chat with",
+        "fillInHint": "Pilih dari kotak kata: my homework / to school / lunch / learn / video games / practice the / to bed / home / chat with",
+        "explanation": "Chat with friends = mengobrol dengan teman."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "I also do _____ in the afternoon like reading or doing math exercises.",
+        "fillInAnswer": "my homework",
+        "fillInHint": "Pilih dari kotak kata: my homework / to school / lunch / learn / video games / practice the / to bed / home / chat with",
+        "explanation": "Do my homework = mengerjakan PR."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "I play _____ after I finish my homework because it’s fun!",
+        "fillInAnswer": "video games",
+        "fillInHint": "Pilih dari kotak kata: my homework / to school / lunch / learn / video games / practice the / to bed / home / chat with",
+        "explanation": "Play video games = bermain gim video."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "After we have dinner, I _____ flute because I am in the school band.",
+        "fillInAnswer": "practice the",
+        "acceptedAnswers": [
+          "practise the"
+        ],
+        "fillInHint": "Pilih dari kotak kata: my homework / to school / lunch / learn / video games / practice the / to bed / home / chat with",
+        "explanation": "Practice the flute = berlatih seruling."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "I go _____ at 9:00 at night.",
+        "fillInAnswer": "to bed",
+        "fillInHint": "Pilih dari kotak kata: my homework / to school / lunch / learn / video games / practice the / to bed / home / chat with",
+        "explanation": "Go to bed = pergi tidur."
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 2 · Language",
+        "q": "What time do you _____?",
+        "options": [
+          "wake up",
+          "wakes up"
+        ],
+        "answer": 0,
+        "explanation": "Setelah 'do' kata kerja memakai bentuk dasar: wake up."
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 2 · Language",
+        "q": "She _____ breakfast at 7:00.",
+        "options": [
+          "has",
+          "have"
+        ],
+        "answer": 0,
+        "explanation": "Subjek she memakai has (bukan have)."
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 2 · Language",
+        "q": "When do they _____ their bags?",
+        "options": [
+          "pack",
+          "packs"
+        ],
+        "answer": 0,
+        "explanation": "Setelah 'do' dan subjek they: bentuk dasar pack."
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 2 · Language",
+        "q": "He _____ to school by bus.",
+        "options": [
+          "go",
+          "goes"
+        ],
+        "answer": 1,
+        "explanation": "Subjek he: go menjadi goes."
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 2 · Language",
+        "q": "I _____ chores after dinner.",
+        "options": [
+          "do",
+          "does"
+        ],
+        "answer": 0,
+        "explanation": "Subjek I memakai do."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Unscramble the words. Write a complete, correct sentence: at / I / 7:15 / have breakfast / my family. / with / always",
+        "fillInAnswer": "I always have breakfast at 7:15 with my family.",
+        "acceptedAnswers": [
+          "I always have breakfast at 7:15 with my family",
+          "I always have breakfast with my family at 7:15.",
+          "I always have breakfast with my family at 7:15"
+        ],
+        "fillInHint": "Tulis kalimat lengkap: huruf kapital di awal dan tanda baca di akhir.",
+        "explanation": "Adverb of frequency (always) diletakkan sebelum kata kerja utama."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Unscramble the words. Write a complete, correct sentence: go / school? / What time / to / you / do / usually",
+        "fillInAnswer": "What time do you usually go to school?",
+        "acceptedAnswers": [
+          "What time do you usually go to school"
+        ],
+        "fillInHint": "Tulis kalimat lengkap: huruf kapital di awal dan tanda baca di akhir.",
+        "explanation": "Pola: What time + do + you + usually + kata kerja dasar?"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Unscramble the words. Write a complete, correct sentence: after / school. / chores / does / Mary / at home / often",
+        "fillInAnswer": "Mary often does chores at home after school.",
+        "acceptedAnswers": [
+          "Mary often does chores at home after school"
+        ],
+        "fillInHint": "Tulis kalimat lengkap: huruf kapital di awal dan tanda baca di akhir.",
+        "explanation": "Often diletakkan sebelum kata kerja does."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Unscramble the words. Write a complete, correct sentence: before / friends / chat / with / I / sometimes / school.",
+        "fillInAnswer": "I sometimes chat with my friends before school.",
+        "acceptedAnswers": [
+          "I sometimes chat with my friends before school",
+          "I sometimes chat with friends before school.",
+          "I sometimes chat with friends before school"
+        ],
+        "fillInHint": "Tulis kalimat lengkap: huruf kapital di awal dan tanda baca di akhir.",
+        "explanation": "Sometimes diletakkan sebelum kata kerja chat."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Unscramble the words. Write a complete, correct sentence: takes / Dennis / a shower / evening. / in the / always",
+        "fillInAnswer": "Dennis always takes a shower in the evening.",
+        "acceptedAnswers": [
+          "Dennis always takes a shower in the evening"
+        ],
+        "fillInHint": "Tulis kalimat lengkap: huruf kapital di awal dan tanda baca di akhir.",
+        "explanation": "Always diletakkan sebelum kata kerja takes."
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "What time does Daniel wake up? (Jawab singkat atau dengan kalimat lengkap.)",
+        "passageTitle": "Daniel’s Busy Morning",
+        "passage": "Every morning, I wake up at 6:45. I take a shower and get dressed quickly because I don’t like being late. After that, I have breakfast with my sister. We usually eat eggs, bread, and fruit. At 7:30, I pack my bag and check my homework. Then I walk to school with my neighbor, Billy. We chat about our plans for the day. We arrive at school at 8:30 and feel ready to learn.",
+        "readingFormat": "FILL_IN",
+        "allowAudio": true,
+        "fillInAnswer": "6:45",
+        "acceptedAnswers": [
+          "at 6:45",
+          "6:45 in the morning",
+          "at 6:45 in the morning",
+          "He wakes up at 6:45.",
+          "He wakes up at 6:45",
+          "Daniel wakes up at 6:45.",
+          "Daniel wakes up at 6:45",
+          "He wakes up at 6:45 in the morning.",
+          "He wakes up at 6:45 in the morning",
+          "Daniel wakes up at 6:45 in the morning.",
+          "Daniel wakes up at 6:45 in the morning"
+        ],
+        "explanation": "Teks: 'Every morning, I wake up at 6:45.'"
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "Who does Daniel have breakfast with? (Jawab singkat atau dengan kalimat lengkap.)",
+        "passageTitle": "Daniel’s Busy Morning",
+        "passage": "Every morning, I wake up at 6:45. I take a shower and get dressed quickly because I don’t like being late. After that, I have breakfast with my sister. We usually eat eggs, bread, and fruit. At 7:30, I pack my bag and check my homework. Then I walk to school with my neighbor, Billy. We chat about our plans for the day. We arrive at school at 8:30 and feel ready to learn.",
+        "readingFormat": "FILL_IN",
+        "allowAudio": true,
+        "fillInAnswer": "his sister",
+        "acceptedAnswers": [
+          "with his sister",
+          "sister",
+          "He has breakfast with his sister.",
+          "He has breakfast with his sister",
+          "Daniel has breakfast with his sister.",
+          "Daniel has breakfast with his sister"
+        ],
+        "explanation": "Teks: 'I have breakfast with my sister.'"
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "What do they usually eat for breakfast? (Jawab singkat atau dengan kalimat lengkap.)",
+        "passageTitle": "Daniel’s Busy Morning",
+        "passage": "Every morning, I wake up at 6:45. I take a shower and get dressed quickly because I don’t like being late. After that, I have breakfast with my sister. We usually eat eggs, bread, and fruit. At 7:30, I pack my bag and check my homework. Then I walk to school with my neighbor, Billy. We chat about our plans for the day. We arrive at school at 8:30 and feel ready to learn.",
+        "readingFormat": "FILL_IN",
+        "allowAudio": true,
+        "fillInAnswer": "eggs, bread, and fruit",
+        "acceptedAnswers": [
+          "They usually eat eggs, bread, and fruit for breakfast.",
+          "They usually eat eggs, bread, and fruit for breakfast",
+          "They usually eat eggs, bread, and fruit.",
+          "They usually eat eggs, bread, and fruit",
+          "They eat eggs, bread, and fruit.",
+          "They eat eggs, bread, and fruit",
+          "They eat eggs, bread, and fruit for breakfast.",
+          "They eat eggs, bread, and fruit for breakfast",
+          "eggs, bread and fruit",
+          "They usually eat eggs, bread and fruit for breakfast.",
+          "They usually eat eggs, bread and fruit for breakfast",
+          "They usually eat eggs, bread and fruit.",
+          "They usually eat eggs, bread and fruit",
+          "They eat eggs, bread and fruit.",
+          "They eat eggs, bread and fruit",
+          "They eat eggs, bread and fruit for breakfast.",
+          "They eat eggs, bread and fruit for breakfast",
+          "eggs bread and fruit",
+          "They usually eat eggs bread and fruit for breakfast.",
+          "They usually eat eggs bread and fruit for breakfast",
+          "They usually eat eggs bread and fruit.",
+          "They usually eat eggs bread and fruit",
+          "They eat eggs bread and fruit.",
+          "They eat eggs bread and fruit",
+          "They eat eggs bread and fruit for breakfast.",
+          "They eat eggs bread and fruit for breakfast"
+        ],
+        "explanation": "Teks: 'We usually eat eggs, bread, and fruit.'"
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "What does Daniel do before he walks to school? (Jawab singkat atau dengan kalimat lengkap.)",
+        "passageTitle": "Daniel’s Busy Morning",
+        "passage": "Every morning, I wake up at 6:45. I take a shower and get dressed quickly because I don’t like being late. After that, I have breakfast with my sister. We usually eat eggs, bread, and fruit. At 7:30, I pack my bag and check my homework. Then I walk to school with my neighbor, Billy. We chat about our plans for the day. We arrive at school at 8:30 and feel ready to learn.",
+        "readingFormat": "FILL_IN",
+        "allowAudio": true,
+        "fillInAnswer": "He packs his bag and checks his homework.",
+        "acceptedAnswers": [
+          "He packs his bag and checks his homework",
+          "packs his bag and checks his homework",
+          "pack his bag and check his homework",
+          "he packs his bag and checks his homework before he walks to school.",
+          "he packs his bag and checks his homework before he walks to school",
+          "Daniel packs his bag and checks his homework.",
+          "Daniel packs his bag and checks his homework",
+          "Daniel packs his bag and checks his homework before he walks to school.",
+          "Daniel packs his bag and checks his homework before he walks to school"
+        ],
+        "explanation": "Teks: 'At 7:30, I pack my bag and check my homework. Then I walk to school.'"
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "How does Daniel feel when they arrive at school? (Jawab singkat atau dengan kalimat lengkap.)",
+        "passageTitle": "Daniel’s Busy Morning",
+        "passage": "Every morning, I wake up at 6:45. I take a shower and get dressed quickly because I don’t like being late. After that, I have breakfast with my sister. We usually eat eggs, bread, and fruit. At 7:30, I pack my bag and check my homework. Then I walk to school with my neighbor, Billy. We chat about our plans for the day. We arrive at school at 8:30 and feel ready to learn.",
+        "readingFormat": "FILL_IN",
+        "allowAudio": true,
+        "fillInAnswer": "ready to learn",
+        "acceptedAnswers": [
+          "ready",
+          "he feels ready to learn",
+          "they feel ready to learn.",
+          "they feel ready to learn",
+          "He feels ready to learn.",
+          "Daniel feels ready to learn.",
+          "Daniel feels ready to learn",
+          "He feels ready to learn when they arrive at school.",
+          "He feels ready to learn when they arrive at school",
+          "Daniel feels ready to learn when they arrive at school.",
+          "Daniel feels ready to learn when they arrive at school"
+        ],
+        "explanation": "Teks: 'We arrive at school at 8:30 and feel ready to learn.'"
+      }
+    ]
+  },
+  "notes": "Kunci diverifikasi dari PDF ANSWER (tampilan halaman); di ekstraksi teks urutan kunci Part 1 teracak, PDF: 1d 2f 3e 4b 5c 6a dan kotak kata sesuai urutan soal. Part 1A dikonversi menjadi 6 soal pilihan ganda. Part 2B (unscramble) menjadi FILL_IN kalimat lengkap dengan varian tanpa tanda baca; no. 1 juga menerima urutan '... with my family at 7:15.'. No. 4: potongan kata di soal tidak memuat 'my', tetapi kunci PDF 'I sometimes chat with my friends before school.' — kunci PDF dipakai, versi tanpa 'my' (sesuai potongan kata) juga diterima. Part 3 Reading aslinya meminta jawaban kalimat lengkap (open answer); dikonversi menjadi READING format FILL_IN dengan kunci singkat + banyak varian kalimat lengkap dari kunci PDF di acceptedAnswers. Karena pencocokan sistem bersifat persis, jawaban kalimat lengkap dengan susunan lain bisa dinilai salah, mohon guru meninjau jawaban Part 2B dan Part 3. Tidak ada butir yang dilewati; tidak ada soal bergambar."
+}

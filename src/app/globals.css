@@ -137,6 +137,15 @@ body {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
+
+  /* Pengecualian: transisi UI singkat yang diminta tetap ada (buka/tutup sidebar).
+     Hanya geser & pudar < 0,4 detik, tanpa efek zoom/parallax. Selektor atribut
+     lebih spesifik dari `*`, sehingga !important di sini yang menang. */
+  [data-motion="always"],
+  [data-motion="always"] *,
+  [data-motion="self"] {
+    transition-duration: var(--tw-duration, 150ms) !important;
+  }
 }
 
 @media print {

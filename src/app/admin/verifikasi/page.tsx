@@ -1,29 +1,20 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import {
   BadgeCheck,
   BookMarked,
   Check,
   CheckCheck,
-  Clock,
-  ExternalLink,
-  FileCheck,
-  FileText,
   NotebookPen,
-  RotateCcw,
-  Sparkles,
   Sunrise,
   Target,
   X,
 } from "lucide-react";
 import {
   approveAllChallenges,
-  approveAllLessonPlans,
   approveAllLogs,
   approveAllPhrases,
   approveAllReflections,
   reviewChallengeProgress,
-  reviewLessonPlan,
   reviewLog,
   reviewPhraseMastery,
   reviewReflection,
@@ -32,7 +23,6 @@ import {
   Avatar,
   Button,
   Card,
-  CardBody,
   CardHeader,
   EmptyState,
   LevelBadge,
@@ -44,7 +34,7 @@ import {
   Th,
 } from "@/components/ui";
 import { db } from "@/lib/db";
-import { formatDate, parseJson } from "@/lib/utils";
+import { formatDate } from "@/lib/utils";
 import type { Level } from "@/lib/program";
 
 export const metadata: Metadata = { title: "Pusat Verifikasi Admin & EDT" };
@@ -57,7 +47,7 @@ export default async function VerifyPage({
   const sp = await searchParams;
   const activeTab = sp.tab ?? "harian";
 
-  const [logs, phraseMasteries, challengeProgressList, reflections, lessonPlans] = await Promise.all([
+  const [logs, phraseMasteries, challengeProgressList, reflections] = await Promise.all([
     db.dailyLog.findMany({
       where: { status: "PENDING" },
       include: { teacher: { include: { user: true } } },
@@ -86,13 +76,6 @@ export default async function VerifyPage({
       },
       orderBy: { createdAt: "desc" },
     }),
-    db.lessonPlan.findMany({
-      where: { status: "DIAJUKAN" },
-      include: {
-        teacher: { include: { user: true } },
-      },
-      orderBy: { createdAt: "desc" },
-    }),
   ]);
 
   const tabs = [
@@ -100,7 +83,6 @@ export default async function VerifyPage({
     { key: "pocket", label: "Pocket Book (50 Frasa)", href: "/admin/verifikasi?tab=pocket", count: phraseMasteries.length },
     { key: "challenge", label: "Weekly Challenge (12 Mgg)", href: "/admin/verifikasi?tab=challenge", count: challengeProgressList.length },
     { key: "refleksi", label: "Refleksi Guru (Lampiran 4B)", href: "/admin/verifikasi?tab=refleksi", count: reflections.length },
-    { key: "rpp", label: "RPP Bilingual (Lampiran 11)", href: "/admin/verifikasi?tab=rpp", count: lessonPlans.length },
   ];
 
   return (
@@ -108,7 +90,7 @@ export default async function VerifyPage({
       <PageHeader
         eyebrow="Alur: Guru Isi, Admin Verifikasi"
         title="Pusat Verifikasi Laporan & Supervisi"
-        description="Verifikasi laporan harian ELITE, hafalan 50 Frasa Saku, bukti Weekly Challenge, jurnal refleksi mengajar, dan kurikulum RPP bilingual. Hanya data terverifikasi yang memicu kenaikan level & lencana digital."
+        description="Verifikasi laporan harian ELITE, hafalan 50 Frasa Saku, bukti Weekly Challenge, jurnal refleksi mengajar, dan jurnal refleksi. RPP kini disusun Tim EDT di menu Modul Ajar (RPP). Hanya data terverifikasi yang memicu kenaikan level & lencana digital."
       />
 
       <LinkTabs tabs={tabs} active={activeTab} />
@@ -548,122 +530,6 @@ export default async function VerifyPage({
                   </form>
                 </div>
               ))}
-            </div>
-          )}
-        </Card>
-      )}
-
-      {/* ───────────── TAB 5: RPP BILINGUAL ───────────── */}
-      {activeTab === "rpp" && (
-        <Card>
-          <CardHeader
-            icon={FileText}
-            title={`${lessonPlans.length} RPP Bilingual Menunggu Persetujuan`}
-            description="Review rancangan pembelajaran bilingual: verifikasi pemenuhan minimal 3 kalimat bahasa Inggris, integrasi Cambridge skills, dan skenario kelas."
-            action={
-              lessonPlans.length > 0 && (
-                <form action={approveAllLessonPlans}>
-                  <Button variant="mint" size="sm">
-                    <CheckCheck className="size-4" /> Setujui Semua RPP ({lessonPlans.length})
-                  </Button>
-                </form>
-              )
-            }
-          />
-          {lessonPlans.length === 0 ? (
-            <EmptyState
-              icon={BadgeCheck}
-              title="Semua RPP Telah Selesai Direview"
-              description="Ketika guru mengajukan RPP baru atau revisi, rancangan akan muncul di sini untuk diperiksa."
-            />
-          ) : (
-            <div className="mt-4 space-y-4">
-              {lessonPlans.map((p) => {
-                const skills = parseJson<string[]>(p.cambridgeSkills, []);
-                const sentenceList = p.englishSentences
-                  .split("\n")
-                  .map((s) => s.trim())
-                  .filter((s) => s.length > 0);
-
-                return (
-                  <div
-                    key={p.id}
-                    className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-xs transition hover:border-brand-300"
-                  >
-                    <div className="flex flex-wrap items-start justify-between gap-3 border-b border-slate-100 pb-3">
-                      <div className="flex items-center gap-3">
-                        <Avatar name={p.teacher.user.name} size="md" />
-                        <div>
-                          <div className="flex items-center gap-2">
-                            <span className="font-bold text-ink">{p.teacher.user.name}</span>
-                            <span className="text-xs text-slate-400">· {p.subject} (Kelas {p.className})</span>
-                            <LevelBadge level={p.targetLevel as Level} />
-                            <Pill tone="info">
-                              {sentenceList.length} Kalimat Inggris
-                            </Pill>
-                          </div>
-                          <h4 className="mt-1 font-black text-ink">{p.title}</h4>
-                          <p className="text-xs text-slate-400">
-                            Tanggal Pelaksanaan: {formatDate(p.date)} · Diajukan: {formatDate(p.createdAt)}
-                          </p>
-                        </div>
-                      </div>
-
-                      <Link href={`/guru/rpp/${p.id}`} target="_blank">
-                        <Button variant="secondary" size="sm">
-                          <ExternalLink className="size-3.5" /> Buka Lembar Cetak
-                        </Button>
-                      </Link>
-                    </div>
-
-                    {/* Cambridge Skills */}
-                    {skills.length > 0 && (
-                      <div className="mt-2.5 flex flex-wrap gap-1.5">
-                        {skills.map((skill) => (
-                          <span
-                            key={skill}
-                            className="rounded-lg bg-slate-100 px-2 py-0.5 text-[11px] font-bold text-slate-600"
-                          >
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-
-                    {/* Target English Sentences Preview */}
-                    <div className="mt-3 rounded-xl border border-brand-100 bg-brand-50/50 p-3">
-                      <p className="text-xs font-black uppercase text-brand-900 mb-1.5">
-                        Target Kalimat Bahasa Inggris ({sentenceList.length} kalimat):
-                      </p>
-                      <ul className="space-y-1 text-xs text-slate-800">
-                        {sentenceList.map((st, idx) => (
-                          <li key={idx} className="flex items-start gap-2">
-                            <span className="font-bold text-brand-600">#{idx + 1}</span>
-                            <span className="italic font-medium">&ldquo;{st}&rdquo;</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Form Keputusan Admin */}
-                    <form action={reviewLessonPlan} className="mt-4 flex flex-wrap items-center justify-end gap-2 border-t border-slate-100 pt-3">
-                      <input type="hidden" name="id" value={p.id} />
-                      <input
-                        type="text"
-                        name="reviewNote"
-                        placeholder="Tulis catatan perbaikan / instruksi revisi..."
-                        className="flex-1 rounded-xl border border-slate-200 px-3 py-1.5 text-xs text-slate-800 focus:outline-brand-500"
-                      />
-                      <Button type="submit" name="decision" value="approve" variant="mint" size="sm">
-                        <Check className="size-3.5" /> Setujui RPP
-                      </Button>
-                      <Button type="submit" name="decision" value="revision" variant="secondary" size="sm">
-                        <RotateCcw className="size-3.5" /> Minta Revisi
-                      </Button>
-                    </form>
-                  </div>
-                );
-              })}
             </div>
           )}
         </Card>

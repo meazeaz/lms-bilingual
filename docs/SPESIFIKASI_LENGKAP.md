@@ -130,7 +130,7 @@ Helper yang sudah ada: `requireAdmin()`, `requireTeacher()`, `requireStudent()`,
 
 Ringkasan Dokumen Master. Nomor bab/lampiran disertakan untuk ditelusuri di PDF.
 
-### 4.1 Peta jalan (Bab 1.3) → `PHASES`, `currentPhase()`
+### 4.1 Peta jalan (Bab 1.3) → `PHASES`, `getPhaseStates()` / `getCurrentPhase()`
 
 | Fase | Periode | Fokus | Target akhir fase |
 |---|---|---|---|
@@ -142,6 +142,14 @@ Ringkasan Dokumen Master. Nomor bab/lampiran disertakan untuk ditelusuri di PDF.
 | F5 | Mei–Jun 2028 (2 bln) | Evaluasi Final & Persiapan Akreditasi | Siap full bilingual Juli 2028 |
 
 Per November 2026 program memasuki **Fase 3** (Operasionalisasi). LMS ini adalah bagian dari "sistem monitoring berjalan".
+
+**Status fase diselesaikan manual oleh admin, berurutan (keputusan pemilik, 18 Nov 2026).** Tanggal di tabel hanya rencana; status tidak dihitung dari tanggal.
+- Satu peta jalan untuk seluruh sekolah (model `PhaseProgress`, logika di `src/lib/phases-server.ts`, aksi di `src/actions/phases.ts`).
+- Setiap fase punya `material` (ringkasan Dokumen Master) dan `checklist` di `PHASES` (`src/lib/program.ts`). Halaman: `/admin/fase/[code]`.
+- Fase bisa ditandai selesai hanya bila materi ditandai "sudah dibaca" **dan** semua butir checklist dicentang. Hanya admin yang bisa.
+- Fase berikutnya **terkunci (gembok)** sampai fase sebelumnya selesai. Semua aksi pada fase terkunci ditolak di server.
+- Fase yang sudah selesai tidak bisa diubah. Hanya fase selesai **terakhir** yang bisa dibuka kembali, dan fase sesudahnya otomatis terkunci lagi.
+- "Fase saat ini" (header dashboard admin & guru) = fase pertama yang belum selesai.
 
 ### 4.2 Tujuan SMART (Bab 1.2) → `SMART_GOALS`
 

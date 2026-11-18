@@ -8,7 +8,8 @@ import { db } from "@/lib/db";
 export async function GET(_req: NextRequest, ctx: RouteContext<"/api/files/[id]">) {
   const { id } = await ctx.params;
   const file = await db.storedFile.findUnique({ where: { id } });
-  if (!file) return new Response("Berkas tidak ditemukan", { status: 404 });
+  // Berkas privat (foto profil) tidak boleh diakses lewat jalur publik ini
+  if (!file || file.isPrivate) return new Response("Berkas tidak ditemukan", { status: 404 });
 
   return new Response(Buffer.from(file.data), {
     headers: {

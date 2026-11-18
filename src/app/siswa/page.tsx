@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BookOpen, ClipboardCheck, Megaphone, Sparkles, Target, Trophy } from "lucide-react";
+import { BookOpen, CalendarRange, ClipboardCheck, Megaphone, Sparkles, Target, Trophy } from "lucide-react";
 import { Card, CardBody, CardHeader, PageHeader, Pill, Progress, Ring, StatCard } from "@/components/ui";
 import { TrendChart } from "@/components/charts";
 import { HoverLift, Stagger, StaggerItem } from "@/components/motion";
@@ -9,6 +9,8 @@ import { db } from "@/lib/db";
 import { studentPoints } from "@/lib/metrics";
 import { STUDENT_ASSESSMENT_TYPES, STUDENT_CEFR, STUDENT_TARGET, cefrAtLeast, cefrIndex } from "@/lib/program";
 import { formatDate, pct } from "@/lib/utils";
+import { getPhaseStates } from "@/lib/phases-server";
+import { PhaseRoadmapGrid } from "@/components/phase-roadmap";
 
 export const metadata: Metadata = { title: "Beranda Siswa" };
 
@@ -16,12 +18,14 @@ export default async function StudentHome() {
   const { student, name } = await requireStudent();
   const grade = student.classRoom.grade;
   const target = STUDENT_TARGET[grade];
-  const [assessments, materials, points, announcements] = await Promise.all([
+  const [assessments, materials, points, announcements, roadmap] = await Promise.all([
     db.studentAssessment.findMany({ where: { studentId: student.id }, orderBy: { date: "asc" }, include: { teacher: { include: { user: true } } } }),
     db.material.findMany({ where: { published: true, OR: [{ grade }, { grade: null }] }, include: { quizzes: { include: { attempts: { where: { studentId: student.id } } } } } }),
     studentPoints(student.id),
     db.announcement.findMany({ where: { audience: { in: ["ALL", "STUDENT"] } }, orderBy: { createdAt: "desc" }, take: 2 }),
+    getPhaseStates(),
   ]);
+  const phase = roadmap.current ?? roadmap.states[roadmap.states.length - 1];
   const reached = cefrAtLeast(student.cefrLevel, target.endOfYear);
   const progress = Math.min(100, pct(cefrIndex(student.cefrLevel) + 1, cefrIndex(target.endOfYear) + 1));
   const chart = assessments.map((a) => ({ tanggal: formatDate(a.date), level: cefrIndex(a.cefrLevel) }));
@@ -48,6 +52,18 @@ export default async function StudentHome() {
           <StaggerItem><StatCard label="Lomba" value={points.competitions} icon={Trophy} tone="brand" hint="Kompetisi diikuti" /></StaggerItem>
         </Stagger>
       </div>
+
+      <Card className="mt-6">
+        <CardHeader
+          icon={CalendarRange}
+          title="Peta Jalan Sekolah Bilingual 2026–2028"
+          description={`${roadmap.completedCount} dari ${roadmap.states.length} fase selesai. Sekolah kita sedang di ${phase.name}: ${phase.title}.`}
+        />
+        <CardBody>
+          <PhaseRoadmapGrid states={roadmap.states} />
+          <p className="mt-3 text-xs text-slate-500">Ini langkah-langkah sekolah menuju belajar penuh dalam dua bahasa pada Juli 2028. Setiap fase dibuka berurutan oleh Tim EDT.</p>
+        </CardBody>
+      </Card>
 
       <div className="mt-6 grid gap-6 lg:grid-cols-[1.2fr_1fr]">
         <Card>

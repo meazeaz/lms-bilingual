@@ -1,0 +1,415 @@
+{
+  "unit": 3,
+  "title": "I Am Friendly",
+  "summary": "Siswa belajar mendeskripsikan keluarga, teman, dan tetangga, serta membandingkan orang dengan kata sifat komparatif (-er than) dan superlatif (the -est).",
+  "content": "## Tujuan Belajar\n\n• Mendeskripsikan penampilan dan sifat anggota keluarga serta teman.\n• Membandingkan dua orang dengan kata sifat bentuk komparatif (taller, older, tidier).\n• Menyebut siapa yang \"paling\" dalam satu kelompok dengan bentuk superlatif (the tallest, the kindest).\n• Bertanya dan menjawab \"Who is …?\" tentang orang-orang di sekitarmu.\n\n## Kosakata Inti\n\nDi unit ini kamu belajar kata untuk menyebut orang-orang di sekitarmu (neighbor, relatives, best friend, close friend) dan kata sifat untuk menggambarkan mereka: penampilan (tall, short, young, old) dan sifat (kind, shy, brave, calm, funny, noisy, tidy, smart, friendly, nice).\n\nMy best friend is funny and very kind.\nMy neighbor is old, but she is very active.\nMy little brother is shy, but my sister is noisy!\n\n## Tata Bahasa: Comparative & Superlative Adjectives\n\nUntuk membandingkan DUA orang, pakai bentuk komparatif + than. Kata sifat pendek cukup ditambah -er (tall → taller). Jika berakhiran -y, ubah y menjadi i lalu tambah -er (tidy → tidier). Jika berakhiran -e, cukup tambah -r (nice → nicer).\n\nUntuk TIGA orang atau lebih, pakai the + bentuk superlatif -est (the tallest, the tidiest, the nicest). Ingat: komparatif butuh \"than\", superlatif butuh \"the\".\n\ntall → taller → the tallest\nyoung → younger → the youngest\nnoisy → noisier → the noisiest\nnice → nicer → the nicest\n\nMy sister is taller than me.\nI am younger than my cousin.\nWho is kinder, your aunt or your uncle?\nMy room is tidier than my brother's room.\nOlivia is the friendliest student in our class.\nWho is the funniest in your family?\n\n## Contoh Percakapan\n\nRina: Who is that girl, Dimas?\nDimas: That's Sarah, my close friend. She's my neighbor, too.\nRina: She looks taller than you!\nDimas: Yes, she is. She is older than me, too. She's fourteen.\nRina: Is she friendly?\nDimas: Very! She's the kindest person on our street.\nRina: And who is the noisiest in your family?\nDimas: My little brother, of course. He's noisier than our cat!\n\n## Ayo Berlatih\n\nWho is taller, you or your best friend?\nContoh: My best friend is taller than me.\n\nWho is the youngest in your family?\nContoh: My little sister is the youngest in my family.\n\nDescribe your neighbor in two words.\nContoh: My neighbor is kind and friendly.\n\nWho is the funniest student in your class?\nContoh: Raka is the funniest student in our class.\n\n## Tips\n\n• Hafalkan kata sifat berpasangan dengan lawan katanya: tall–short, old–young, noisy–calm, shy–friendly. Lebih cepat diingat!\n\n• Latihan setiap hari dengan orang sungguhan: bandingkan anggota keluargamu atau teman sekelas, misalnya \"My dad is taller than my mom.",
+  "vocabulary": [
+    {
+      "en": "old",
+      "id": "tua"
+    },
+    {
+      "en": "young",
+      "id": "muda"
+    },
+    {
+      "en": "tall",
+      "id": "tinggi"
+    },
+    {
+      "en": "short",
+      "id": "pendek"
+    },
+    {
+      "en": "best friend",
+      "id": "sahabat"
+    },
+    {
+      "en": "close friend",
+      "id": "teman dekat"
+    },
+    {
+      "en": "neighbor",
+      "id": "tetangga"
+    },
+    {
+      "en": "relatives",
+      "id": "kerabat, saudara"
+    },
+    {
+      "en": "brave",
+      "id": "berani"
+    },
+    {
+      "en": "shy",
+      "id": "pemalu"
+    },
+    {
+      "en": "noisy",
+      "id": "berisik, ribut"
+    },
+    {
+      "en": "calm",
+      "id": "tenang"
+    },
+    {
+      "en": "nice",
+      "id": "baik, menyenangkan"
+    },
+    {
+      "en": "funny",
+      "id": "lucu"
+    },
+    {
+      "en": "tidy",
+      "id": "rapi"
+    },
+    {
+      "en": "friendly",
+      "id": "ramah"
+    },
+    {
+      "en": "smart",
+      "id": "pintar"
+    },
+    {
+      "en": "kind",
+      "id": "baik hati"
+    }
+  ],
+  "quiz": {
+    "title": "Progress Test Unit 3: I Am Friendly",
+    "questions": [
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"neighbor\".",
+        "options": [
+          "not short",
+          "family members like cousins or aunts",
+          "a person who lives near you",
+          "not old"
+        ],
+        "answer": 2
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"tall\".",
+        "options": [
+          "not short",
+          "not tall",
+          "a very close friend",
+          "not old"
+        ],
+        "answer": 0
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"relatives\".",
+        "options": [
+          "a very close friend",
+          "a person who lives near you",
+          "not tall",
+          "family members like cousins or aunts"
+        ],
+        "answer": 3
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"short\".",
+        "options": [
+          "not old",
+          "not tall",
+          "not short",
+          "a person who lives near you"
+        ],
+        "answer": 1
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"best friend\".",
+        "options": [
+          "family members like cousins or aunts",
+          "not short",
+          "a very close friend",
+          "a person who lives near you"
+        ],
+        "answer": 2
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"young\".",
+        "options": [
+          "not old",
+          "a very close friend",
+          "not tall",
+          "family members like cousins or aunts"
+        ],
+        "answer": 0
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "My sister is _____ than me. She is 15 years old and I am 13 years old.",
+        "fillInAnswer": "older",
+        "fillInHint": "Pilih dari kotak kata: smart / shy / younger / neighbor / noisy / older / close friend / tidy / kind",
+        "explanation": "Kakak berumur 15, aku 13, jadi kakak lebih tua: older."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "A _____ person helps others and is nice.",
+        "fillInAnswer": "kind",
+        "fillInHint": "Pilih dari kotak kata: smart / shy / younger / neighbor / noisy / older / close friend / tidy / kind",
+        "explanation": "Kind = baik hati, suka menolong."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "My brother is very _____. He always gets good grades.",
+        "fillInAnswer": "smart",
+        "fillInHint": "Pilih dari kotak kata: smart / shy / younger / neighbor / noisy / older / close friend / tidy / kind",
+        "explanation": "Smart = pintar; selalu mendapat nilai bagus."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "My _____ lives next to my house.",
+        "fillInAnswer": "neighbor",
+        "acceptedAnswers": [
+          "neighbour"
+        ],
+        "fillInHint": "Pilih dari kotak kata: smart / shy / younger / neighbor / noisy / older / close friend / tidy / kind",
+        "explanation": "Neighbor = tetangga, orang yang tinggal di sebelah rumah."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "A _____ person doesn’t talk a lot.",
+        "fillInAnswer": "shy",
+        "fillInHint": "Pilih dari kotak kata: smart / shy / younger / neighbor / noisy / older / close friend / tidy / kind",
+        "explanation": "Shy = pemalu, tidak banyak bicara."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "My room is _____ because I clean it every day.",
+        "fillInAnswer": "tidy",
+        "fillInHint": "Pilih dari kotak kata: smart / shy / younger / neighbor / noisy / older / close friend / tidy / kind",
+        "explanation": "Tidy = rapi, karena dibersihkan setiap hari."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "My _____ is someone I spend a lot of time with.",
+        "fillInAnswer": "close friend",
+        "fillInHint": "Pilih dari kotak kata: smart / shy / younger / neighbor / noisy / older / close friend / tidy / kind",
+        "explanation": "Close friend = teman dekat (dua kata: close friend)."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "The children in the park are very _____ today! I can hear them shouting.",
+        "fillInAnswer": "noisy",
+        "fillInHint": "Pilih dari kotak kata: smart / shy / younger / neighbor / noisy / older / close friend / tidy / kind",
+        "explanation": "Noisy = berisik; anak-anak berteriak."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "My cousin is _____ than my aunt.",
+        "fillInAnswer": "younger",
+        "fillInHint": "Pilih dari kotak kata: smart / shy / younger / neighbor / noisy / older / close friend / tidy / kind",
+        "explanation": "Sepupu biasanya lebih muda dari bibi: younger."
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 2 · Language",
+        "q": "Who is _____, you or your brother?",
+        "options": [
+          "taller",
+          "taller than"
+        ],
+        "answer": 0,
+        "explanation": "Pola pertanyaan 'Who is taller, A or B?' tidak memakai than."
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 2 · Language",
+        "q": "I am _____ my best friend.",
+        "options": [
+          "shorter than",
+          "shorter"
+        ],
+        "answer": 0,
+        "explanation": "Membandingkan dua orang dalam kalimat: shorter + than."
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 2 · Language",
+        "q": "She is _____ her sister.",
+        "options": [
+          "older",
+          "older than"
+        ],
+        "answer": 1,
+        "explanation": "Ada pembanding (her sister), jadi perlu than: older than."
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 2 · Language",
+        "q": "They are _____ the boys.",
+        "options": [
+          "noisier than",
+          "noisier"
+        ],
+        "answer": 0,
+        "explanation": "Ada pembanding (the boys), jadi perlu than: noisier than."
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 2 · Language",
+        "q": "Who is _____, your aunt or your uncle?",
+        "options": [
+          "kinder than",
+          "kinder"
+        ],
+        "answer": 1,
+        "explanation": "Pola 'Who is kinder, A or B?' tidak memakai than."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Unscramble the words. Write a complete, correct sentence: is / My / taller / best friend / me. / than",
+        "fillInAnswer": "My best friend is taller than me.",
+        "acceptedAnswers": [
+          "My best friend is taller than me"
+        ],
+        "fillInHint": "Tulis kalimat lengkap: huruf kapital di awal dan tanda baca di akhir."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Unscramble the words. Write a complete, correct sentence: younger / sister. / am / my / than / I",
+        "fillInAnswer": "I am younger than my sister.",
+        "acceptedAnswers": [
+          "I am younger than my sister"
+        ],
+        "fillInHint": "Tulis kalimat lengkap: huruf kapital di awal dan tanda baca di akhir."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Unscramble the words. Write a complete, correct sentence: friendliest / is / our class. / in / Olivia / student / the",
+        "fillInAnswer": "Olivia is the friendliest student in our class.",
+        "acceptedAnswers": [
+          "Olivia is the friendliest student in our class"
+        ],
+        "fillInHint": "Tulis kalimat lengkap: huruf kapital di awal dan tanda baca di akhir."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Unscramble the words. Write a complete, correct sentence: than / are / me. / My / shorter / cousins",
+        "fillInAnswer": "My cousins are shorter than me.",
+        "acceptedAnswers": [
+          "My cousins are shorter than me"
+        ],
+        "fillInHint": "Tulis kalimat lengkap: huruf kapital di awal dan tanda baca di akhir."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Unscramble the words. Write a complete, correct sentence: is / neighbor / tidiest / My / on our street. / the / person",
+        "fillInAnswer": "My neighbor is the tidiest person on our street.",
+        "acceptedAnswers": [
+          "My neighbor is the tidiest person on our street",
+          "My neighbour is the tidiest person on our street.",
+          "My neighbour is the tidiest person on our street"
+        ],
+        "fillInHint": "Tulis kalimat lengkap: huruf kapital di awal dan tanda baca di akhir."
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "Read the text and choose True or False: Mrs. Lee is younger than Harry’s parents.",
+        "passageTitle": "My Friendly Neighbor",
+        "passage": "Hi! My name is Harry. My neighbor, Mrs. Lee, is one of the nicest people I know. She is older than my parents, but she is very active. She is friendly and always smiles at everyone. Her house is tidier than ours because she cleans it every morning. Mrs. Lee has a close friend named Mr. Park. He is younger than her and very funny. They like to help people in our street. I think they are the kindest neighbors in the neighborhood.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "options": [
+          "True",
+          "False"
+        ],
+        "answer": 1,
+        "explanation": "Teks: 'She is older than my parents' — jadi pernyataan ini salah."
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "Read the text and choose True or False: Mrs. Lee is friendly and smiles a lot.",
+        "passageTitle": "My Friendly Neighbor",
+        "passage": "Hi! My name is Harry. My neighbor, Mrs. Lee, is one of the nicest people I know. She is older than my parents, but she is very active. She is friendly and always smiles at everyone. Her house is tidier than ours because she cleans it every morning. Mrs. Lee has a close friend named Mr. Park. He is younger than her and very funny. They like to help people in our street. I think they are the kindest neighbors in the neighborhood.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "options": [
+          "True",
+          "False"
+        ],
+        "answer": 0,
+        "explanation": "Teks: 'She is friendly and always smiles at everyone.'"
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "Read the text and choose True or False: Mrs. Lee’s house is tidier than Harry’s house.",
+        "passageTitle": "My Friendly Neighbor",
+        "passage": "Hi! My name is Harry. My neighbor, Mrs. Lee, is one of the nicest people I know. She is older than my parents, but she is very active. She is friendly and always smiles at everyone. Her house is tidier than ours because she cleans it every morning. Mrs. Lee has a close friend named Mr. Park. He is younger than her and very funny. They like to help people in our street. I think they are the kindest neighbors in the neighborhood.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "options": [
+          "True",
+          "False"
+        ],
+        "answer": 0,
+        "explanation": "Teks: 'Her house is tidier than ours.'"
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "Read the text and choose True or False: Mr. Park is older than Mrs. Lee.",
+        "passageTitle": "My Friendly Neighbor",
+        "passage": "Hi! My name is Harry. My neighbor, Mrs. Lee, is one of the nicest people I know. She is older than my parents, but she is very active. She is friendly and always smiles at everyone. Her house is tidier than ours because she cleans it every morning. Mrs. Lee has a close friend named Mr. Park. He is younger than her and very funny. They like to help people in our street. I think they are the kindest neighbors in the neighborhood.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "options": [
+          "True",
+          "False"
+        ],
+        "answer": 1,
+        "explanation": "Teks: 'He is younger than her' — jadi pernyataan ini salah."
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "Read the text and choose True or False: They like helping people in their neighborhood.",
+        "passageTitle": "My Friendly Neighbor",
+        "passage": "Hi! My name is Harry. My neighbor, Mrs. Lee, is one of the nicest people I know. She is older than my parents, but she is very active. She is friendly and always smiles at everyone. Her house is tidier than ours because she cleans it every morning. Mrs. Lee has a close friend named Mr. Park. He is younger than her and very funny. They like to help people in our street. I think they are the kindest neighbors in the neighborhood.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "options": [
+          "True",
+          "False"
+        ],
+        "answer": 0,
+        "explanation": "Teks: 'They like to help people in our street.'"
+      }
+    ]
+  },
+  "notes": "Kunci diverifikasi dari PDF ANSWER (tampilan halaman). Part 3 Reading: urutan kunci di ekstraksi teks (F, T, F, T, T) tidak sesuai posisi; PDF menunjukkan 1 False, 2 True, 3 True, 4 False, 5 True (sesuai isi bacaan) dan itu yang dipakai. Part 1A (menjodohkan) dikonversi menjadi 6 soal pilihan ganda dengan 4 arti dari daftar yang sama. Part 2B (unscramble) dikonversi menjadi FILL_IN kalimat lengkap; pencocokan sistem bersifat persis (tidak peka huruf besar/kecil), jadi varian tanpa titik dan ejaan 'neighbour' ditambahkan ke acceptedAnswers; guru sebaiknya memeriksa jawaban yang berbeda spasi/tanda baca. Part 1B no. 9 (My cousin is ___ than my aunt): 'older' juga masuk akal secara tata bahasa, tetapi kotak kata dipakai sekali dan 'older' sudah untuk no. 1, jadi kunci 'younger' (sesuai PDF). Tidak ada butir yang dilewati; tidak ada soal bergambar."
+}

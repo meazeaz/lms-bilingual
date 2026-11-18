@@ -1,16 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import {
   BookOpen,
+  BookOpenText,
   Check,
+  Copy,
   CheckCircle2,
   ExternalLink,
   Eye,
   FileText,
   Headphones,
   HelpCircle,
+  Mic,
   PenTool,
   Pencil,
   Play,
@@ -30,7 +33,9 @@ import { GlossaryModal } from "@/components/glossary-drawer";
 import { Button, Card, CardBody, CardHeader, Field, Input, Pill, Select, Textarea } from "@/components/ui";
 import { SCHOOL_SUBJECTS } from "@/lib/program";
 import { DEFAULT_MATERIAL_CATEGORIES, type MaterialCategory } from "@/lib/settings";
-import { parseJson } from "@/lib/utils";
+import { cn, parseJson } from "@/lib/utils";
+import { LISTENING_PLAY_LIMITS, speakText, ttsSupported, type TtsSpeed } from "@/lib/tts";
+import { SpeedToggle } from "@/components/tts-speed";
 import type { QuizQuestion, QuestionType } from "@/types/quiz";
 
 export interface MaterialItem {
@@ -277,6 +282,8 @@ export function QuizEditor({
 }) {
   const [materialId, setMaterialId] = useState(materials[0]?.id ?? "");
   const [playingIdx, setPlayingIdx] = useState<number | null>(null);
+  const [testSpeed, setTestSpeed] = useState<TtsSpeed>("normal");
+  const stopTestRef = useRef<(() => void) | null>(null);
 
   const [questions, setQuestions] = useState<QuizQuestion[]>([
     {
@@ -293,7 +300,40 @@ export function QuizEditor({
   ]);
 
   const addQuestion = (type: QuestionType = "MULTIPLE_CHOICE") => {
-    if (type === "LISTENING") {
+    if (type === "READING") {
+      setQuestions((prev) => [
+        ...prev,
+        {
+          type: "READING",
+          passageTitle: "How Plants Make Food",
+          passage:
+            "Plants are living things that can make their own food. This process is called photosynthesis. It happens mostly in the leaves. The leaves contain a green substance called chlorophyll, which absorbs sunlight. Plants also take in water from the soil through their roots and carbon dioxide from the air. With the energy from sunlight, they change water and carbon dioxide into glucose, a type of sugar. During this process, plants release oxygen into the air, which humans and animals need to breathe.",
+          readingFormat: "MC",
+          allowAudio: true,
+          q: "According to the text, where does photosynthesis mostly happen?",
+          options: ["In the roots", "In the leaves", "In the flowers", "In the soil"],
+          answer: 1,
+          fillInAnswer: "",
+          acceptedAnswers: [],
+        },
+      ]);
+    } else if (type === "SPEAKING") {
+      setQuestions((prev) => [
+        ...prev,
+        {
+          type: "SPEAKING",
+          speakingMode: "READ_ALOUD",
+          q: "Read the sentence below aloud clearly.",
+          targetText: "Plants use sunlight, water, and carbon dioxide to make their own food.",
+          speakingAccent: "en-US",
+          minWords: 10,
+          targetKeywords: [],
+          modelAnswer: "",
+          options: [],
+          answer: 0,
+        },
+      ]);
+    } else if (type === "LISTENING") {
       setQuestions((prev) => [
         ...prev,
         {
@@ -303,6 +343,8 @@ export function QuizEditor({
           audioScript: "Good morning class. Today we are observing the behavior of water molecules when heat is applied.",
           audioVoice: "en-US",
           listeningFormat: "MC",
+          allowSpeedChange: true,
+          maxPlays: 0,
           options: [
             "The molecules move faster and spread apart",
             "The molecules freeze immediately",
@@ -353,11 +395,30 @@ export function QuizEditor({
     }
   };
 
+  /** Tambah pertanyaan baru yang memakai teks bacaan yang sama dengan soal reading idx. */
+  const addQuestionForSamePassage = (idx: number) => {
+    setQuestions((prev) => {
+      const src = prev[idx];
+      const next = [...prev];
+      next.splice(idx + 1, 0, {
+        type: "READING",
+        passageTitle: src.passageTitle ?? "",
+        passage: src.passage ?? "",
+        readingFormat: "MC",
+        allowAudio: src.allowAudio ?? true,
+        q: "",
+        options: ["", "", "", ""],
+        answer: 0,
+        fillInAnswer: "",
+        acceptedAnswers: [],
+      });
+      return next;
+    });
+  };
+
   const removeQuestion = (idx: number) => {
     if (playingIdx === idx) {
-      if (typeof window !== "undefined" && "speechSynthesis" in window) {
-        window.speechSynthesis.cancel();
-      }
+      stopTestRef.current?.();
       setPlayingIdx(null);
     }
     setQuestions((prev) => prev.filter((_, i) => i !== idx));
@@ -367,7 +428,33 @@ export function QuizEditor({
     setQuestions((prev) => {
       const next = [...prev];
       const cur = next[idx];
-      if (newType === "LISTENING") {
+      if (newType === "READING") {
+        next[idx] = {
+          ...cur,
+          type: "READING",
+          passageTitle: cur.passageTitle ?? "",
+          passage: cur.passage ?? "",
+          readingFormat: cur.readingFormat ?? "MC",
+          allowAudio: cur.allowAudio ?? true,
+          options: cur.options && cur.options.length === 4 ? cur.options : ["", "", "", ""],
+          answer: cur.answer ?? 0,
+          fillInAnswer: cur.fillInAnswer ?? "",
+          acceptedAnswers: cur.acceptedAnswers ?? [],
+        };
+      } else if (newType === "SPEAKING") {
+        next[idx] = {
+          ...cur,
+          type: "SPEAKING",
+          speakingMode: cur.speakingMode ?? "READ_ALOUD",
+          targetText: cur.targetText ?? "",
+          speakingAccent: cur.speakingAccent ?? "en-US",
+          minWords: cur.minWords ?? 10,
+          targetKeywords: cur.targetKeywords ?? [],
+          modelAnswer: cur.modelAnswer ?? "",
+          options: [],
+          answer: 0,
+        };
+      } else if (newType === "LISTENING") {
         next[idx] = {
           ...cur,
           type: "LISTENING",
@@ -375,6 +462,8 @@ export function QuizEditor({
           audioScript: cur.audioScript ?? "Hello students, please listen to this explanation carefully.",
           audioVoice: cur.audioVoice ?? "en-US",
           listeningFormat: cur.listeningFormat ?? "MC",
+          allowSpeedChange: cur.allowSpeedChange ?? true,
+          maxPlays: cur.maxPlays ?? 0,
           options: cur.options && cur.options.length === 4 ? cur.options : ["", "", "", ""],
           answer: cur.answer ?? 0,
           fillInAnswer: cur.fillInAnswer ?? "",
@@ -431,31 +520,36 @@ export function QuizEditor({
   };
 
   const handleTestAudio = (idx: number, text: string, voice: "en-US" | "en-GB" = "en-US") => {
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) {
+    if (!ttsSupported()) {
       alert("Browser Anda tidak mendukung fitur Text-to-Speech.");
       return;
     }
     if (playingIdx === idx) {
-      window.speechSynthesis.cancel();
-      setPlayingIdx(null);
+      stopTestRef.current?.();
       return;
     }
     if (!text.trim()) {
       alert("Tuliskan naskah audio terlebih dahulu sebelum menguji dengar.");
       return;
     }
-    window.speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = voice;
-    u.rate = 0.9;
-    u.onend = () => setPlayingIdx(null);
-    u.onerror = () => setPlayingIdx(null);
+    stopTestRef.current?.();
     setPlayingIdx(idx);
-    window.speechSynthesis.speak(u);
+    stopTestRef.current = speakText(text, {
+      lang: voice,
+      speed: testSpeed,
+      onEnd: () => setPlayingIdx((cur) => (cur === idx ? null : cur)),
+    });
+  };
+
+  const changeTestSpeed = (next: TtsSpeed) => {
+    setTestSpeed(next);
+    stopTestRef.current?.();
   };
 
   const mcCount = questions.filter((q) => !q.type || q.type === "MULTIPLE_CHOICE").length;
+  const readingCount = questions.filter((q) => q.type === "READING").length;
   const listeningCount = questions.filter((q) => q.type === "LISTENING").length;
+  const speakingCount = questions.filter((q) => q.type === "SPEAKING").length;
   const writingCount = questions.filter((q) => q.type === "WRITING").length;
   const fillInCount = questions.filter((q) => q.type === "FILL_IN").length;
 
@@ -504,8 +598,16 @@ export function QuizEditor({
                 <Radio className="size-3" /> {mcCount} Pilihan Ganda
               </span>
               <span>·</span>
+              <span className="inline-flex items-center gap-1 text-sky-700 font-bold">
+                <BookOpenText className="size-3" /> {readingCount} Reading
+              </span>
+              <span>·</span>
               <span className="inline-flex items-center gap-1 text-purple-700 font-bold">
                 <Headphones className="size-3" /> {listeningCount} Listening
+              </span>
+              <span>·</span>
+              <span className="inline-flex items-center gap-1 text-pink-700 font-bold">
+                <Mic className="size-3" /> {speakingCount} Speaking
               </span>
               <span>·</span>
               <span className="inline-flex items-center gap-1 text-emerald-700 font-bold">
@@ -529,10 +631,24 @@ export function QuizEditor({
             </button>
             <button
               type="button"
+              onClick={() => addQuestion("READING")}
+              className="rounded-xl border border-sky-200 bg-sky-50 hover:bg-sky-100 text-sky-800 px-3 py-1.5 text-xs font-bold transition flex items-center gap-1.5 shadow-2xs"
+            >
+              <BookOpenText className="size-3.5" /> + Soal Reading
+            </button>
+            <button
+              type="button"
               onClick={() => addQuestion("LISTENING")}
               className="rounded-xl border border-purple-200 bg-purple-50 hover:bg-purple-100 text-purple-800 px-3 py-1.5 text-xs font-bold transition flex items-center gap-1.5 shadow-2xs"
             >
               <Headphones className="size-3.5" /> + Soal Listening
+            </button>
+            <button
+              type="button"
+              onClick={() => addQuestion("SPEAKING")}
+              className="rounded-xl border border-pink-200 bg-pink-50 hover:bg-pink-100 text-pink-800 px-3 py-1.5 text-xs font-bold transition flex items-center gap-1.5 shadow-2xs"
+            >
+              <Mic className="size-3.5" /> + Soal Speaking
             </button>
             <button
               type="button"
@@ -559,7 +675,11 @@ export function QuizEditor({
               <div
                 key={qIdx}
                 className={`rounded-2xl border p-4 sm:p-5 space-y-4 transition ${
-                  qType === "LISTENING"
+                  qType === "READING"
+                    ? "border-sky-200 bg-sky-50/25"
+                    : qType === "SPEAKING"
+                    ? "border-pink-200 bg-pink-50/25"
+                    : qType === "LISTENING"
                     ? "border-purple-200 bg-purple-50/25"
                     : qType === "WRITING"
                     ? "border-emerald-200 bg-emerald-50/25"
@@ -576,7 +696,15 @@ export function QuizEditor({
                     </span>
 
                     {/* Badge Tipe */}
-                    {qType === "LISTENING" ? (
+                    {qType === "READING" ? (
+                      <span className="inline-flex items-center gap-1 rounded-full bg-sky-100 px-2.5 py-0.5 text-[11px] font-bold text-sky-800 border border-sky-200">
+                        <BookOpenText className="size-3 text-sky-600" /> Reading (Membaca)
+                      </span>
+                    ) : qType === "SPEAKING" ? (
+                      <span className="inline-flex items-center gap-1 rounded-full bg-pink-100 px-2.5 py-0.5 text-[11px] font-bold text-pink-800 border border-pink-200">
+                        <Mic className="size-3 text-pink-600" /> Speaking (Berbicara)
+                      </span>
+                    ) : qType === "LISTENING" ? (
                       <span className="inline-flex items-center gap-1 rounded-full bg-purple-100 px-2.5 py-0.5 text-[11px] font-bold text-purple-800 border border-purple-200">
                         <Headphones className="size-3 text-purple-600" /> Listening (Menyimak)
                       </span>
@@ -604,7 +732,9 @@ export function QuizEditor({
                         className="rounded-lg border border-slate-200 bg-white px-2 py-1 text-xs font-semibold text-slate-700 focus:outline-brand-500"
                       >
                         <option value="MULTIPLE_CHOICE">🔘 Pilihan Ganda</option>
+                        <option value="READING">📖 Reading (Membaca)</option>
                         <option value="LISTENING">🎧 Listening (Audio)</option>
+                        <option value="SPEAKING">🎤 Speaking (Berbicara)</option>
                         <option value="WRITING">✍️ Writing (Menulis)</option>
                         <option value="FILL_IN">📝 Isian Singkat (Fill-in)</option>
                       </select>
@@ -621,6 +751,94 @@ export function QuizEditor({
                     )}
                   </div>
                 </div>
+
+                {/* ───────────── FORM SPESIFIK TIPE READING ───────────── */}
+                {qType === "READING" && (
+                  <div className="space-y-3.5 rounded-xl border border-sky-200 bg-white p-4 shadow-2xs">
+                    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-sky-100 pb-2.5">
+                      <span className="text-xs font-bold text-sky-900 flex items-center gap-1.5">
+                        <BookOpenText className="size-4 text-sky-600" />
+                        Teks Bacaan (Reading Passage):
+                      </span>
+                      <span className="text-[11px] font-semibold text-slate-500">
+                        {(q.passage || "").split(/\s+/).filter(Boolean).length} kata
+                      </span>
+                    </div>
+
+                    <div className="space-y-1">
+                      <label className="text-xs font-bold text-slate-700">Judul Bacaan (opsional):</label>
+                      <Input
+                        value={q.passageTitle || ""}
+                        onChange={(e) => updateQuestionField(qIdx, "passageTitle", e.target.value)}
+                        placeholder="misal: How Plants Make Food"
+                        className="bg-white text-xs"
+                      />
+                    </div>
+
+                    <div className="space-y-1">
+                      <label className="text-xs font-bold text-slate-700">
+                        Isi Teks Bacaan Bahasa Inggris: <span className="text-rose-500">*</span>
+                      </label>
+                      <Textarea
+                        rows={6}
+                        value={q.passage || ""}
+                        onChange={(e) => updateQuestionField(qIdx, "passage", e.target.value)}
+                        placeholder="Tempelkan atau tulis teks bacaan (paragraf, dialog, pengumuman, cerita pendek) yang harus dibaca siswa..."
+                        className="bg-white text-xs leading-relaxed font-sans"
+                      />
+                      <p className="text-[11px] text-sky-700">
+                        💡 Pisahkan paragraf dengan baris kosong. Siswa membaca teks ini sebelum menjawab pertanyaan.
+                      </p>
+                    </div>
+
+                    {/* Format Jawaban Reading */}
+                    <div className="pt-2 border-t border-sky-100 flex flex-wrap items-center justify-between gap-2">
+                      <span className="text-xs font-bold text-slate-700">Format Jawaban Siswa:</span>
+                      <div className="flex items-center gap-2 text-xs">
+                        <label className="flex items-center gap-1.5 cursor-pointer font-semibold text-slate-700">
+                          <input
+                            type="radio"
+                            name={`readingFormat_${qIdx}`}
+                            checked={q.readingFormat !== "FILL_IN"}
+                            onChange={() => updateQuestionField(qIdx, "readingFormat", "MC")}
+                            className="accent-sky-600"
+                          />
+                          Pilihan Ganda (A-D)
+                        </label>
+                        <label className="flex items-center gap-1.5 cursor-pointer font-semibold text-slate-700 ml-2">
+                          <input
+                            type="radio"
+                            name={`readingFormat_${qIdx}`}
+                            checked={q.readingFormat === "FILL_IN"}
+                            onChange={() => updateQuestionField(qIdx, "readingFormat", "FILL_IN")}
+                            className="accent-sky-600"
+                          />
+                          Isian Singkat
+                        </label>
+                      </div>
+                    </div>
+
+                    {/* Izinkan suara pada teks bacaan */}
+                    <label className="flex cursor-pointer items-start gap-2.5 rounded-lg border-t border-sky-100 pt-2.5">
+                      <input
+                        type="checkbox"
+                        checked={q.allowAudio !== false}
+                        onChange={(e) => updateQuestionField(qIdx, "allowAudio", e.target.checked)}
+                        className="mt-0.5 size-4 accent-sky-600"
+                      />
+                      <span>
+                        <span className="block text-xs font-bold text-slate-700">
+                          Izinkan siswa mendengarkan teks bacaan (suara)
+                        </span>
+                        <span className="block text-[11px] text-slate-500">
+                          {q.allowAudio !== false
+                            ? "Siswa bisa menekan Dengar dan memilih kecepatan. Cocok untuk siswa pemula."
+                            : "Suara dimatikan: siswa harus membaca sendiri. Cocok untuk menguji kemampuan membaca."}
+                        </span>
+                      </span>
+                    </label>
+                  </div>
+                )}
 
                 {/* ───────────── FORM SPESIFIK TIPE LISTENING ───────────── */}
                 {qType === "LISTENING" && (
@@ -673,11 +891,11 @@ export function QuizEditor({
                       </div>
                     ) : (
                       <div className="space-y-2">
-                        <div className="flex items-center justify-between">
+                        <div className="flex flex-wrap items-center justify-between gap-2">
                           <label className="text-xs font-bold text-slate-700">
                             Naskah Narasi / Dialog Bahasa Inggris (Otomatis Dibacakan Native Voice):
                           </label>
-                          <div className="flex items-center gap-2">
+                          <div className="flex flex-wrap items-center gap-2">
                             <select
                               value={q.audioVoice || "en-US"}
                               onChange={(e) => updateQuestionField(qIdx, "audioVoice", e.target.value as any)}
@@ -686,6 +904,7 @@ export function QuizEditor({
                               <option value="en-US">Aksen US (American)</option>
                               <option value="en-GB">Aksen UK (British)</option>
                             </select>
+                            <SpeedToggle value={testSpeed} onChange={changeTestSpeed} />
                             <button
                               type="button"
                               onClick={() => handleTestAudio(qIdx, q.audioScript || "", q.audioVoice || "en-US")}
@@ -747,6 +966,41 @@ export function QuizEditor({
                         </label>
                       </div>
                     </div>
+
+                    {/* Pengaturan bantuan suara untuk siswa */}
+                    <div className="grid gap-3 border-t border-purple-100 pt-2.5 sm:grid-cols-2">
+                      <label className="flex cursor-pointer items-start gap-2.5">
+                        <input
+                          type="checkbox"
+                          checked={q.allowSpeedChange !== false}
+                          onChange={(e) => updateQuestionField(qIdx, "allowSpeedChange", e.target.checked)}
+                          className="mt-0.5 size-4 accent-purple-600"
+                        />
+                        <span>
+                          <span className="block text-xs font-bold text-slate-700">Izinkan siswa memilih kecepatan</span>
+                          <span className="block text-[11px] text-slate-500">
+                            {q.allowSpeedChange !== false
+                              ? "Siswa boleh memakai Lambat / Lebih lambat."
+                              : "Terkunci di kecepatan Normal, seperti ujian listening."}
+                          </span>
+                        </span>
+                      </label>
+                      <div className="space-y-1">
+                        <label className="block text-xs font-bold text-slate-700">Batas jumlah putar audio:</label>
+                        <select
+                          value={q.maxPlays ?? 0}
+                          onChange={(e) => updateQuestionField(qIdx, "maxPlays", Number(e.target.value))}
+                          className="rounded-lg border border-purple-200 bg-white px-2 py-1 text-xs font-semibold text-slate-700"
+                        >
+                          {LISTENING_PLAY_LIMITS.map((n) => (
+                            <option key={n} value={n}>
+                              {n === 0 ? "Tidak terbatas" : `Maksimal ${n}× putar`}
+                            </option>
+                          ))}
+                        </select>
+                        <p className="text-[11px] text-slate-500">Ujian listening resmi biasanya memutar audio 2 kali.</p>
+                      </div>
+                    </div>
                   </div>
                 )}
 
@@ -755,6 +1009,12 @@ export function QuizEditor({
                   <label className="text-xs font-bold text-slate-800">
                     {qType === "WRITING"
                       ? "Instruksi / Topik Tugas Menulis (Prompt):"
+                      : qType === "SPEAKING"
+                      ? q.speakingMode === "RESPOND"
+                        ? "Pertanyaan yang Dijawab Siswa secara Lisan:"
+                        : "Instruksi untuk Siswa:"
+                      : qType === "READING"
+                      ? "Pertanyaan Pemahaman Bacaan (Reading Comprehension Question):"
                       : qType === "LISTENING"
                       ? "Pertanyaan Menyimak (Comprehension Question):"
                       : qType === "FILL_IN"
@@ -767,6 +1027,12 @@ export function QuizEditor({
                     placeholder={
                       qType === "WRITING"
                         ? "misal: Write a paragraph explaining how plants absorb water from the soil..."
+                        : qType === "SPEAKING"
+                        ? q.speakingMode === "RESPOND"
+                          ? "misal: Tell me about your favorite subject and why you like it."
+                          : "misal: Read the sentence below aloud clearly."
+                        : qType === "READING"
+                        ? "misal: According to the text, what do plants release during photosynthesis?"
                         : qType === "LISTENING"
                         ? "misal: Based on the audio, what happened to the temperature of the liquid?"
                         : qType === "FILL_IN"
@@ -779,7 +1045,9 @@ export function QuizEditor({
                 </div>
 
                 {/* ───────────── PILIHAN JAWABAN (JIKA MC ATAU LISTENING MC) ───────────── */}
-                {(qType === "MULTIPLE_CHOICE" || (qType === "LISTENING" && q.listeningFormat !== "FILL_IN")) && (
+                {(qType === "MULTIPLE_CHOICE" ||
+                  (qType === "LISTENING" && q.listeningFormat !== "FILL_IN") ||
+                  (qType === "READING" && q.readingFormat !== "FILL_IN")) && (
                   <div className="space-y-2">
                     <label className="text-xs font-bold text-slate-700">Pilihan Jawaban (A – D):</label>
                     <div className="grid gap-2 sm:grid-cols-2">
@@ -843,6 +1111,166 @@ export function QuizEditor({
                     />
                     <p className="text-[11px] text-slate-500">
                       Siswa akan mendengarkan rekaman dan mengetikkan kata ini secara tepat.
+                    </p>
+                  </div>
+                )}
+
+                {/* ───────────── KUNCI ISIAN (JIKA READING FORMAT FILL_IN) ───────────── */}
+                {qType === "READING" && q.readingFormat === "FILL_IN" && (
+                  <div className="grid gap-3 rounded-xl border border-sky-200 bg-white p-3.5 sm:grid-cols-2">
+                    <div className="space-y-1">
+                      <label className="text-xs font-bold text-sky-900 block">
+                        Kunci Jawaban Utama: <span className="text-rose-500">*</span>
+                      </label>
+                      <Input
+                        value={q.fillInAnswer || ""}
+                        onChange={(e) => updateQuestionField(qIdx, "fillInAnswer", e.target.value)}
+                        placeholder="misal: oxygen"
+                        className="bg-white text-xs font-mono font-bold text-emerald-700"
+                        required
+                      />
+                    </div>
+                    <div className="space-y-1">
+                      <label className="text-xs font-bold text-slate-700 block">Variasi Jawaban Diterima (opsional):</label>
+                      <Input
+                        value={(q.acceptedAnswers || []).join(", ")}
+                        onChange={(e) =>
+                          updateQuestionField(
+                            qIdx,
+                            "acceptedAnswers",
+                            e.target.value.split(",").map((a) => a.trim()).filter(Boolean)
+                          )
+                        }
+                        placeholder="misal: O2, the oxygen (pisahkan koma)"
+                        className="bg-white text-xs font-mono"
+                      />
+                    </div>
+                    <p className="text-[11px] text-slate-500 sm:col-span-2">
+                      Jawaban siswa dicocokkan tanpa membedakan huruf besar/kecil.
+                    </p>
+                  </div>
+                )}
+
+                {qType === "READING" && (
+                  <button
+                    type="button"
+                    onClick={() => addQuestionForSamePassage(qIdx)}
+                    className="rounded-xl border border-dashed border-sky-300 bg-white hover:bg-sky-50 text-sky-800 px-3 py-2 text-xs font-bold transition flex items-center gap-1.5"
+                  >
+                    <Copy className="size-3.5" /> + Pertanyaan lain untuk teks bacaan ini
+                  </button>
+                )}
+
+                {/* ───────────── FORM SPESIFIK TIPE SPEAKING ───────────── */}
+                {qType === "SPEAKING" && (
+                  <div className="space-y-3.5 rounded-xl border border-pink-200 bg-white p-4 shadow-2xs">
+                    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-pink-100 pb-2.5">
+                      <span className="text-xs font-bold text-pink-900 flex items-center gap-1.5">
+                        <Mic className="size-4 text-pink-600" />
+                        Jenis Tugas Berbicara:
+                      </span>
+                      <div className="flex items-center gap-1 rounded-lg bg-pink-50 p-1 border border-pink-200 text-xs">
+                        {([
+                          ["READ_ALOUD", "📢 Baca Nyaring (Read Aloud)"],
+                          ["RESPOND", "💬 Jawab Lisan (Respond)"],
+                        ] as const).map(([mode, label]) => (
+                          <button
+                            key={mode}
+                            type="button"
+                            onClick={() => updateQuestionField(qIdx, "speakingMode", mode)}
+                            className={`rounded px-2.5 py-1 text-xs font-bold transition ${
+                              (q.speakingMode ?? "READ_ALOUD") === mode
+                                ? "bg-pink-600 text-white shadow-2xs"
+                                : "text-pink-700 hover:bg-pink-100"
+                            }`}
+                          >
+                            {label}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {q.speakingMode !== "RESPOND" ? (
+                      <div className="space-y-2">
+                        <div className="flex flex-wrap items-center justify-between gap-2">
+                          <label className="text-xs font-bold text-slate-700">
+                            Kalimat yang Harus Diucapkan Siswa: <span className="text-rose-500">*</span>
+                          </label>
+                          <div className="flex flex-wrap items-center gap-2">
+                            <select
+                              value={q.speakingAccent || "en-US"}
+                              onChange={(e) => updateQuestionField(qIdx, "speakingAccent", e.target.value as "en-US" | "en-GB")}
+                              className="rounded-md border border-pink-200 bg-pink-50 px-2 py-0.5 text-[11px] font-bold text-pink-800"
+                            >
+                              <option value="en-US">Aksen US</option>
+                              <option value="en-GB">Aksen UK</option>
+                            </select>
+                            <SpeedToggle value={testSpeed} onChange={changeTestSpeed} accent="pink" />
+                            <button
+                              type="button"
+                              onClick={() => handleTestAudio(qIdx, q.targetText || "", q.speakingAccent || "en-US")}
+                              className={`rounded-lg px-2.5 py-1 text-xs font-bold transition flex items-center gap-1 ${
+                                playingIdx === qIdx ? "bg-rose-600 text-white animate-pulse" : "bg-pink-600 text-white hover:bg-pink-700 shadow-2xs"
+                              }`}
+                            >
+                              {playingIdx === qIdx ? (<><Square className="size-3" /> Berhenti</>) : (<><Play className="size-3" /> Dengar Contoh</>)}
+                            </button>
+                          </div>
+                        </div>
+                        <Textarea
+                          rows={2}
+                          value={q.targetText || ""}
+                          onChange={(e) => updateQuestionField(qIdx, "targetText", e.target.value)}
+                          placeholder="misal: Plants use sunlight, water, and carbon dioxide to make their own food."
+                          className="bg-white text-xs"
+                        />
+                        <p className="text-[11px] text-pink-700">
+                          💡 Siswa bisa mendengar contoh pelafalan, lalu membaca kalimat ini ke mikrofon. Nilai = persentase kata yang terucap benar dan berurutan (≥ 85% dianggap benar penuh).
+                        </p>
+                      </div>
+                    ) : (
+                      <div className="space-y-3">
+                        <div className="grid gap-3 sm:grid-cols-2">
+                          <div className="space-y-1">
+                            <label className="text-xs font-bold text-slate-700">Jumlah Kata Minimal yang Diucapkan:</label>
+                            <Input
+                              type="number"
+                              min={3}
+                              max={150}
+                              value={q.minWords || 10}
+                              onChange={(e) => updateQuestionField(qIdx, "minWords", Number(e.target.value || 10))}
+                              className="bg-white text-xs"
+                            />
+                          </div>
+                          <div className="space-y-1">
+                            <label className="text-xs font-bold text-slate-700">Kosakata Kunci yang Diharapkan:</label>
+                            <Input
+                              value={(q.targetKeywords || []).join(", ")}
+                              onChange={(e) =>
+                                updateQuestionField(qIdx, "targetKeywords", e.target.value.split(",").map((k) => k.trim()).filter(Boolean))
+                              }
+                              placeholder="misal: science, experiment, because (pisahkan koma)"
+                              className="bg-white text-xs"
+                            />
+                          </div>
+                        </div>
+                        <div className="space-y-1">
+                          <label className="text-xs font-bold text-slate-700">Contoh Jawaban Ideal (acuan guru, opsional):</label>
+                          <Textarea
+                            rows={2}
+                            value={q.modelAnswer || ""}
+                            onChange={(e) => updateQuestionField(qIdx, "modelAnswer", e.target.value)}
+                            placeholder="misal: My favorite subject is science because I like doing experiments..."
+                            className="bg-white text-xs"
+                          />
+                        </div>
+                        <p className="text-[11px] text-pink-700">
+                          💡 Nilai dihitung seperti Writing: 50% dari tercapainya jumlah kata minimal, 50% dari kata kunci yang terucap.
+                        </p>
+                      </div>
+                    )}
+                    <p className="rounded-lg bg-slate-50 px-2.5 py-1.5 text-[11px] text-slate-600">
+                      Siswa butuh mikrofon dan browser Google Chrome atau Microsoft Edge. Ucapan diubah menjadi teks oleh fitur pengenalan suara browser. Jawaban yang diketik (bukan diucapkan) dinilai 0.
                     </p>
                   </div>
                 )}
@@ -1229,16 +1657,22 @@ export function MaterialManagementView({
                     </div>
                     <p className="text-xs font-medium text-slate-500 italic">{previewMaterial.summary}</p>
                     <div className="space-y-3 text-sm leading-relaxed text-slate-700 pt-2 border-t border-slate-100">
-                      {previewMaterial.content.split("\n\n").map((p, i) => (
-                        <p key={i}>{p}</p>
-                      ))}
+                      {previewMaterial.content.split(/\n\s*\n/).map((p, i) =>
+                        /^#{2,3}\s/.test(p) ? (
+                          <h5 key={i} className="pt-2 font-[family-name:var(--font-display)] text-base font-semibold text-ink">
+                            {p.replace(/^#{2,3}\s+/, "")}
+                          </h5>
+                        ) : (
+                          <p key={i} className="whitespace-pre-line">{p}</p>
+                        ),
+                      )}
                     </div>
                   </div>
 
                   {/* Kuis Interaktif */}
                   {previewMaterial.quizzes.length > 0 ? (
                     previewMaterial.quizzes.map((quiz) => {
-                      const questions = parseJson<{ q: string; options: string[] }[]>(quiz.questions, []);
+                      const questions = parseJson<QuizQuestion[]>(quiz.questions, []);
                       return (
                         <div key={quiz.id} className="rounded-2xl border border-amber-200 bg-amber-50/20 p-5 shadow-xs space-y-4">
                           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-amber-100 pb-3">
@@ -1253,25 +1687,11 @@ export function MaterialManagementView({
 
                           <ol className="space-y-4 text-xs">
                             {questions.map((q, idx) => (
-                              <li key={idx} className="space-y-2">
-                                <p className="font-bold text-ink text-sm">
-                                  {idx + 1}. {q.q}
-                                </p>
-                                <div className="grid gap-2 sm:grid-cols-3">
-                                  {q.options.map((opt, optIdx) => (
-                                    <div
-                                      key={optIdx}
-                                      className="rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs font-semibold text-slate-700 shadow-2xs"
-                                    >
-                                      {opt}
-                                    </div>
-                                  ))}
-                                </div>
-                              </li>
+                              <QuestionPreview key={idx} q={q} idx={idx} prev={questions[idx - 1]} />
                             ))}
                           </ol>
                           <p className="text-[11px] text-amber-700 italic border-t border-amber-100 pt-2">
-                            * Di akun siswa, opsi di atas dapat dipilih dan dikirim langsung untuk mendapatkan penilaian instan.
+                            * Jawaban benar ditandai hijau (hanya terlihat oleh guru). Di akun siswa, soal dikerjakan langsung dan dinilai otomatis.
                           </p>
                         </div>
                       );
@@ -1327,5 +1747,63 @@ export function MaterialManagementView({
         </div>
       )}
     </div>
+  );
+}
+
+/** Pratinjau satu soal di panel guru, aman untuk semua tipe soal (pilihan ganda, isian, bacaan, dll.). */
+function QuestionPreview({ q, idx, prev }: { q: QuizQuestion; idx: number; prev?: QuizQuestion }) {
+  const type = q.type || "MULTIPLE_CHOICE";
+  const options = Array.isArray(q.options) ? q.options.filter((o) => String(o ?? "").trim() !== "") : [];
+  const isFillIn =
+    type === "FILL_IN" ||
+    (type === "READING" && q.readingFormat === "FILL_IN") ||
+    (type === "LISTENING" && q.listeningFormat === "FILL_IN");
+  const showSection = Boolean(q.section) && q.section !== prev?.section;
+  const showPassage = type === "READING" && Boolean(q.passage) && !(prev?.type === "READING" && prev.passage === q.passage);
+  return (
+    <>
+      {showSection && (
+        <li className="list-none pt-1 text-[11px] font-black uppercase tracking-wider text-amber-700">{q.section}</li>
+      )}
+      <li className="space-y-2">
+        {showPassage && (
+          <div className="rounded-xl border border-sky-200 bg-white p-3 text-xs leading-relaxed text-slate-600">
+            <p className="mb-1 font-bold text-sky-900">Teks bacaan{q.passageTitle ? `: ${q.passageTitle}` : ""}</p>
+            <p className="line-clamp-4 whitespace-pre-line">{q.passage}</p>
+          </div>
+        )}
+        <p className="whitespace-pre-line font-bold text-ink text-sm">
+          {idx + 1}. {q.q}
+        </p>
+        {isFillIn ? (
+          <div className="rounded-xl border border-mint-200 bg-mint-50/60 px-3.5 py-2 text-xs text-mint-800">
+            <span className="font-bold">Kunci:</span> {q.fillInAnswer || "—"}
+            {q.acceptedAnswers && q.acceptedAnswers.length > 0 && (
+              <span className="text-mint-700"> · +{q.acceptedAnswers.length} variasi jawaban diterima</span>
+            )}
+            {q.fillInHint && <span className="block text-slate-500">Petunjuk: {q.fillInHint}</span>}
+          </div>
+        ) : options.length > 0 ? (
+          <div className="grid gap-2 sm:grid-cols-3">
+            {options.map((opt, optIdx) => (
+              <div
+                key={optIdx}
+                className={cn(
+                  "rounded-xl border px-3.5 py-2.5 text-xs font-semibold shadow-2xs",
+                  optIdx === q.answer ? "border-mint-300 bg-mint-50 text-mint-800" : "border-slate-200 bg-white text-slate-700",
+                )}
+              >
+                {opt}
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p className="rounded-xl border border-dashed border-slate-200 bg-white px-3.5 py-2 text-xs text-slate-500">
+            {type === "WRITING" ? "Jawaban tulisan terbuka" : type === "SPEAKING" ? "Jawaban lisan (pengenalan suara)" : "Jawaban terbuka"}
+            {q.modelAnswer ? ` · Contoh: ${q.modelAnswer}` : ""}
+          </p>
+        )}
+      </li>
+    </>
   );
 }

@@ -5,6 +5,8 @@ import bcrypt from "bcryptjs";
 import { PrismaBetterSqlite3 } from "@prisma/adapter-better-sqlite3";
 import { PrismaClient } from "../src/generated/prisma/client";
 import { awardedLevel, finalScore, oralScore, simulationScore } from "../src/lib/program";
+import { seedRiseUp } from "./seed-rise-up.mjs";
+import { seedModulAjar } from "./seed-modul-ajar.mjs";
 
 const file = (process.env.DATABASE_URL ?? "file:./prisma/dev.db").replace(/^file:/, "");
 const db = new PrismaClient({ adapter: new PrismaBetterSqlite3({ url: path.isAbsolute(file) ? file : path.join(process.cwd(), file) }) });
@@ -335,6 +337,12 @@ async function main() {
     { title: "Asesmen Duta Inggris periode November", body: "Pendaftaran asesmen level Bronze/Silver/Gold dibuka sampai 5 November 2026. Jadwal asesmen 12–14 November di Ruang Guru.", audience: "TEACHER", authorId: admin.id },
     { title: "English Club Sabtu ini: Storytelling", body: "English Club Sabtu, 08.00–09.30 di Aula. Tema: storytelling dengan properti. Bawa satu benda favoritmu!", audience: "ALL", authorId: admin.id },
   ] });
+
+  // Kurikulum inti: Rise Up! Teens 1 (10 unit + Progress Test)
+  const riseUp = await seedRiseUp(db);
+  console.log(`Rise Up! Teens 1: ${riseUp.total} unit materi inti.`);
+  const modul = await seedModulAjar(db);
+  console.log(`Modul Ajar: ${modul.total} RPP induk dari admin.`);
 
   console.log("Selesai. Akun: admin@almadany.sch.id / admin123 · fitri@almadany.sch.id / guru123 · aisyah@siswa.almadany.sch.id / siswa123");
 }

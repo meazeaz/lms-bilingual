@@ -1,0 +1,422 @@
+{
+  "unit": 6,
+  "title": "This T-Shirt Is Too Big",
+  "summary": "Siswa belajar mendeskripsikan pakaian (ukuran, warna, motif), memberi alasan dengan too/enough, dan menanyakan harga dengan How much does/do … cost?",
+  "content": "## Tujuan Belajar\n\n• Menyebutkan dan mendeskripsikan pakaian berdasarkan ukuran, warna, dan motif.\n• Memberi alasan mengapa pakaian cocok atau tidak cocok (too big, long enough).\n• Membeli pakaian dan menanyakan harga dengan \"How much …?\".\n\n## Kosakata Inti\n\nKosakata unit ini adalah nama pakaian (hoodie, school uniform, jacket, T-shirt, pants, skirt, dress, shorts, socks, jeans, shirt) dan kata sifat untuk mendeskripsikannya: ukuran (big, small, loose, long, short), motif (checked = kotak-kotak, spotted = totol-totol, striped = bergaris, floral = motif bunga), dan warna (light = muda/terang, dark = tua/gelap). Contoh:\n\nI wear my school uniform from Monday to Thursday.\nThis checked hoodie is warm and comfortable.\nMy sister has a long floral skirt and a pretty dress.\n\n## Tata Bahasa: How much does/do … cost? & too / enough\n\nUntuk menanyakan harga, pakai pola: How much + does/do + benda + cost?\ndoes → untuk satu benda (the jacket, this T-shirt)\ndo → untuk benda jamak atau berpasangan (the shoes, these pants, jeans, socks)\n\nJawabannya: The + benda + costs/cost + harga. Benda tunggal memakai \"costs\", benda jamak memakai \"cost\". Di dalam pertanyaan, \"cost\" selalu bentuk dasar (tanpa -s). Untuk memberi alasan, pakai too + kata sifat (ada masalah: too big) atau kata sifat + enough (sudah cukup/pas: long enough).\n\nHow much does the yellow jacket cost?\nThe yellow jacket costs $24.99.\nHow much do these striped socks cost?\nThe striped socks cost $5.99.\nThis T-shirt is too big for me.\nThe dress is long enough.\n\n## Contoh Percakapan\n\nSeller: Good morning! Can I help you?\nNadia: Yes, please. How much does this checked hoodie cost?\nSeller: It costs $18.99.\nNadia: Hmm, I think it's too big. Do you have a small one?\nSeller: Yes, here you are. Try it on.\nNadia: It's big enough and very comfortable. I like it!\nNadia: And how much do these athletic shorts cost?\nSeller: They cost $12.99.\nNadia: Great. I'll take the hoodie and the shorts, please.\n\n## Ayo Berlatih\n\nWhat are you wearing today?\nContoh: I'm wearing my school uniform and black shoes.\n\nDo you like checked shirts? Why or why not?\nContoh: Yes, I do. I think they look cool and comfortable.\n\nHow much does your favorite T-shirt cost?\nContoh: My favorite T-shirt costs $10.99.\n\nAre your old shoes too small for you now?\nContoh: Yes, they are. They are too small for my feet.\n\n## Tips\n\n• Ingat pasangannya: does + benda tunggal, do + benda jamak. Pants, jeans, shorts, dan socks selalu dianggap jamak.\n\n• Saat melihat toko (atau toko online), latih dirimu menyebut harga dalam bahasa Inggris, misalnya \"The jeans cost $25.99.\" dan \"This shirt is too long for me.\"",
+  "vocabulary": [
+    {
+      "en": "checked hoodie",
+      "id": "hoodie kotak-kotak"
+    },
+    {
+      "en": "school uniform",
+      "id": "seragam sekolah"
+    },
+    {
+      "en": "spotted umbrella",
+      "id": "payung totol-totol"
+    },
+    {
+      "en": "big shoes",
+      "id": "sepatu besar (kebesaran)"
+    },
+    {
+      "en": "yellow jacket",
+      "id": "jaket kuning"
+    },
+    {
+      "en": "small clothes",
+      "id": "pakaian kecil (kekecilan)"
+    },
+    {
+      "en": "loose T-shirt",
+      "id": "kaus longgar"
+    },
+    {
+      "en": "comfortable pants",
+      "id": "celana panjang yang nyaman"
+    },
+    {
+      "en": "long",
+      "id": "panjang"
+    },
+    {
+      "en": "short",
+      "id": "pendek"
+    },
+    {
+      "en": "floral skirt",
+      "id": "rok bermotif bunga"
+    },
+    {
+      "en": "pretty dress",
+      "id": "gaun cantik"
+    },
+    {
+      "en": "athletic shorts",
+      "id": "celana pendek olahraga"
+    },
+    {
+      "en": "striped socks",
+      "id": "kaus kaki bergaris"
+    },
+    {
+      "en": "light",
+      "id": "muda / terang (warna)"
+    },
+    {
+      "en": "dark",
+      "id": "tua / gelap (warna)"
+    },
+    {
+      "en": "jeans",
+      "id": "celana jin"
+    },
+    {
+      "en": "shirt",
+      "id": "kemeja"
+    }
+  ],
+  "quiz": {
+    "title": "Progress Test Unit 6: This T-Shirt Is Too Big",
+    "questions": [
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"loose T-shirt\".",
+        "options": [
+          "shoes that are too large",
+          "a shirt that is not tight",
+          "clothes students must wear at school",
+          "a hoodie with a square pattern"
+        ],
+        "answer": 1
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"checked hoodie\".",
+        "options": [
+          "trousers that feel good to wear",
+          "a shirt that is not tight",
+          "something you use in the rain with dots on it",
+          "a hoodie with a square pattern"
+        ],
+        "answer": 3
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"spotted umbrella\".",
+        "options": [
+          "a hoodie with a square pattern",
+          "shoes that are too large",
+          "something you use in the rain with dots on it",
+          "clothes students must wear at school"
+        ],
+        "answer": 2
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"comfortable pants\".",
+        "options": [
+          "trousers that feel good to wear",
+          "a shirt that is not tight",
+          "something you use in the rain with dots on it",
+          "shoes that are too large"
+        ],
+        "answer": 0
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"school uniform\".",
+        "options": [
+          "trousers that feel good to wear",
+          "a hoodie with a square pattern",
+          "clothes students must wear at school",
+          "a shirt that is not tight"
+        ],
+        "answer": 2
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"big shoes\".",
+        "options": [
+          "clothes students must wear at school",
+          "shoes that are too large",
+          "trousers that feel good to wear",
+          "something you use in the rain with dots on it"
+        ],
+        "answer": 1
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "I wear my _____ when it rains.",
+        "fillInAnswer": "umbrella",
+        "acceptedAnswers": [],
+        "fillInHint": "Pilih dari kotak kata: yellow jacket / spotted umbrella / checked hoodie / small clothes / comfortable pants / school uniform / loose T-shirt / big shoes / umbrella"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "My brother wears a _____ to school every day.",
+        "fillInAnswer": "school uniform",
+        "acceptedAnswers": [],
+        "fillInHint": "Pilih dari kotak kata: yellow jacket / spotted umbrella / checked hoodie / small clothes / comfortable pants / school uniform / loose T-shirt / big shoes / umbrella"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "These _____ are too tiny for me now.",
+        "fillInAnswer": "small clothes",
+        "acceptedAnswers": [],
+        "fillInHint": "Pilih dari kotak kata: yellow jacket / spotted umbrella / checked hoodie / small clothes / comfortable pants / school uniform / loose T-shirt / big shoes / umbrella"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "My dad likes wearing _____ because they feel soft.",
+        "fillInAnswer": "comfortable pants",
+        "acceptedAnswers": [],
+        "fillInHint": "Pilih dari kotak kata: yellow jacket / spotted umbrella / checked hoodie / small clothes / comfortable pants / school uniform / loose T-shirt / big shoes / umbrella"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "The _____ is warm and has a square pattern.",
+        "fillInAnswer": "checked hoodie",
+        "acceptedAnswers": [],
+        "fillInHint": "Pilih dari kotak kata: yellow jacket / spotted umbrella / checked hoodie / small clothes / comfortable pants / school uniform / loose T-shirt / big shoes / umbrella"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "She puts on her _____ when it is cold outside.",
+        "fillInAnswer": "yellow jacket",
+        "acceptedAnswers": [],
+        "fillInHint": "Pilih dari kotak kata: yellow jacket / spotted umbrella / checked hoodie / small clothes / comfortable pants / school uniform / loose T-shirt / big shoes / umbrella"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "The _____ are too large for my feet.",
+        "fillInAnswer": "big shoes",
+        "acceptedAnswers": [],
+        "fillInHint": "Pilih dari kotak kata: yellow jacket / spotted umbrella / checked hoodie / small clothes / comfortable pants / school uniform / loose T-shirt / big shoes / umbrella"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "He wears a _____ because it is not tight.",
+        "fillInAnswer": "loose T-shirt",
+        "acceptedAnswers": [
+          "loose t shirt",
+          "loose tshirt"
+        ],
+        "fillInHint": "Pilih dari kotak kata: yellow jacket / spotted umbrella / checked hoodie / small clothes / comfortable pants / school uniform / loose T-shirt / big shoes / umbrella"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "My sister carries a _____ with black spots.",
+        "fillInAnswer": "spotted umbrella",
+        "acceptedAnswers": [],
+        "fillInHint": "Pilih dari kotak kata: yellow jacket / spotted umbrella / checked hoodie / small clothes / comfortable pants / school uniform / loose T-shirt / big shoes / umbrella"
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 2 · Language",
+        "q": "Circle the correct word.\nHow much _____ this jacket cost?",
+        "options": [
+          "does",
+          "do"
+        ],
+        "answer": 0,
+        "explanation": "\"this jacket\" = satu benda → does."
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 2 · Language",
+        "q": "Circle the correct word.\nThese pants _____ $19.99.",
+        "options": [
+          "cost",
+          "costs"
+        ],
+        "answer": 0,
+        "explanation": "\"pants\" selalu jamak → cost (tanpa -s)."
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 2 · Language",
+        "q": "Circle the correct word.\nHow much _____ the floral dress cost?",
+        "options": [
+          "does",
+          "do"
+        ],
+        "answer": 0,
+        "explanation": "\"the floral dress\" = satu benda → does."
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 2 · Language",
+        "q": "Circle the correct word.\nThe small shoes _____ $12.99.",
+        "options": [
+          "cost",
+          "costs"
+        ],
+        "answer": 0,
+        "explanation": "\"shoes\" jamak → cost (tanpa -s)."
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 2 · Language",
+        "q": "Circle the correct word.\nHow much _____ these striped socks cost?",
+        "options": [
+          "does",
+          "do"
+        ],
+        "answer": 1,
+        "explanation": "\"Socks\" berbentuk jamak, jadi memakai do: How much do these striped socks cost? (Catatan: kunci PDF asli menulis 'does', dikoreksi karena subjeknya jamak.)"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Unscramble the words to make a correct question or sentence:\ncost? / much / how / the / does / jacket",
+        "fillInAnswer": "How much does the jacket cost?",
+        "acceptedAnswers": [
+          "How much does the jacket cost"
+        ],
+        "fillInHint": "Susun kata-kata ini menjadi kalimat lengkap (diawali huruf kapital, diakhiri tanda baca): cost? / much / how / the / does / jacket"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Unscramble the words to make a correct question or sentence:\n$14.99. / costs / T-shirt / the / blue",
+        "fillInAnswer": "The blue T-shirt costs $14.99.",
+        "acceptedAnswers": [
+          "The blue T-shirt costs $14.99",
+          "The blue T shirt costs $14.99.",
+          "The blue T shirt costs $14.99",
+          "The blue tshirt costs $14.99.",
+          "The blue tshirt costs $14.99"
+        ],
+        "fillInHint": "Susun kata-kata ini menjadi kalimat lengkap (diawali huruf kapital, diakhiri tanda baca): $14.99. / costs / T-shirt / the / blue"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Unscramble the words to make a correct question or sentence:\ndo / shoes / much / how / these / cost?",
+        "fillInAnswer": "How much do these shoes cost?",
+        "acceptedAnswers": [
+          "How much do these shoes cost"
+        ],
+        "fillInHint": "Susun kata-kata ini menjadi kalimat lengkap (diawali huruf kapital, diakhiri tanda baca): do / shoes / much / how / these / cost?"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Unscramble the words to make a correct question or sentence:\ncost / pants / the / $29.99. / checked",
+        "fillInAnswer": "The checked pants cost $29.99.",
+        "acceptedAnswers": [
+          "The checked pants cost $29.99"
+        ],
+        "fillInHint": "Susun kata-kata ini menjadi kalimat lengkap (diawali huruf kapital, diakhiri tanda baca): cost / pants / the / $29.99. / checked"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Unscramble the words to make a correct question or sentence:\ndoes / dress / much / how / the / long / cost?",
+        "fillInAnswer": "How much does the long dress cost?",
+        "acceptedAnswers": [
+          "How much does the long dress cost"
+        ],
+        "fillInHint": "Susun kata-kata ini menjadi kalimat lengkap (diawali huruf kapital, diakhiri tanda baca): does / dress / much / how / the / long / cost?"
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "Why does Mia need a new jacket?",
+        "passageTitle": "Buying a New Jacket",
+        "passage": "Mia needs a new jacket for winter because her old one is too small. On Saturday, she goes to a clothing store with her dad. First, she tries on a light green jacket, but it is too small. Then she tries on a dark blue jacket. It fits well and feels warm and comfortable. Mia also tries on a pair of big shoes, but they are too big, so she puts them back. She asks the worker, \"How much does this jacket cost?\" The worker smiles and says, \"It costs thirty dollars.\" Mia's dad buys the jacket for her. She is happy and wears it home because she likes it so much.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "options": [
+          "Because her old jacket is too big.",
+          "Because her old jacket is too small.",
+          "Because she wants a jacket for school.",
+          "Because her old jacket is too dark."
+        ],
+        "answer": 1
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "What is wrong with the light green jacket?",
+        "passageTitle": "Buying a New Jacket",
+        "passage": "Mia needs a new jacket for winter because her old one is too small. On Saturday, she goes to a clothing store with her dad. First, she tries on a light green jacket, but it is too small. Then she tries on a dark blue jacket. It fits well and feels warm and comfortable. Mia also tries on a pair of big shoes, but they are too big, so she puts them back. She asks the worker, \"How much does this jacket cost?\" The worker smiles and says, \"It costs thirty dollars.\" Mia's dad buys the jacket for her. She is happy and wears it home because she likes it so much.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "options": [
+          "It is too big.",
+          "It is too expensive.",
+          "It is too dark.",
+          "It is too small."
+        ],
+        "answer": 3
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "Why does Mia put the shoes back?",
+        "passageTitle": "Buying a New Jacket",
+        "passage": "Mia needs a new jacket for winter because her old one is too small. On Saturday, she goes to a clothing store with her dad. First, she tries on a light green jacket, but it is too small. Then she tries on a dark blue jacket. It fits well and feels warm and comfortable. Mia also tries on a pair of big shoes, but they are too big, so she puts them back. She asks the worker, \"How much does this jacket cost?\" The worker smiles and says, \"It costs thirty dollars.\" Mia's dad buys the jacket for her. She is happy and wears it home because she likes it so much.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "options": [
+          "Because they are too big for her feet.",
+          "Because they are too small for her feet.",
+          "Because they cost too much.",
+          "Because she doesn't like the color."
+        ],
+        "answer": 0
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "How much does the dark blue jacket cost?",
+        "passageTitle": "Buying a New Jacket",
+        "passage": "Mia needs a new jacket for winter because her old one is too small. On Saturday, she goes to a clothing store with her dad. First, she tries on a light green jacket, but it is too small. Then she tries on a dark blue jacket. It fits well and feels warm and comfortable. Mia also tries on a pair of big shoes, but they are too big, so she puts them back. She asks the worker, \"How much does this jacket cost?\" The worker smiles and says, \"It costs thirty dollars.\" Mia's dad buys the jacket for her. She is happy and wears it home because she likes it so much.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "options": [
+          "It costs thirteen dollars.",
+          "It costs twenty dollars.",
+          "It costs thirty dollars.",
+          "It costs forty dollars."
+        ],
+        "answer": 2
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "How does Mia feel at the end of the story?",
+        "passageTitle": "Buying a New Jacket",
+        "passage": "Mia needs a new jacket for winter because her old one is too small. On Saturday, she goes to a clothing store with her dad. First, she tries on a light green jacket, but it is too small. Then she tries on a dark blue jacket. It fits well and feels warm and comfortable. Mia also tries on a pair of big shoes, but they are too big, so she puts them back. She asks the worker, \"How much does this jacket cost?\" The worker smiles and says, \"It costs thirty dollars.\" Mia's dad buys the jacket for her. She is happy and wears it home because she likes it so much.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "options": [
+          "She feels tired.",
+          "She feels happy.",
+          "She feels sad.",
+          "She feels angry."
+        ],
+        "answer": 1
+      }
+    ]
+  },
+  "notes": "PERLU DICEK GURU: Part 2A no. 5 \"How much does / do these striped socks cost?\" — PDF ANSWER melingkari \"does\" (sudah diperbesar untuk memastikan). Secara tata bahasa yang benar adalah \"do\" (these striped socks = jamak; lihat juga Language Tips TG: plural → do … cost). Mengikuti brief, kunci di JSON tetap mengikuti PDF (answer = \"does\"), tetapi sebaiknya diganti ke \"do\" (answer: 1). Part 1B no. 1 \"I wear my _____ when it rains.\": kunci PDF \"umbrella\"; \"spotted umbrella\" juga masuk akal tetapi dipakai di no. 9, jadi hanya \"umbrella\" yang diterima. Part 2B (unscramble) dijadikan FILL_IN dengan kalimat utuh; diterima juga tanpa tanda baca akhir (pencocokan tidak peka huruf besar/kecil). Part 3 aslinya menjawab dengan kalimat lengkap (jawaban bebas); karena pencocokan isian harus persis sama, diubah menjadi READING MC dengan opsi kalimat lengkap — opsi benar = kalimat kunci PDF (Because her old jacket is too small. / It is too small. / Because they are too big for her feet. / It costs thirty dollars. / She feels happy.). Kata \"umbrella\" di kotak kata tidak termasuk Key Vocabulary TG sehingga tidak dimasukkan ke vocabulary. | DIKOREKSI: Part 2A no. 5 memakai 'do' (subjek jamak), bukan 'does' seperti di PDF."
+}

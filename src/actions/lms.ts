@@ -21,8 +21,9 @@ import {
   STUDENT_TARGET,
   type Level,
 } from "@/lib/program";
-import { dayKey, parseJson } from "@/lib/utils";
+import { answerMatches, dayKey, parseJson } from "@/lib/utils";
 import type { QuizQuestion } from "@/types/quiz";
+import { readAloudScore, respondScore } from "@/lib/speaking";
 
 // ───────────── Guru: laporan ELITE harian ─────────────
 export async function saveDailyLog(_prev: ActionState, fd: FormData): Promise<ActionState> {
@@ -147,12 +148,42 @@ export async function submitQuiz(_prev: ActionState, fd: FormData): Promise<Acti
       const isCorrect = ansNum === q.answer;
       if (isCorrect) totalEarned += 1;
       recordedAnswers.push({ questionIndex: i, type, answer: ansNum, isCorrect });
+    } else if (type === "READING") {
+      if (q.readingFormat === "FILL_IN") {
+        const textAns = String(rawVal || "").trim();
+        if (!textAns) return failure(`Soal reading nomor ${i + 1} belum diisi.`);
+        const isCorrect = answerMatches(textAns, [q.fillInAnswer, ...(q.acceptedAnswers || [])]);
+        if (isCorrect) totalEarned += 1;
+        recordedAnswers.push({ questionIndex: i, type, format: "FILL_IN", answer: textAns, isCorrect });
+      } else {
+        if (rawVal == null) return failure(`Soal reading nomor ${i + 1} belum dijawab.`);
+        const ansNum = Number(rawVal);
+        const isCorrect = ansNum === q.answer;
+        if (isCorrect) totalEarned += 1;
+        recordedAnswers.push({ questionIndex: i, type, format: "MC", answer: ansNum, isCorrect });
+      }
+    } else if (type === "SPEAKING") {
+      const spoken = String(rawVal || "").trim();
+      if (!spoken) return failure(`Soal speaking nomor ${i + 1} belum dijawab. Tekan tombol mikrofon lalu ucapkan jawabanmu.`);
+      const method = fd.get(`q${i}_method`) === "typed" ? "typed" : "speech";
+      // Jawaban speaking yang diketik (bukan diucapkan) dinilai 0; teksnya tetap disimpan untuk guru.
+      const typed = method === "typed";
+      if (q.speakingMode === "RESPOND") {
+        const r = respondScore(spoken, q.minWords || 10, q.targetKeywords || []);
+        const earned = typed ? 0 : r.score;
+        totalEarned += earned;
+        recordedAnswers.push({ questionIndex: i, type, mode: "RESPOND", answer: spoken, method, wordCount: r.wordCount, score: Math.round(earned * 100) });
+      } else {
+        const r = readAloudScore(q.targetText || "", spoken);
+        const earned = typed ? 0 : r.score;
+        totalEarned += earned;
+        recordedAnswers.push({ questionIndex: i, type, mode: "READ_ALOUD", answer: spoken, method, accuracy: Math.round(r.accuracy * 100), score: Math.round(earned * 100) });
+      }
     } else if (type === "LISTENING") {
       if (q.listeningFormat === "FILL_IN") {
         const textAns = String(rawVal || "").trim();
         if (!textAns) return failure(`Soal listening nomor ${i + 1} belum diisi.`);
-        const target = String(q.fillInAnswer || "").trim().toLowerCase();
-        const isCorrect = textAns.toLowerCase() === target;
+        const isCorrect = answerMatches(textAns, [q.fillInAnswer, ...(q.acceptedAnswers || [])]);
         if (isCorrect) totalEarned += 1;
         recordedAnswers.push({ questionIndex: i, type, format: "FILL_IN", answer: textAns, isCorrect });
       } else {
@@ -205,9 +236,7 @@ export async function submitQuiz(_prev: ActionState, fd: FormData): Promise<Acti
         .map((a) => String(a || "").trim())
         .filter(Boolean);
 
-      const isCorrect = q.caseSensitive
-        ? accepted.includes(textAns)
-        : accepted.map((a) => a.toLowerCase()).includes(textAns.toLowerCase());
+      const isCorrect = answerMatches(textAns, accepted, Boolean(q.caseSensitive));
 
       if (isCorrect) totalEarned += 1;
       recordedAnswers.push({
@@ -857,149 +886,7 @@ export async function approveAllReflections() {
   revalidatePath("/guru/refleksi");
 }
 
-// ───────────── Sprint 3: RPP Bilingual (Lampiran 11) ─────────────
-export async function saveLessonPlan(_prev: ActionState, fd: FormData): Promise<ActionState> {
-  const { teacher } = await requireTeacher();
-  const id = String(fd.get("id") || "").trim() || null;
-  const title = String(fd.get("title") || "").trim();
-  const subject = String(fd.get("subject") || "").trim();
-  const className = String(fd.get("className") || "").trim();
-  const dateStr = String(fd.get("date") || "");
-  const targetLevel = (String(fd.get("targetLevel") || teacher.ambassadorLevel || "BRONZE") as Level);
-  const rawSkills = fd.getAll("cambridgeSkills");
-  const objectives = String(fd.get("objectives") || "").trim();
-  const englishSentences = String(fd.get("englishSentences") || "").trim();
-  const vocabulary = String(fd.get("vocabulary") || "").trim() || null;
-  const opening = String(fd.get("opening") || "").trim();
-  const mainActivity = String(fd.get("mainActivity") || "").trim();
-  const closing = String(fd.get("closing") || "").trim();
-  const assessmentPlan = String(fd.get("assessmentPlan") || "").trim() || null;
-  const postReflection = String(fd.get("postReflection") || "").trim() || null;
-  const submitType = String(fd.get("status") || "DIAJUKAN");
-
-  if (!title || !subject || !className || !dateStr) {
-    return failure("Judul RPP, mata pelajaran, kelas, dan tanggal pelaksanaan wajib diisi.");
-  }
-  if (!objectives || !opening || !mainActivity || !closing) {
-    return failure("Tujuan pembelajaran dan skenario (pembuka, kegiatan inti, penutup) wajib diisi lengkap.");
-  }
-
-  // Validasi minimal 3 kalimat Inggris
-  const sentenceLines = englishSentences
-    .split("\n")
-    .map((s) => s.trim())
-    .filter((s) => s.length > 0);
-  if (sentenceLines.length < 3) {
-    return failure(`Minimal 3 kalimat bahasa Inggris wajib dicantumkan dalam RPP. Saat ini baru ada ${sentenceLines.length} kalimat.`);
-  }
-
-  const cambridgeSkills = JSON.stringify(rawSkills.map(String));
-  const planLevel = targetLevel === "NONE" ? "BRONZE" : targetLevel;
-  const status = submitType === "DRAF" ? "DRAF" : "DIAJUKAN";
-
-  if (id) {
-    const existing = await db.lessonPlan.findUnique({ where: { id } });
-    if (!existing || existing.teacherId !== teacher.id) {
-      return failure("RPP tidak ditemukan atau Anda tidak memiliki akses.");
-    }
-    await db.lessonPlan.update({
-      where: { id },
-      data: {
-        title,
-        subject,
-        className,
-        date: new Date(dateStr),
-        targetLevel: planLevel,
-        cambridgeSkills,
-        objectives,
-        englishSentences,
-        vocabulary,
-        opening,
-        mainActivity,
-        closing,
-        assessmentPlan,
-        postReflection,
-        status,
-        reviewNote: null,
-      },
-    });
-  } else {
-    await db.lessonPlan.create({
-      data: {
-        teacherId: teacher.id,
-        title,
-        subject,
-        className,
-        date: new Date(dateStr),
-        targetLevel: planLevel,
-        cambridgeSkills,
-        objectives,
-        englishSentences,
-        vocabulary,
-        opening,
-        mainActivity,
-        closing,
-        assessmentPlan,
-        postReflection,
-        status,
-      },
-    });
-  }
-
-  revalidatePath("/guru/rpp");
-  revalidatePath("/admin/verifikasi");
-  return success(status === "DRAF" ? "Draf RPP berhasil disimpan." : "RPP berhasil diajukan ke Tim EDT untuk direview.");
-}
-
-export async function deleteLessonPlan(fd: FormData) {
-  const { teacher } = await requireTeacher();
-  const id = String(fd.get("id"));
-  const plan = await db.lessonPlan.findUnique({ where: { id } });
-  if (plan && plan.teacherId === teacher.id && (plan.status === "DRAF" || plan.status === "REVISI")) {
-    await db.lessonPlan.delete({ where: { id } });
-  }
-  revalidatePath("/guru/rpp");
-}
-
-export async function reviewLessonPlan(fd: FormData) {
-  await requireAdmin();
-  const id = String(fd.get("id"));
-  const decision = String(fd.get("decision")); // 'approve' | 'revision'
-  const note = String(fd.get("reviewNote") || "").trim() || null;
-
-  const status = decision === "approve" ? "DISETUJUI" : "REVISI";
-  const plan = await db.lessonPlan.update({
-    where: { id },
-    data: { status, reviewNote: note },
-  });
-
-  if (status === "DISETUJUI") {
-    await syncTeacherBadges(plan.teacherId);
-  }
-
-  revalidatePath("/admin/verifikasi");
-  revalidatePath("/guru/rpp");
-  revalidatePath(`/guru/rpp/${id}`);
-  revalidatePath(`/admin/guru/${plan.teacherId}`);
-}
-
-export async function approveAllLessonPlans() {
-  await requireAdmin();
-  const pending = await db.lessonPlan.findMany({ where: { status: "DIAJUKAN" } });
-  if (pending.length === 0) return;
-
-  await db.lessonPlan.updateMany({
-    where: { status: "DIAJUKAN" },
-    data: { status: "DISETUJUI" },
-  });
-
-  for (const tid of new Set(pending.map((p) => p.teacherId))) {
-    await syncTeacherBadges(tid);
-  }
-
-  revalidatePath("/admin/verifikasi");
-  revalidatePath("/guru/rpp");
-}
+// RPP Bilingual (Lampiran 11) lama dihapus: RPP kini berupa Modul Ajar yang disusun Tim EDT (src/actions/modul-ajar.ts).
 
 // ───────────── Sprint 4: Input Nilai & Pemetaan CEFR Siswa ─────────────
 export async function saveBatchStudentAssessments(_prev: ActionState, fd: FormData): Promise<ActionState> {
@@ -1405,6 +1292,21 @@ export async function saveQuiz(_prev: ActionState, fd: FormData): Promise<Action
         return failure(`Kunci kata isian untuk listening #${i + 1} belum diisi.`);
       }
     }
+    if (q.type === "SPEAKING" && q.speakingMode !== "RESPOND" && (!q.targetText || !q.targetText.trim())) {
+      return failure(`Kalimat yang harus dibaca siswa untuk soal speaking #${i + 1} belum diisi.`);
+    }
+    if (q.type === "READING") {
+      if (!q.passage || !q.passage.trim()) {
+        return failure(`Teks bacaan untuk soal reading #${i + 1} belum diisi.`);
+      }
+      if (q.readingFormat === "FILL_IN") {
+        if (!q.fillInAnswer || !q.fillInAnswer.trim()) {
+          return failure(`Kunci jawaban isian untuk soal reading #${i + 1} belum diisi.`);
+        }
+      } else if (!q.options || q.options.length < 2 || q.options.some((o) => !String(o || "").trim())) {
+        return failure(`Lengkapi semua pilihan jawaban (A–D) untuk soal reading #${i + 1}.`);
+      }
+    }
     if (q.type === "FILL_IN") {
       const hasMainAnswer = Boolean(q.fillInAnswer && q.fillInAnswer.trim());
       const hasAccepted = Boolean(q.acceptedAnswers && q.acceptedAnswers.length > 0);
@@ -1692,6 +1594,8 @@ export async function deleteUser(fd: FormData): Promise<void> {
     await tx.user.delete({
       where: { id: userId },
     });
+    // 4. Hapus foto profil (data pribadi) bila ada
+    if (target.avatarFileId) await tx.storedFile.deleteMany({ where: { id: target.avatarFileId } });
   });
   await logAudit("user.delete", { actorId: admin.id, target: target.email, detail: `${target.name} · ${target.role}` });
 

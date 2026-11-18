@@ -73,6 +73,7 @@ const TABLES = [
   "StoredFile",
   "AuditLog",
   "LoginAttempt",
+  "ModulAjar",
 ];
 
 async function migrate() {
@@ -95,7 +96,9 @@ async function migrate() {
         continue;
       }
 
-      const rows: any[] = sqlite.prepare(`SELECT * FROM "${table}"`).all();
+      // ModulAjar merujuk dirinya sendiri (salinan guru → induk): salin induk (sourceId NULL) lebih dulu
+      const order = table === "ModulAjar" ? ' ORDER BY "sourceId" IS NOT NULL' : "";
+      const rows: any[] = sqlite.prepare(`SELECT * FROM "${table}"${order}`).all();
       console.log(`📦 Memindahkan tabel ${table.padEnd(24)} : ${rows.length} baris...`);
 
       if (rows.length === 0) continue;

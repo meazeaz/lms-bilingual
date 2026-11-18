@@ -20,6 +20,7 @@ import {
 import { claimPhraseMastery } from "@/actions/lms";
 import { ActionForm, SubmitButton } from "@/components/forms";
 import { Button, Card, CardBody, CardHeader, Input, Pill, Progress, StatusPill } from "@/components/ui";
+import { HighlightedText, ListenButton, SpeedToggle, useTtsPlayer } from "@/components/tts-speed";
 
 type PhraseItem = {
   id: string;
@@ -38,21 +39,26 @@ export function PocketFlashcard({
 }) {
   const [index, setIndex] = useState(0);
   const [showEnglish, setShowEnglish] = useState(false);
+  const tts = useTtsPlayer();
 
   const current = phrases[index];
   if (!current) return null;
+  const cardKey = `card:${current.id}`;
 
   function next() {
+    tts.stop();
     setShowEnglish(false);
     setIndex((prev) => (prev + 1) % phrases.length);
   }
 
   function prev() {
+    tts.stop();
     setShowEnglish(false);
     setIndex((prev) => (prev - 1 + phrases.length) % phrases.length);
   }
 
   function shuffle() {
+    tts.stop();
     setShowEnglish(false);
     const randomIndex = Math.floor(Math.random() * phrases.length);
     setIndex(randomIndex);
@@ -69,7 +75,8 @@ export function PocketFlashcard({
         title="Mode Flashcard Interaktif"
         description="Ketuk kartu untuk membuka kalimat Bahasa Inggris dan latih pelafalan Anda"
         action={
-          <div className="flex items-center gap-1.5">
+          <div className="flex flex-wrap items-center justify-end gap-1.5">
+            <SpeedToggle value={tts.speed} onChange={tts.setSpeed} accent="brand" />
             <Button variant="secondary" size="sm" onClick={shuffle} title="Acak Kalimat">
               <Shuffle className="size-3.5" /> Acak
             </Button>
@@ -108,11 +115,23 @@ export function PocketFlashcard({
               {showEnglish ? "Bahasa Inggris (Pelafalan):" : "Bahasa Indonesia:"}
             </p>
             <h3 className="font-[family-name:var(--font-display)] text-2xl font-bold tracking-tight text-ink md:text-3xl leading-snug">
-              {showEnglish ? current.english : current.indonesian}
+              {showEnglish ? (
+                <HighlightedText text={current.english} active={tts.playingKey === cardKey ? tts.activeWord : -1} />
+              ) : (
+                current.indonesian
+              )}
             </h3>
+            <div className="mt-3 flex justify-center">
+              <ListenButton
+                playing={tts.playingKey === cardKey}
+                onClick={() => tts.toggle(cardKey, current.english)}
+                label={showEnglish ? "Dengar pelafalan" : "Dengar bahasa Inggrisnya"}
+                className="px-3 py-1.5 text-xs"
+              />
+            </div>
             {showEnglish && (
               <p className="mt-3 text-sm text-slate-500 italic">
-                "{current.indonesian}"
+                &ldquo;{current.indonesian}&rdquo;
               </p>
             )}
           </div>
@@ -170,6 +189,7 @@ export function PocketPhraseList({
 }) {
   const [category, setCategory] = useState("ALL");
   const [query, setQuery] = useState("");
+  const tts = useTtsPlayer();
 
   const categories = useMemo(() => {
     const set = new Set(phrases.map((p) => p.category));
@@ -210,6 +230,12 @@ export function PocketPhraseList({
             <span className="text-xs font-semibold text-slate-500 shrink-0">
               Menampilkan {filtered.length} dari {phrases.length} frasa
             </span>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2 text-[11px] font-semibold text-slate-500">
+            <span>Kecepatan suara:</span>
+            <SpeedToggle value={tts.speed} onChange={tts.setSpeed} accent="brand" />
+            <span className="hidden sm:inline">Lebih lambat = dibacakan kata per kata</span>
           </div>
 
           <div className="flex flex-wrap gap-1.5 border-t border-slate-100 pt-3">
@@ -257,9 +283,14 @@ export function PocketPhraseList({
                 )}
               </div>
 
-              <h4 className="text-sm font-bold text-ink leading-snug">
-                "{item.english}"
-              </h4>
+              <div className="flex items-start justify-between gap-2">
+                <h4 className="text-sm font-bold text-ink leading-snug">
+                  &ldquo;
+                  <HighlightedText text={item.english} active={tts.playingKey === item.id ? tts.activeWord : -1} />
+                  &rdquo;
+                </h4>
+                <ListenButton playing={tts.playingKey === item.id} onClick={() => tts.toggle(item.id, item.english)} />
+              </div>
               <p className="mt-1 text-xs text-slate-500">
                 {item.indonesian}
               </p>

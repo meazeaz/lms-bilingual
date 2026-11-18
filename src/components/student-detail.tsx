@@ -6,7 +6,9 @@ import {
   Calendar,
   CheckCircle2,
   GraduationCap,
+  Keyboard,
   MessagesSquare,
+  Mic,
   Sparkles,
   Star,
   Trophy,
@@ -33,7 +35,19 @@ import {
   cefrAtLeast,
   cefrIndex,
 } from "@/lib/program";
-import { formatDate, pct } from "@/lib/utils";
+import { cn, formatDate, parseJson, pct } from "@/lib/utils";
+
+/** Rincian jawaban soal Speaking yang disimpan submitQuiz (QuizAttempt.answers). */
+type SpeakingAnswer = {
+  questionIndex: number;
+  type: string;
+  mode?: "READ_ALOUD" | "RESPOND";
+  method?: "speech" | "typed";
+  answer?: string;
+  accuracy?: number;
+  wordCount?: number;
+  score?: number;
+};
 
 export interface StudentDetailProps {
   student: {
@@ -71,6 +85,7 @@ export interface StudentDetailProps {
     quizAttempts: Array<{
       id: string;
       score: number;
+      answers: string;
       createdAt: Date;
       quiz: {
         title: string;
@@ -316,20 +331,71 @@ export async function StudentDetailView({
               <div className="divide-y divide-slate-100">
                 {student.quizAttempts.map((qa) => {
                   const passed = qa.score >= qa.quiz.passScore;
+                  const speaking = parseJson<SpeakingAnswer[]>(qa.answers, []).filter(
+                    (a) => a && a.type === "SPEAKING",
+                  );
+                  const typedCount = speaking.filter((a) => a.method === "typed").length;
                   return (
-                    <div key={qa.id} className="flex items-center justify-between p-3.5 text-xs">
-                      <div>
-                        <p className="font-bold text-ink">{qa.quiz.title}</p>
-                        <p className="text-[11px] text-slate-400">
-                          Materi: {qa.quiz.material.title} · {formatDate(qa.createdAt)}
-                        </p>
+                    <div key={qa.id} className="space-y-2 p-3.5 text-xs">
+                      <div className="flex items-center justify-between gap-3">
+                        <div className="min-w-0">
+                          <p className="font-bold text-ink">{qa.quiz.title}</p>
+                          <p className="text-[11px] text-slate-400">
+                            Materi: {qa.quiz.material.title} · {formatDate(qa.createdAt)}
+                          </p>
+                        </div>
+                        <div className="flex shrink-0 flex-wrap items-center justify-end gap-2">
+                          {typedCount > 0 && (
+                            <Pill tone="warning">
+                              <Keyboard className="size-3" /> {typedCount} speaking diketik
+                            </Pill>
+                          )}
+                          <span className="font-black text-ink">{qa.score} / 100</span>
+                          <Pill tone={passed ? "success" : "danger"}>
+                            {passed ? "Lulus (+10 pt)" : "Coba Lagi (+3 pt)"}
+                          </Pill>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <span className="font-black text-ink">{qa.score} / 100</span>
-                        <Pill tone={passed ? "success" : "danger"}>
-                          {passed ? "Lulus (+10 pt)" : "Coba Lagi (+3 pt)"}
-                        </Pill>
-                      </div>
+
+                      {speaking.length > 0 && (
+                        <ul className="space-y-1.5">
+                          {speaking.map((a) => {
+                            const typed = a.method === "typed";
+                            return (
+                              <li
+                                key={a.questionIndex}
+                                className={cn(
+                                  "rounded-xl px-3 py-2 ring-1",
+                                  typed ? "bg-amber-50/70 ring-amber-200" : "bg-pink-50/50 ring-pink-100",
+                                )}
+                              >
+                                <div className="flex flex-wrap items-center gap-1.5">
+                                  <span className="font-bold text-slate-700">
+                                    Soal #{a.questionIndex + 1} · Speaking {a.mode === "RESPOND" ? "(jawab lisan)" : "(baca nyaring)"}
+                                  </span>
+                                  {typed ? (
+                                    <Pill tone="warning">
+                                      <Keyboard className="size-3" /> Diketik, bukan diucapkan
+                                    </Pill>
+                                  ) : (
+                                    <Pill tone="success">
+                                      <Mic className="size-3" /> Diucapkan
+                                    </Pill>
+                                  )}
+                                  <span className="ml-auto font-bold tabular-nums text-slate-600">
+                                    {a.mode === "RESPOND"
+                                      ? `${a.wordCount ?? 0} kata · nilai ${a.score ?? 0}`
+                                      : `ketepatan ${a.accuracy ?? 0}% · nilai ${a.score ?? 0}`}
+                                  </span>
+                                </div>
+                                {a.answer && (
+                                  <p className="mt-1 italic text-slate-600">&ldquo;{a.answer}&rdquo;</p>
+                                )}
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      )}
                     </div>
                   );
                 })}

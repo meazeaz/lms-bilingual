@@ -32,25 +32,27 @@ import { db } from "@/lib/db";
 import { loadAllTeachers, summarizeTeacher } from "@/lib/metrics";
 import {
   FULL_BILINGUAL_DATE,
-  PHASES,
   SMART_GOALS,
   cefrAtLeast,
-  currentPhase,
   type Level,
 } from "@/lib/program";
 import { cn, formatDate, pct } from "@/lib/utils";
+import { getPhaseStates } from "@/lib/phases-server";
+import { PhaseRoadmapGrid } from "@/components/phase-roadmap";
 
 export const metadata: Metadata = { title: "Dashboard Admin · Program Bilingual" };
 
 export default async function AdminDashboard() {
-  const [teachers, students, lessonPlans] = await Promise.all([
+  const [teachers, students, rppUsers, roadmap] = await Promise.all([
     loadAllTeachers(),
     db.student.findMany({ include: { classRoom: true } }),
-    db.lessonPlan.findMany({ select: { teacherId: true, status: true } }),
+    // Guru yang sudah memakai Modul Ajar dari Tim EDT (punya minimal 1 salinan)
+    db.modulAjar.findMany({ where: { teacherId: { not: null } }, distinct: ["teacherId"], select: { teacherId: true } }),
+    getPhaseStates(),
   ]);
 
   const rows = teachers.map((t) => ({ t, s: summarizeTeacher(t) }));
-  const phase = currentPhase();
+  const phase = roadmap.current ?? roadmap.states[roadmap.states.length - 1];
   const daysLeft = Math.ceil((FULL_BILINGUAL_DATE.getTime() - Date.now()) / 86400000);
 
   const levelCount = (l: Level) => teachers.filter((t) => t.ambassadorLevel === l).length;
@@ -72,10 +74,7 @@ export default async function AdminDashboard() {
   ).length;
 
   // T4 SMART Goal: 100% guru bilingual RPP & minimal 2x observasi kelas per semester
-  const teachersWithApprovedRpp = new Set(
-    lessonPlans.filter((p) => p.status === "DISETUJUI").map((p) => p.teacherId)
-  ).size;
-  const teachersWithAnyRpp = new Set(lessonPlans.map((p) => p.teacherId)).size;
+  const teachersWithApprovedRpp = rppUsers.length;
   const teachersWithTwoObs = teachers.filter((t) => t.observations.length >= 2).length;
 
   const t4RppPct = pct(teachersWithApprovedRpp, teachers.length);
@@ -132,7 +131,7 @@ export default async function AdminDashboard() {
             value={`${t4CombinedScore}%`}
             icon={FileText}
             tone={t4CombinedScore >= 70 ? "mint" : "brand"}
-            hint={`${teachersWithApprovedRpp} guru RPP disetujui · ${teachersWithTwoObs} tuntas 2× observasi`}
+            hint={`${teachersWithApprovedRpp} guru memakai Modul Ajar · ${teachersWithTwoObs} tuntas 2× observasi`}
           >
             <Progress value={t4CombinedScore} size="sm" />
           </StatCard>
@@ -192,44 +191,10 @@ export default async function AdminDashboard() {
           <CardHeader
             icon={CalendarRange}
             title="Peta Jalan 2026–2028"
-            description="Tahapan strategis Bab 1.3 Dokumen Master Bilingual"
+            description={`Bab 1.3 · ${roadmap.completedCount} dari ${roadmap.states.length} fase selesai. Fase berikutnya terbuka setelah fase sebelumnya diselesaikan admin.`}
           />
           <CardBody>
-            <ol className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
-              {PHASES.map((p) => {
-                const active = p.code === phase.code;
-                const past = new Date(p.end) < new Date() && !active;
-                return (
-                  <li
-                    key={p.code}
-                    className={cn(
-                      "rounded-2xl p-3.5 ring-1 transition",
-                      active
-                        ? "bg-brand-50 ring-brand-300"
-                        : past
-                        ? "bg-mint-50/60 ring-mint-200"
-                        : "bg-white ring-slate-200"
-                    )}
-                  >
-                    <div className="flex items-center justify-between gap-2">
-                      <span className="text-xs font-black text-ink">{p.name}</span>
-                      {active ? (
-                        <Pill tone="info">Berjalan</Pill>
-                      ) : past ? (
-                        <Pill tone="success">Selesai</Pill>
-                      ) : (
-                        <Pill>Akan Datang</Pill>
-                      )}
-                    </div>
-                    <p className="mt-1 text-sm font-bold text-ink">{p.title}</p>
-                    <p className="mt-0.5 text-xs text-slate-500">
-                      {formatDate(p.start)} – {formatDate(p.end)}
-                    </p>
-                    <p className="mt-1.5 text-xs text-slate-600">{p.target}</p>
-                  </li>
-                );
-              })}
-            </ol>
+            <PhaseRoadmapGrid states={roadmap.states} linkBase="/admin/fase" />
           </CardBody>
         </Card>
 
@@ -353,7 +318,7 @@ export default async function AdminDashboard() {
                 detail = `${withLevel}/${teachers.length} guru aktif ber-level Duta`;
               } else if (g.code === "T4") {
                 score = t4CombinedScore;
-                detail = `RPP Disetujui: ${teachersWithApprovedRpp}/${teachers.length} guru · 2× Observasi: ${teachersWithTwoObs}/${teachers.length} guru`;
+                detail = `Memakai Modul Ajar: ${teachersWithApprovedRpp}/${teachers.length} guru · 2× Observasi: ${teachersWithTwoObs}/${teachers.length} guru`;
               } else if (g.code === "T5") {
                 score = pct(studentsOnTarget, students.length);
                 detail = `${studentsOnTarget}/${students.length} siswa sesuai target CEFR kelas`;

@@ -1,0 +1,182 @@
+{
+  "book": "Rise Up! Teens 1",
+  "unit": 2,
+  "unitTitle": "My Favorite Subject",
+  "meeting": 3,
+  "title": "Speaking & Writing",
+  "subject": "Bahasa Inggris",
+  "phase": "D",
+  "grade": 7,
+  "semester": "I (Ganjil)",
+  "duration": "2 x 40 menit",
+  "year": "2026",
+  "prerequisites": "Peserta didik telah mempelajari kosakata tambahan dan memahami teks tentang mata pelajaran sekolah dan apa yang mereka pikirkan.",
+  "profiles": [
+    "Beriman",
+    "Berkebinekaan global",
+    "Bergotong royong",
+    "Mandiri",
+    "Bernalar kritis",
+    "Kreatif"
+  ],
+  "resources": [
+    "Sumber Belajar:  Rise Up! Teens! Student Book 1, page 22-23",
+    "Persiapan: Papan tulis, spidol",
+    "Laptop/ komputer, pengeras suara, projector, PPT"
+  ],
+  "learningModel": "Discovery Learning, Task-Based Learning, Tatap Muka.",
+  "approach": [
+    "DEEP LEARNING (Mindful, Meaningful, Joyful Learning)",
+    "Mindful Learning",
+    "Peserta didik diajak untuk fokus dan saksama saat menyimak audio, mengamati detail gambar/komik, dan memperhatikan struktur bahasa yang digunakan.",
+    "Meaningful Learning",
+    "Peserta didik menghubungkan materi pembelajaran dengan pengalaman dan kehidupan nyata mereka, sehingga pembelajaran terasa relevan dan bermanfaat.",
+    "Joyful Learning",
+    "Pembelajaran dikemas dalam aktivitas yang menyenangkan seperti permainan tebak hobi, kerja kelompok, penggunaan komik strip, dan survei interaktif."
+  ],
+  "objectives": [
+    "Learners will be able to speak and write about school subjects and how they feel about them.",
+    "Learners will learn to give their best at school because education is important."
+  ],
+  "steps": [
+    {
+      "sequence": "Warming up and introductions",
+      "minutes": 5,
+      "tag": null,
+      "details": [
+        "Greet the students and ask about their feeling. For example: “How are you feeling today?” or “How would you describe your mood in one word?”",
+        "The teacher introduces himself/herself in front of the class.",
+        "Get to know the students by using the letter game.",
+        "The teacher writes down his/her name on the board (e.g. Susan)",
+        "Ask the student if their name starts with the shown letter (e.g. starts with S) and then they must stand up and introduce themselves. Continue with other letters.",
+        "Other alternatives to get to know the students: hot potato and throw the ball."
+      ]
+    },
+    {
+      "sequence": "Speaking",
+      "minutes": 15,
+      "tag": "Mindful and meaningful",
+      "details": [
+        "Ask students to look at Student Book page 22.",
+        "First, the teacher reads the questions in the speech bubble at the top of the page aloud for the students to hear.",
+        "Next, the teacher asks everyone to read the questions aloud as a class.",
+        "Then, ask students to ask and answer the questions, in pairs.",
+        "Model to the students how the questions can be changed by changing some of the key vocabulary in the questions.",
+        "Now, put them in different pairs and ask them to substitute some of the key vocabulary in the questions so they can practice asking about different things. This can be repeated several times by putting students into different pairs.",
+        "To finish the speaking activity, elicit responses from some students by asking the questions in the speech bubbles with the original vocabulary, and also with some substituted vocabulary.",
+        "Check the Teacher’s Guide to see further explanation about the Language Box (meaning, form, use, common mistakes). This can be used to help answer students' questions."
+      ]
+    },
+    {
+      "sequence": "Writing",
+      "minutes": 15,
+      "tag": "Meaningful",
+      "details": [
+        "Ask students to look at Student Book page 22 and tell them to practice asking and answering the questions with their partner. The answers must be written in complete sentences.",
+        "Give students about 10 minutes to complete the task. Make sure both students in each pair have practiced asking and answering the questions, and have written their partner's answers in their books.",
+        "Remind students to follow the structures shown in the Q&A models and Language Box examples on this page.",
+        "Elicit answers from the class. Answers will vary due to students’ own personal information.",
+        "Below are sample answers that can be shown to students:",
+        "Which subject do you think is interesting?",
+        "I think geography is interesting because we learn about countries and maps. //  I think art is interesting because we can draw and paint.",
+        "Put students in new pairs and ask them to practice asking and answering the questions again.",
+        "After 5 minutes, ask some students to share their answers about their partner with the class."
+      ]
+    },
+    {
+      "sequence": "Extension activity",
+      "minutes": 10,
+      "tag": "Meaningful",
+      "details": [
+        "This is an additional activity for further practice if there is time.",
+        "Write ‘interesting’, ‘confusing’, ‘difficult’, ‘useful’, ‘enjoyable’ on the board one above the other (see example in the table).",
+        "Write ‘English’, ‘Math’, ‘Geography’, ‘Science’, and any other subjects the students take at the top of the board side by side (see example).",
+        "Remind students that we all have different opinions about which subjects are interesting or confusing. This is a safe space to share how we feel about the different subjects.",
+        "Start with English and ask students to raise their hand if they find English interesting and count the total hands.",
+        "Repeat for the other words (difficult, useful, enjoyable).",
+        "If you have extra time, ask some students to tell why they answered the way they did about a certain subject."
+      ]
+    },
+    {
+      "sequence": "Teen Corner",
+      "minutes": 5,
+      "tag": null,
+      "details": [
+        "Direct the students to look at the pictures on page 23 and ask them ‘“What can you see on the page?” to elicit some answers.",
+        "Next, tell students to read the text about the Teen Value. They can read it silently, or put them in pairs to share reading the text aloud together, sentence by sentence.",
+        "Elicit from students, “What is the key focus of this Teen Corner page?”, and “Why do you think this skill (or value) is important?”",
+        "Ask students to look at activity A and give them around 3-4 minutes to discuss how the students in the picture are making a good impression."
+      ]
+    },
+    {
+      "sequence": "Activity A",
+      "minutes": 5,
+      "tag": "Meaningful",
+      "details": [
+        "Ask students to look at activity A and read the instructions as given on the page.",
+        "Put students in groups and ask them to discuss the questions.",
+        "Give students around 4-5 minutes to do the task."
+      ]
+    },
+    {
+      "sequence": "Activity B",
+      "minutes": 10,
+      "tag": "Meaningful & joyful",
+      "details": [
+        "Then read the situation (in the pink box) aloud to the class.",
+        "Tell students that they will write a play in a group of 3 or 4 students. The play can be serious, funny, or both.",
+        "Tell students they will need their notebooks because every group member needs to write their play in their own books and need it later to perform.",
+        "Give them around 10-12 minutes to write their play. Move around the class and help groups as needed.",
+        "Then, ask them to practice their play. They can do this a few times by just reading their play, but then they also need to practice with actions and movement.",
+        "Decide the order in which the groups will perform their play and allocate around 20 minutes for each group.",
+        "Below is a sample play script that can be shown to students as an example of what they could write.",
+        "Student 1 : I think education is not important. It is boring. Student 2 : No, I think education is very important. We learn many skills.",
+        "Student 3 : Yes, education helps us in the future. We can get a job.",
+        "Student 4 : Education also helps us think and solve problems.",
+        "Student 2 : School helps us meet new people and make friends.",
+        "Student 1 : Maybe you are right. Education is important."
+      ]
+    },
+    {
+      "sequence": "Sharing time",
+      "minutes": 5,
+      "tag": "Meaningful",
+      "details": [
+        "Ask students to make new groups of four.",
+        "Ask them to discuss the questions in the box.",
+        "After 5 minutes, elicit some answers from each group."
+      ]
+    },
+    {
+      "sequence": "Closing",
+      "minutes": 5,
+      "tag": null,
+      "details": [
+        "Wrap up the class by highlighting the importance of education.",
+        "Conclude the lesson, give feedback, and appreciation toward the student(s) / the whole class. Dismiss the class."
+      ]
+    }
+  ],
+  "assessment": [
+    "Asesmen formatif: unjuk kerja speaking berpasangan (kelancaran, ketepatan, keberanian).",
+    "Produk tulisan sederhana sesuai model di Student Book (struktur & kosakata unit).",
+    "Umpan balik teman sebaya dan guru terhadap hasil speaking/writing."
+  ],
+  "reflectionStudent": [
+    "Apa hal baru yang kamu pelajari hari ini?",
+    "Bagian mana yang paling mudah dan paling sulit bagimu? Mengapa?",
+    "Kalimat bahasa Inggris apa yang sudah bisa kamu ucapkan dengan percaya diri?",
+    "Apa yang akan kamu lakukan untuk berlatih di rumah?"
+  ],
+  "reflectionTeacher": [
+    "Apakah tujuan pembelajaran tercapai? Bukti apa yang menunjukkannya?",
+    "Kegiatan mana yang paling efektif dan mana yang perlu diperbaiki?",
+    "Berapa persen instruksi kelas yang disampaikan dalam bahasa Inggris?",
+    "Peserta didik mana yang memerlukan pendampingan atau pengayaan?"
+  ],
+  "attachments": [
+    "Student’s book page 22-23",
+    "Workbook page 14-15",
+    "Answer key in Teacher’s Guide"
+  ]
+}

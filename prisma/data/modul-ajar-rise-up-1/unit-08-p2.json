@@ -1,0 +1,200 @@
+{
+  "book": "Rise Up! Teens 1",
+  "unit": 8,
+  "unitTitle": "I'd Like a Plate of Noodles",
+  "meeting": 2,
+  "title": "Listening & Reading",
+  "subject": "Bahasa Inggris",
+  "phase": "D",
+  "grade": 7,
+  "semester": "II (Genap)",
+  "duration": "2 x 40 menit",
+  "year": "2026",
+  "prerequisites": "Peserta didik telah mempelajari kosakata dan struktur untuk memesan makanan dan minuman dengan sopan menggunakan ‘would like’.",
+  "profiles": [
+    "Beriman",
+    "Berkebinekaan global",
+    "Bergotong royong",
+    "Mandiri",
+    "Bernalar kritis",
+    "Kreatif"
+  ],
+  "resources": [
+    "Sumber Belajar:  Rise Up! Teens! Student Book 1, page 67-69",
+    "Persiapan: Papan tulis, spidol",
+    "Laptop/ komputer, pengeras suara, projector, PPT"
+  ],
+  "learningModel": "Discovery Learning, Task-Based Learning, Tatap Muka.",
+  "approach": [
+    "DEEP LEARNING (Mindful, Meaningful, Joyful Learning)",
+    "Mindful Learning",
+    "Peserta didik diajak untuk fokus dan saksama saat menyimak audio, mengamati detail gambar/komik, dan memperhatikan struktur bahasa yang digunakan.",
+    "Meaningful Learning",
+    "Peserta didik menghubungkan materi pembelajaran dengan pengalaman dan kehidupan nyata mereka, sehingga pembelajaran terasa relevan dan bermanfaat.",
+    "Joyful Learning",
+    "Pembelajaran dikemas dalam aktivitas yang menyenangkan seperti permainan tebak hobi, kerja kelompok, penggunaan komik strip, dan survei interaktif."
+  ],
+  "objectives": [
+    "Learners will be able to understand and identify additional key vocabulary about the taste of foods and drinks (salty, sour, sweet, spicy, cold, hot).",
+    "Learners will listen and understand people talking about foods, drinks, and flavors.",
+    "Learners will read and understand a text about deciding what to have at a restaurant."
+  ],
+  "steps": [
+    {
+      "sequence": "Warming up and introductions",
+      "minutes": 5,
+      "tag": null,
+      "details": [
+        "Greet the students and ask about their feelings. For example: “How are you feeling today?” or “How would you describe your mood in one word?”",
+        "Ask a quick food question to set the mood, e.g. “What did you have for breakfast this morning?”",
+        "Play the letter game with a food twist. The teacher writes his/her name on the board and says a food or drink that starts with the same letter (e.g. Susan – soup).",
+        "Ask the students whose names start with that letter to stand up, say their name and a food or drink starting with the same letter (e.g. Nina – noodles). Continue with other letters.",
+        "Other alternatives: hot potato and throw the ball, where the student holding the ball says one food or drink in English."
+      ]
+    },
+    {
+      "sequence": "Listen and circle",
+      "minutes": 10,
+      "tag": "Meaningful",
+      "details": [
+        "Ask students to look at the pictures in Listening A on Student Book page 67.",
+        "Tell them that they need to listen and circle the word that matches what they hear in the audio.",
+        "Before listening, practice pronunciation of the words in task A. The teacher says the two vocabulary choices given for each number (e.g. ‘Number 1. a. salty. b. sour.’) and students repeat them.",
+        "Play audio 8.3. If needed, pause the audio after track 1 to check students’ understanding.",
+        "Ask students to check their answers with a partner, play the audio again, and then check the answers together.",
+        "Play audio 8.3 again and ask students to write down the sentences they hear in their notebooks (simple dictation, e.g. “Some fruits taste sour, like lemons and limes.”). Then show the audio script and ask students to correct their sentences."
+      ]
+    },
+    {
+      "sequence": "Listen and repeat",
+      "minutes": 5,
+      "tag": "Mindful and joyful",
+      "details": [
+        "This activity is for pronunciation practice of the taste words: salty, sour, sweet, spicy, cold, hot.",
+        "Play audio 8.4 and encourage students to repeat the words loudly, and to copy the intonation they hear in the audio.",
+        "For variation, vocabulary drilling can be done in groups, pairs, loudly, quietly, etc.",
+        "To make the drilling more fun, ask students to make a face that matches each taste while they repeat the word (e.g. a sour face for ‘sour’, a hot face for ‘spicy’)."
+      ]
+    },
+    {
+      "sequence": "Listening comprehension",
+      "minutes": 10,
+      "tag": "Meaningful",
+      "details": [
+        "Ask students to look at Listening task C. Read the sentences together and ask students to guess which taste word could fit each gap.",
+        "Tell students that they need to listen and fill in the gaps for each sentence.",
+        "Play audio 8.5. If needed, pause the audio after track 1 to check that the students understand how to do the task. Then, continue with the audio.",
+        "Ask students to check their answers with a partner, play the audio again, and check the answers together. Write the correct answers on the board.",
+        "Ask students to take turns reading the completed sentences aloud: Student A reads sentences 1, 3, 5 and Student B reads sentences 2, 4, 6, then they swap."
+      ]
+    },
+    {
+      "sequence": "Lead-in for Reading",
+      "minutes": 5,
+      "tag": "Meaningful",
+      "details": [
+        "Ask students to look at the pictures on Student Book page 68-69.",
+        "Ask some specific questions about the pictures, for example, ‘How many people can you see?’, ‘Where are they?’, ‘What food can you see on the table?’",
+        "Giving some personal questions is also suggested to make it more relatable to students, for example, “What do you usually order at a restaurant?”"
+      ]
+    },
+    {
+      "sequence": "Match the words",
+      "minutes": 5,
+      "tag": "Meaningful",
+      "details": [
+        "Ask students to look at task A on Student Book page 68.",
+        "Read the vocabulary and the definitions aloud, and ask students to repeat them after you: a burger, a can of soda, a plate of salad, a glass of juice.",
+        "Tell students to match the words to their definitions and to the correct pictures by writing the matching letters and numerals.",
+        "Do the first one together as a class, then let students finish the task in pairs.",
+        "Check the answers as a class, then say the new vocabulary again and ask students to repeat after you."
+      ]
+    },
+    {
+      "sequence": "Pre-reading discussion questions",
+      "minutes": 10,
+      "tag": "Meaningful",
+      "details": [
+        "Ask students to look at task B on Student Book page 68.",
+        "Put students in pairs and ask them to discuss the questions (What can you see in the pictures? How often do you eat at a restaurant? What would you like to eat at a restaurant?). Give them 3-5 minutes.",
+        "Then ask some students to share their answers with the class. Answers will vary because these questions require students' own personal responses; encourage them to use ‘I’d like …’ in their answers."
+      ]
+    },
+    {
+      "sequence": "Reading",
+      "minutes": 5,
+      "tag": "Mindful and joyful",
+      "details": [
+        "Tell students that they will listen and read the story. Play audio 8.6 and ask them to read the text silently.",
+        "Next, play audio 8.6 again and ask students to read the text aloud, following the audio. Ask if there are any questions about the language in the text.",
+        "As a way to make the reading session more engaging, teachers could divide the class into several groups and assign each group to read one paragraph alternately in different ways (e.g. loudly or quietly)."
+      ]
+    },
+    {
+      "sequence": "Circle Yes or No",
+      "minutes": 10,
+      "tag": "Meaningful",
+      "details": [
+        "Ask students to look at task D on Student Book page 69 and read the Yes / No statements aloud together as a class.",
+        "Tell students to read the text again and circle ‘Yes’ or ‘No’ for each statement.",
+        "The first question can be done together as a class to make sure students know what to do.",
+        "Then, they can answer the other questions in pairs or by themselves, and check their answers with a friend.",
+        "Check the answers as a class. Ask students to explain their answers by giving information from the text, or by saying which sentence or paragraph relates to the answer. Write the answers on the board."
+      ]
+    },
+    {
+      "sequence": "Post-reading discussion questions",
+      "minutes": 10,
+      "tag": "Meaningful",
+      "details": [
+        "Now ask students to look at task E on page 69.",
+        "Instruct them to discuss the questions in groups of three or four students (e.g. Do you prefer foods and drinks that are sweet or salty? Why? What is your favourite drink? Describe how it tastes.).",
+        "After about 6-8 minutes, elicit some answers for each question from each group. Encourage them to use the taste words from page 67, e.g. “I like iced tea. It tastes sweet and cold.”"
+      ]
+    },
+    {
+      "sequence": "Extension activity",
+      "minutes": 15,
+      "tag": "Meaningful",
+      "details": [
+        "This activity could be done if there is more time.",
+        "Put students into groups of three and ask them to act out the story. Each group should have David, Max, and a waiter.",
+        "When acting out the story, students should only read the parts where the characters are talking. To make it clearer, the teacher can read the parts in-between the dialogue for the first group, or one student can be a Narrator.",
+        "Ask students to act out the story two or three times, changing characters each time.",
+        "Tell students to pay attention to their pronunciation and intonation so they sound more natural when they speak, especially when ordering politely with ‘I’d like …, please.’",
+        "Invite one or two groups to perform in front of the class."
+      ]
+    },
+    {
+      "sequence": "Closing",
+      "minutes": 5,
+      "tag": null,
+      "details": [
+        "Wrap up the class by asking a few students to describe the taste of their favorite food or drink using the new words (e.g. “My favorite food is fried rice. It is a little spicy and salty.”)",
+        "Conclude the lesson, give feedback, and appreciation toward the student(s) / the whole class. Dismiss the class."
+      ]
+    }
+  ],
+  "assessment": [
+    "Asesmen formatif: ketepatan jawaban tugas listening (menomori/menjodohkan/melengkapi).",
+    "Pertanyaan pemahaman bacaan (literal & inferensial) dan pembahasan bersama.",
+    "Pengamatan partisipasi saat diskusi berpasangan/kelompok."
+  ],
+  "reflectionStudent": [
+    "Apa hal baru yang kamu pelajari hari ini?",
+    "Bagian mana yang paling mudah dan paling sulit bagimu? Mengapa?",
+    "Kalimat bahasa Inggris apa yang sudah bisa kamu ucapkan dengan percaya diri?",
+    "Apa yang akan kamu lakukan untuk berlatih di rumah?"
+  ],
+  "reflectionTeacher": [
+    "Apakah tujuan pembelajaran tercapai? Bukti apa yang menunjukkannya?",
+    "Kegiatan mana yang paling efektif dan mana yang perlu diperbaiki?",
+    "Berapa persen instruksi kelas yang disampaikan dalam bahasa Inggris?",
+    "Peserta didik mana yang memerlukan pendampingan atau pengayaan?"
+  ],
+  "attachments": [
+    "Student’s book page 67-69",
+    "Workbook page 48-49",
+    "Answer key in Teacher’s Guide"
+  ]
+}

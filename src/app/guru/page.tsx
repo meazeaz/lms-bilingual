@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Activity, Award, BookMarked, Check, Flame, Medal, Megaphone, Sparkles, Target } from "lucide-react";
+import { Activity, Award, BookMarked, CalendarRange, Check, Flame, Medal, Megaphone, Sparkles, Target } from "lucide-react";
 import * as Icons from "lucide-react";
 import { Card, CardBody, CardHeader, LevelBadge, LinkButton, PageHeader, Pill, Progress, Ring, StatCard } from "@/components/ui";
 import { TrendChart } from "@/components/charts";
@@ -7,7 +7,9 @@ import { Stagger, StaggerItem } from "@/components/motion";
 import { requireTeacher } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { loadTeacher, nextLevelReadiness, summarizeTeacher } from "@/lib/metrics";
-import { LEVEL_LABEL, LEVEL_RULES, currentPhase, type Level } from "@/lib/program";
+import { LEVEL_LABEL, LEVEL_RULES, type Level } from "@/lib/program";
+import { getPhaseStates } from "@/lib/phases-server";
+import { PhaseRoadmapGrid } from "@/components/phase-roadmap";
 import { cn, formatDate, pct } from "@/lib/utils";
 
 export const metadata: Metadata = { title: "Dashboard Guru" };
@@ -28,7 +30,8 @@ export default async function TeacherDashboard() {
   const s = summarizeTeacher(t);
   const readiness = nextLevelReadiness(t, s);
   const level = t.ambassadorLevel as Level;
-  const phase = currentPhase();
+  const roadmap = await getPhaseStates();
+  const phase = roadmap.current ?? roadmap.states[roadmap.states.length - 1];
   const owned = new Set(t.badges.map((b) => b.badgeId));
 
   // Partisipasi per minggu (8 minggu terakhir)
@@ -96,6 +99,18 @@ export default async function TeacherDashboard() {
           <StaggerItem><StatCard label="Poin" value={s.points} icon={Sparkles} tone="brand" hint={`${s.challengesDone}/12 Weekly Challenge`} /></StaggerItem>
         </Stagger>
       </div>
+
+      <Card className="mt-6">
+        <CardHeader
+          icon={CalendarRange}
+          title="Peta Jalan 2026–2028"
+          description={`Bab 1.3 · ${roadmap.completedCount} dari ${roadmap.states.length} fase selesai. Sekolah sedang di ${phase.name}: ${phase.title}.`}
+        />
+        <CardBody>
+          <PhaseRoadmapGrid states={roadmap.states} />
+          <p className="mt-3 text-xs text-slate-500">Fase diselesaikan oleh Tim EDT secara berurutan. Fase bergembok terbuka setelah fase sebelumnya selesai.</p>
+        </CardBody>
+      </Card>
 
       <div className="mt-6 grid gap-6 lg:grid-cols-[1.3fr_1fr]">
         <Card>

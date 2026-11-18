@@ -42,7 +42,7 @@ export default async function AuditLogPage({
 
   const where: Prisma.AuditLogWhereInput = {};
   if (cat.key === "content") {
-    where.OR = [{ action: { startsWith: "elite." } }, { action: { startsWith: "announcement." } }, { action: { startsWith: "class." } }];
+    where.OR = [{ action: { startsWith: "elite." } }, { action: { startsWith: "announcement." } }, { action: { startsWith: "class." } }, { action: { startsWith: "rpp." } }];
   } else if (cat.prefix) {
     where.action = { startsWith: cat.prefix };
   }

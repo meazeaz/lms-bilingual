@@ -78,3 +78,25 @@ export function parseJson<T>(value: string | null | undefined, fallback: T): T {
     return fallback;
   }
 }
+
+/**
+ * Normalisasi jawaban isian sebelum dicocokkan: huruf kecil, apostrof/kutip miring → lurus,
+ * tanda baca kalimat (. , ! ? ; : ") diabaikan, spasi berlebih dirapikan.
+ * Contoh: "I wake up at 6:45." ≡ "i wake up at 645" ≡ "I  wake up at 6:45".
+ */
+export function normalizeAnswer(s: string, caseSensitive = false) {
+  const t = s
+    .normalize("NFKC")
+    .replace(/[\u2018\u2019\u02BC`]/g, "'")
+    .replace(/[\u201C\u201D]/g, '"')
+    .replace(/[.,!?;:"]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  return caseSensitive ? t : t.toLowerCase();
+}
+
+/** Apakah jawaban isian cocok dengan salah satu kunci (setelah dinormalisasi). */
+export function answerMatches(given: string, keys: (string | undefined | null)[], caseSensitive = false) {
+  const g = normalizeAnswer(given, caseSensitive);
+  return g.length > 0 && keys.some((k) => k != null && String(k).trim() !== "" && normalizeAnswer(String(k), caseSensitive) === g);
+}

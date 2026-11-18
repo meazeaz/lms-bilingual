@@ -27,10 +27,17 @@ function getAdapter() {
   return new PrismaBetterSqlite3({ url: resolvedPath });
 }
 
-const globalForPrisma = globalThis as unknown as { prisma?: PrismaClient };
+const globalForPrisma = globalThis as unknown as { prisma?: PrismaClient; prismaClass?: typeof PrismaClient };
 
-export const db =
-  globalForPrisma.prisma ??
-  new PrismaClient({ adapter: getAdapter() });
+// Mode dev: klien disimpan di globalThis agar tidak membuat koneksi baru di setiap hot reload.
+// Bila Prisma Client di-generate ulang (skema berubah), kelasnya ikut berganti, jadi buat klien baru;
+// tanpa ini model baru (mis. db.modulAjar) bernilai undefined sampai server di-restart manual.
+const cached = globalForPrisma.prismaClass === PrismaClient ? globalForPrisma.prisma : undefined;
+if (!cached && globalForPrisma.prisma) void globalForPrisma.prisma.$disconnect().catch(() => {});
 
-if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = db;
+export const db = cached ?? new PrismaClient({ adapter: getAdapter() });
+
+if (process.env.NODE_ENV !== "production") {
+  globalForPrisma.prisma = db;
+  globalForPrisma.prismaClass = PrismaClient;
+}

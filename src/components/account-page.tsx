@@ -1,7 +1,9 @@
 import { CheckCircle2, History, KeyRound, ShieldCheck, UserRound, XCircle } from "lucide-react";
 import { db } from "@/lib/db";
 import { requireUser } from "@/lib/auth";
-import { Avatar, Card, CardBody, CardHeader, EmptyState, PageHeader, Pill } from "@/components/ui";
+import { Card, CardBody, CardHeader, EmptyState, PageHeader, Pill } from "@/components/ui";
+import { AvatarEditor } from "@/components/avatar-editor";
+import { avatarSrc } from "@/lib/avatar";
 import { ChangePasswordForm } from "@/components/change-password-form";
 import { formatDateTime } from "@/lib/utils";
 
@@ -27,18 +29,16 @@ export async function AccountPage() {
 
   return (
     <>
-      <PageHeader eyebrow="Akun Saya" title="Profil & keamanan akun" description="Kelola password dan pantau aktivitas login akun Anda." />
+      <PageHeader eyebrow="Akun Saya" title="Profil & keamanan akun" description="Kelola foto profil, password, dan pantau aktivitas login akun Anda." />
       <div className="grid gap-6 xl:grid-cols-[360px_1fr]">
         <div className="space-y-6">
           <Card>
             <CardBody>
-              <div className="flex items-center gap-4">
-                <Avatar name={user.name} size="lg" />
-                <div className="min-w-0">
-                  <p className="truncate font-[family-name:var(--font-display)] text-xl font-semibold text-ink">{user.name}</p>
-                  <p className="truncate text-sm text-slate-500">{user.email}</p>
-                  <Pill tone="info" className="mt-1.5">{ROLE_LABEL[user.role]}</Pill>
-                </div>
+              <AvatarEditor name={user.name} src={avatarSrc(user.avatarFileId)} />
+              <div className="mt-4 min-w-0">
+                <p className="truncate font-[family-name:var(--font-display)] text-xl font-semibold text-ink">{user.name}</p>
+                <p className="truncate text-sm text-slate-500">{user.email}</p>
+                <Pill tone="info" className="mt-1.5">{ROLE_LABEL[user.role]}</Pill>
               </div>
               <dl className="mt-5">
                 {user.title && <InfoRow label="Jabatan" value={user.title} />}

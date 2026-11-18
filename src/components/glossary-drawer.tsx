@@ -4,6 +4,7 @@ import { useState } from "react";
 import { BookOpen, Check, Copy, Search, Volume2, X } from "lucide-react";
 import { SUBJECT_GLOSSARIES, type SubjectGlossary, type GlossaryTerm } from "@/lib/glossary";
 import { Button, Input, Pill } from "@/components/ui";
+import { HighlightedText, ListenButton, SpeedToggle, useTtsPlayer } from "@/components/tts-speed";
 
 export function GlossaryModal({
   isOpen,
@@ -19,6 +20,7 @@ export function GlossaryModal({
   );
   const [searchQuery, setSearchQuery] = useState("");
   const [copiedTerm, setCopiedTerm] = useState<string | null>(null);
+  const tts = useTtsPlayer();
 
   if (!isOpen) return null;
 
@@ -66,7 +68,10 @@ export function GlossaryModal({
           </div>
           <button
             type="button"
-            onClick={onClose}
+            onClick={() => {
+              tts.stop();
+              onClose();
+            }}
             className="rounded-xl p-2 text-slate-400 hover:bg-slate-100 hover:text-ink transition"
           >
             <X className="size-5" />
@@ -105,6 +110,11 @@ export function GlossaryModal({
               className="pl-10 text-xs"
             />
           </div>
+          <div className="flex flex-wrap items-center gap-2 text-[11px] font-semibold text-slate-500">
+            <span>Kecepatan suara:</span>
+            <SpeedToggle value={tts.speed} onChange={tts.setSpeed} accent="brand" />
+            <span className="hidden sm:inline">Lebih lambat = dibacakan kata per kata</span>
+          </div>
         </div>
 
         {/* List Kosakata */}
@@ -122,8 +132,12 @@ export function GlossaryModal({
                 >
                   <div>
                     <div className="flex items-start justify-between gap-2 mb-1">
-                      <div className="flex items-center gap-2">
+                      <div className="flex flex-wrap items-center gap-2">
                         <span className="font-extrabold text-base text-ink">{t.term}</span>
+                        <ListenButton
+                          playing={tts.playingKey === `term:${t.term}`}
+                          onClick={() => tts.toggle(`term:${t.term}`, t.term)}
+                        />
                         {t.pronunciation && (
                           <span className="font-mono text-[11px] text-brand-600 font-semibold bg-brand-50 px-1.5 py-0.5 rounded-md">
                             {t.pronunciation}
@@ -140,9 +154,21 @@ export function GlossaryModal({
                     </p>
 
                     <div className="mt-2.5 rounded-xl bg-slate-50 p-2.5 border border-slate-100 text-xs space-y-1">
-                      <p className="text-slate-800 font-medium italic">
-                        &ldquo;{t.exampleSentence}&rdquo;
-                      </p>
+                      <div className="flex items-start justify-between gap-2">
+                        <p className="text-slate-800 font-medium italic">
+                          &ldquo;
+                          <HighlightedText
+                            text={t.exampleSentence}
+                            active={tts.playingKey === `ex:${t.term}` ? tts.activeWord : -1}
+                          />
+                          &rdquo;
+                        </p>
+                        <ListenButton
+                          playing={tts.playingKey === `ex:${t.term}`}
+                          onClick={() => tts.toggle(`ex:${t.term}`, t.exampleSentence)}
+                          label="Contoh"
+                        />
+                      </div>
                       <p className="text-slate-500 text-[11px]">
                         &rarr; {t.exampleTranslation}
                       </p>
@@ -177,7 +203,14 @@ export function GlossaryModal({
         {/* Footer Info */}
         <div className="border-t border-slate-100 bg-slate-50 px-6 py-3 text-xs text-slate-500 flex items-center justify-between">
           <span>Menampilkan {filteredTerms.length} dari {currentGlossary.terms.length} istilah ({currentGlossary.label})</span>
-          <Button variant="secondary" size="sm" onClick={onClose}>
+          <Button
+            variant="secondary"
+            size="sm"
+            onClick={() => {
+              tts.stop();
+              onClose();
+            }}
+          >
             Tutup
           </Button>
         </div>

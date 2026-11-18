@@ -3,6 +3,7 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import { cache } from "react";
 import { db } from "@/lib/db";
+import { CORE_CATEGORY } from "@/lib/curriculum";
 import {
   DEFAULT_SYSTEM_SETTINGS,
   type SystemSettings,
@@ -70,7 +71,13 @@ export async function getSchoolSubjects(): Promise<string[]> {
 
 /** Mengambil daftar kategori materi pembelajaran. */
 export async function getMaterialCategories(): Promise<MaterialCategory[]> {
-  return (await getSystemSettings()).materialCategories;
+  const list = (await getSystemSettings()).materialCategories;
+  // Kategori kurikulum inti selalu tersedia agar materi Rise Up! tetap bisa disunting.
+  if (list.some((c) => c.id === CORE_CATEGORY)) return list;
+  return [
+    { id: CORE_CATEGORY, label: `${CORE_CATEGORY} (Kurikulum Inti)`, description: "Unit buku inti Rise Up! Teens 1 · A2 · kelas 7", active: true },
+    ...list,
+  ];
 }
 
 /** Mengambil profil & semester sekolah. */

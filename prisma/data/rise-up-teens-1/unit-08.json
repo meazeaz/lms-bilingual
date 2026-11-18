@@ -1,0 +1,446 @@
+{
+  "unit": 8,
+  "title": "I'd Like a Plate of Noodles",
+  "summary": "Siswa belajar nama makanan, minuman, dan wadahnya, memesan dengan sopan memakai would like, serta memberi pendapat dengan too/a little/very/really.",
+  "content": "## Tujuan Belajar\n\n• Membicarakan makanan dan minuman.\n• Memesan makanan dan minuman dengan sopan.\n• Memberi pendapat tentang makanan dan minuman, baik positif maupun negatif.\n\n## Kosakata Inti\n\nDi unit ini kamu belajar nama makanan dan minuman bersama wadah atau takarannya, seperti a bowl of, a plate of, a cup of, a glass of, a serving of, dan a basket of. Kamu juga belajar kata rasa: sweet, salty, sour, spicy, hot, dan cold.\n\nI'd like a bowl of fried rice and a glass of iced tea, please.\nThis soup is too salty for me.\nWe shared a basket of fruit for dessert.\n\n## Tata Bahasa: Memesan dengan would like dan Memberi Pendapat (a little, very, really, too)\n\nWould like adalah cara sopan untuk menyatakan keinginan, lebih sopan daripada I want. Pertanyaannya: What would you like to eat/drink? Jawabannya: I would like / I'd like + makanan, please. Jangan pakai \"to\" sebelum nama benda, dan pilih wadah yang tepat (a cup of coffee, bukan a plate of coffee).\n\nUntuk menanyakan pendapat, pakai Do you like ...? (I/you/we/they) dan Does he/she like ...? Saat menjawab, perhatikan tunggal-jamak: this + benda tunggal + is, these + benda jamak + are. Kata penguat diletakkan sebelum kata sifat: a little (sedikit), very dan really (sangat), too (terlalu, bermakna negatif).\n\nWhat would you like to eat? I'd like a plate of noodles, please.\nWhat would you like to drink? I'd like a glass of juice, please.\nDo you like your bowl of fried rice? Yes, it's really delicious.\nDoes she like her cup of coffee? No, it's too hot.\nThis glass of iced tea is a little sweet.\nThese fries are very salty.\n\n## Contoh Percakapan\n\nWaiter: Good evening. What would you like to eat?\nNadia: I'd like a bowl of soup and a plate of salad, please.\nWaiter: And what would you like to drink?\nNadia: I'd like a glass of orange juice, please.\nArif: I'd like a burger, a serving of fries, and a can of soda, please.\nWaiter: Here you are. Enjoy your meal!\nArif: Nadia, do you like your soup?\nNadia: Yes, it's really tasty, but it's a little spicy. Do you like your fries?\nArif: No, these fries are too salty!\n\n## Ayo Berlatih\n\nWhat would you like to eat for lunch today?\nContoh: I'd like a bowl of fried rice, please.\n\nWhat would you like to drink on a hot day?\nContoh: I'd like a glass of iced tea, please.\n\nWhat is your favorite food? How does it taste?\nContoh: My favorite food is chicken noodles. It is really delicious and a little spicy.\n\nDo you like sour food? Why or why not?\nContoh: No, I don't. Lemons are too sour for me.\n\n## Tips\n\n• Saat memesan, gunakan \"I'd like ..., please.\" agar terdengar sopan; hindari \"I want ...\" di restoran.\n• Ingat pasangan yang benar: Do you / Does she, this bowl of soup is, these fries are.",
+  "vocabulary": [
+    {
+      "en": "a basket of fruit",
+      "id": "sekeranjang buah"
+    },
+    {
+      "en": "a plate of noodles",
+      "id": "sepiring mi"
+    },
+    {
+      "en": "a glass of iced tea",
+      "id": "segelas es teh"
+    },
+    {
+      "en": "a cup of coffee",
+      "id": "secangkir kopi"
+    },
+    {
+      "en": "a serving of fries",
+      "id": "seporsi kentang goreng"
+    },
+    {
+      "en": "a bowl of fried rice",
+      "id": "semangkuk nasi goreng"
+    },
+    {
+      "en": "pieces of grilled chicken",
+      "id": "potongan ayam bakar"
+    },
+    {
+      "en": "a bowl of soup",
+      "id": "semangkuk sup"
+    },
+    {
+      "en": "salty",
+      "id": "asin"
+    },
+    {
+      "en": "sour",
+      "id": "asam"
+    },
+    {
+      "en": "sweet",
+      "id": "manis"
+    },
+    {
+      "en": "spicy",
+      "id": "pedas"
+    },
+    {
+      "en": "cold",
+      "id": "dingin"
+    },
+    {
+      "en": "hot",
+      "id": "panas"
+    },
+    {
+      "en": "a burger",
+      "id": "sebuah burger"
+    },
+    {
+      "en": "a can of soda",
+      "id": "sekaleng soda"
+    },
+    {
+      "en": "a plate of salad",
+      "id": "sepiring salad"
+    },
+    {
+      "en": "a glass of juice",
+      "id": "segelas jus"
+    }
+  ],
+  "quiz": {
+    "title": "Progress Test Unit 8: I'd Like a Plate of Noodles",
+    "questions": [
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"a bowl of soup\".",
+        "options": [
+          "a container filled with apples, bananas, etc.",
+          "hot liquid food served in a round container",
+          "long, thin food served on a flat dish",
+          "long, thin pieces of fried potato"
+        ],
+        "answer": 1
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"a plate of noodles\".",
+        "options": [
+          "long, thin pieces of fried potato",
+          "a cold drink with ice and tea",
+          "a container filled with apples, bananas, etc.",
+          "long, thin food served on a flat dish"
+        ],
+        "answer": 3
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"a cup of coffee\".",
+        "options": [
+          "a hot drink made from roasted beans",
+          "a cold drink with ice and tea",
+          "hot liquid food served in a round container",
+          "a container filled with apples, bananas, etc."
+        ],
+        "answer": 0
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"a glass of iced tea\".",
+        "options": [
+          "hot liquid food served in a round container",
+          "a hot drink made from roasted beans",
+          "a cold drink with ice and tea",
+          "long, thin food served on a flat dish"
+        ],
+        "answer": 2
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"a basket of fruit\".",
+        "options": [
+          "a hot drink made from roasted beans",
+          "hot liquid food served in a round container",
+          "long, thin pieces of fried potato",
+          "a container filled with apples, bananas, etc."
+        ],
+        "answer": 3
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"a serving of fries\".",
+        "options": [
+          "a hot drink made from roasted beans",
+          "long, thin pieces of fried potato",
+          "a container filled with apples, bananas, etc.",
+          "hot liquid food served in a round container"
+        ],
+        "answer": 1
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "I ordered a bowl of _____ because it was cold outside.",
+        "fillInAnswer": "soup",
+        "fillInHint": "Pilih dari kotak kata: fried rice / soup / noodles / iced tea / fruit / fries / grilled chicken / coffee / juice"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "My favorite breakfast drink is a cup of hot _____.",
+        "fillInAnswer": "coffee",
+        "fillInHint": "Pilih dari kotak kata: fried rice / soup / noodles / iced tea / fruit / fries / grilled chicken / coffee / juice"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "We ordered a plate of _____ from the Chinese restaurant.",
+        "fillInAnswer": "fried rice",
+        "fillInHint": "Pilih dari kotak kata: fried rice / soup / noodles / iced tea / fruit / fries / grilled chicken / coffee / juice"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "On a hot day, I like drinking cold _____.",
+        "fillInAnswer": "iced tea",
+        "fillInHint": "Pilih dari kotak kata: fried rice / soup / noodles / iced tea / fruit / fries / grilled chicken / coffee / juice"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "My brother had a serving of _____ with his burger.",
+        "fillInAnswer": "fries",
+        "fillInHint": "Pilih dari kotak kata: fried rice / soup / noodles / iced tea / fruit / fries / grilled chicken / coffee / juice"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "For dessert, we shared a basket of fresh _____.",
+        "fillInAnswer": "fruit",
+        "fillInHint": "Pilih dari kotak kata: fried rice / soup / noodles / iced tea / fruit / fries / grilled chicken / coffee / juice"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "She ordered _____ and vegetables for dinner.",
+        "fillInAnswer": "grilled chicken",
+        "fillInHint": "Pilih dari kotak kata: fried rice / soup / noodles / iced tea / fruit / fries / grilled chicken / coffee / juice"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "I'd like a plate of _____ with soy sauce.",
+        "fillInAnswer": "noodles",
+        "fillInHint": "Pilih dari kotak kata: fried rice / soup / noodles / iced tea / fruit / fries / grilled chicken / coffee / juice"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "He drank a glass of orange _____ with breakfast.",
+        "fillInAnswer": "juice",
+        "fillInHint": "Pilih dari kotak kata: fried rice / soup / noodles / iced tea / fruit / fries / grilled chicken / coffee / juice"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Unscramble the sentence: soup / of / a / bowl / like / I'd / plate / and / a / of / noodles, / please.",
+        "fillInAnswer": "I'd like a bowl of soup and a plate of noodles, please.",
+        "acceptedAnswers": [
+          "I’d like a bowl of soup and a plate of noodles, please.",
+          "I'd like a bowl of soup and a plate of noodles, please",
+          "I’d like a bowl of soup and a plate of noodles, please",
+          "I'd like a bowl of soup and a plate of noodles please.",
+          "I’d like a bowl of soup and a plate of noodles please.",
+          "I'd like a bowl of soup and a plate of noodles please",
+          "I’d like a bowl of soup and a plate of noodles please"
+        ],
+        "fillInHint": "Susun semua kata menjadi kalimat lengkap (tulis kalimat utuh).",
+        "explanation": "Pola memesan: I'd like + wadah + of + makanan, please."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Unscramble the question: to / like / drink? / would / eat / and / you / What",
+        "fillInAnswer": "What would you like to eat and drink?",
+        "acceptedAnswers": [
+          "What would you like to eat and drink"
+        ],
+        "fillInHint": "Susun semua kata menjadi kalimat lengkap (tulis kalimat utuh).",
+        "explanation": "Pola bertanya: What would you like to + kata kerja?"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Unscramble the sentence: of / coffee / a / cup / and / like / serving / He'd / a / of / fries, / please.",
+        "fillInAnswer": "He'd like a cup of coffee and a serving of fries, please.",
+        "acceptedAnswers": [
+          "He’d like a cup of coffee and a serving of fries, please.",
+          "He'd like a cup of coffee and a serving of fries, please",
+          "He’d like a cup of coffee and a serving of fries, please",
+          "He'd like a cup of coffee and a serving of fries please.",
+          "He’d like a cup of coffee and a serving of fries please.",
+          "He'd like a cup of coffee and a serving of fries please",
+          "He’d like a cup of coffee and a serving of fries please"
+        ],
+        "fillInHint": "Susun semua kata menjadi kalimat lengkap (tulis kalimat utuh).",
+        "explanation": "He'd = He would. Pola: He'd like + wadah + of + makanan, please."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Unscramble the sentence: iced / a / glass / tea / of / like / She'd / and / basket / a / of / fruit, / please.",
+        "fillInAnswer": "She'd like a glass of iced tea and a basket of fruit, please.",
+        "acceptedAnswers": [
+          "She’d like a glass of iced tea and a basket of fruit, please.",
+          "She'd like a glass of iced tea and a basket of fruit, please",
+          "She’d like a glass of iced tea and a basket of fruit, please",
+          "She'd like a glass of iced tea and a basket of fruit please.",
+          "She’d like a glass of iced tea and a basket of fruit please.",
+          "She'd like a glass of iced tea and a basket of fruit please",
+          "She’d like a glass of iced tea and a basket of fruit please"
+        ],
+        "fillInHint": "Susun semua kata menjadi kalimat lengkap (tulis kalimat utuh).",
+        "explanation": "She'd = She would. Pola: She'd like + wadah + of + makanan, please."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Unscramble the sentence: fried / of / bowl / a / like / rice / They'd / and / cup / a / of / coffee, / please.",
+        "fillInAnswer": "They'd like a bowl of fried rice and a cup of coffee, please.",
+        "acceptedAnswers": [
+          "They’d like a bowl of fried rice and a cup of coffee, please.",
+          "They'd like a bowl of fried rice and a cup of coffee, please",
+          "They’d like a bowl of fried rice and a cup of coffee, please",
+          "They'd like a bowl of fried rice and a cup of coffee please.",
+          "They’d like a bowl of fried rice and a cup of coffee please.",
+          "They'd like a bowl of fried rice and a cup of coffee please",
+          "They’d like a bowl of fried rice and a cup of coffee please"
+        ],
+        "fillInHint": "Susun semua kata menjadi kalimat lengkap (tulis kalimat utuh).",
+        "explanation": "They'd = They would. Pola: They'd like + wadah + of + makanan, please."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Find the mistake and rewrite the sentence correctly: Does you like your bowl of fried rice?",
+        "fillInAnswer": "Do you like your bowl of fried rice?",
+        "acceptedAnswers": [
+          "Do you like your bowl of fried rice"
+        ],
+        "fillInHint": "Kalimat ini punya satu kesalahan. Tulis ulang kalimatnya dengan benar.",
+        "explanation": "Kesalahan: Does → Do, karena subjeknya you."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Find the mistake and rewrite the sentence correctly: Yes, this glass of iced tea are really sweet.",
+        "fillInAnswer": "Yes, this glass of iced tea is really sweet.",
+        "acceptedAnswers": [
+          "Yes, this glass of iced tea is really sweet",
+          "Yes this glass of iced tea is really sweet.",
+          "Yes this glass of iced tea is really sweet"
+        ],
+        "fillInHint": "Kalimat ini punya satu kesalahan. Tulis ulang kalimatnya dengan benar.",
+        "explanation": "Kesalahan: are → is, karena this glass (tunggal)."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Find the mistake and rewrite the sentence correctly: Do she like her cup of coffee?",
+        "fillInAnswer": "Does she like her cup of coffee?",
+        "acceptedAnswers": [
+          "Does she like her cup of coffee"
+        ],
+        "fillInHint": "Kalimat ini punya satu kesalahan. Tulis ulang kalimatnya dengan benar.",
+        "explanation": "Kesalahan: Do → Does, karena subjeknya she."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Find the mistake and rewrite the sentence correctly: No, these plates of noodles is too spicy.",
+        "fillInAnswer": "No, these plates of noodles are too spicy.",
+        "acceptedAnswers": [
+          "No, these plates of noodles are too spicy",
+          "No these plates of noodles are too spicy.",
+          "No these plates of noodles are too spicy"
+        ],
+        "fillInHint": "Kalimat ini punya satu kesalahan. Tulis ulang kalimatnya dengan benar.",
+        "explanation": "Kesalahan: is → are, karena these plates (jamak)."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Find the mistake and rewrite the sentence correctly: Yes, this bowl of soup are a little salty.",
+        "fillInAnswer": "Yes, this bowl of soup is a little salty.",
+        "acceptedAnswers": [
+          "Yes, this bowl of soup is a little salty",
+          "Yes this bowl of soup is a little salty.",
+          "Yes this bowl of soup is a little salty"
+        ],
+        "fillInHint": "Kalimat ini punya satu kesalahan. Tulis ulang kalimatnya dengan benar.",
+        "explanation": "Kesalahan: are → is, karena this bowl (tunggal)."
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "What did Olivia order to eat?",
+        "options": [
+          "A burger and fries",
+          "A bowl of soup and a plate of noodles",
+          "A cup of coffee and a sandwich",
+          "A basket of fruit"
+        ],
+        "answer": 1,
+        "passageTitle": "Dinner at the Café",
+        "passage": "Last night, Olivia and her brother Ethan went to a small café near their house. A friendly worker gave them a table near the window. Olivia ordered a bowl of soup and a plate of noodles. She also asked for a glass of iced tea because the weather was warm. Ethan ordered a burger, a serving of fries, and a cup of hot coffee. While they waited, they talked about their day at school. After eating, they shared a basket of fruit for dessert. They both said the food was delicious and wanted to come back again soon.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "explanation": "Teks: \"Olivia ordered a bowl of soup and a plate of noodles.\""
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "Why did Olivia want iced tea?",
+        "options": [
+          "Because she likes tea best",
+          "Because the weather was warm",
+          "Because the coffee was too hot",
+          "Because Ethan asked her to"
+        ],
+        "answer": 1,
+        "passageTitle": "Dinner at the Café",
+        "passage": "Last night, Olivia and her brother Ethan went to a small café near their house. A friendly worker gave them a table near the window. Olivia ordered a bowl of soup and a plate of noodles. She also asked for a glass of iced tea because the weather was warm. Ethan ordered a burger, a serving of fries, and a cup of hot coffee. While they waited, they talked about their day at school. After eating, they shared a basket of fruit for dessert. They both said the food was delicious and wanted to come back again soon.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "explanation": "Teks: \"She also asked for a glass of iced tea because the weather was warm.\""
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "What did Ethan order?",
+        "options": [
+          "A plate of noodles",
+          "A bowl of soup",
+          "A burger, fries, and coffee",
+          "A basket of fruit"
+        ],
+        "answer": 2,
+        "passageTitle": "Dinner at the Café",
+        "passage": "Last night, Olivia and her brother Ethan went to a small café near their house. A friendly worker gave them a table near the window. Olivia ordered a bowl of soup and a plate of noodles. She also asked for a glass of iced tea because the weather was warm. Ethan ordered a burger, a serving of fries, and a cup of hot coffee. While they waited, they talked about their day at school. After eating, they shared a basket of fruit for dessert. They both said the food was delicious and wanted to come back again soon.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "explanation": "Teks: \"Ethan ordered a burger, a serving of fries, and a cup of hot coffee.\""
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "What did Olivia and Ethan do while they waited for their food?",
+        "options": [
+          "They played games",
+          "They talked about their day at school",
+          "They read a menu",
+          "They watched a movie"
+        ],
+        "answer": 1,
+        "passageTitle": "Dinner at the Café",
+        "passage": "Last night, Olivia and her brother Ethan went to a small café near their house. A friendly worker gave them a table near the window. Olivia ordered a bowl of soup and a plate of noodles. She also asked for a glass of iced tea because the weather was warm. Ethan ordered a burger, a serving of fries, and a cup of hot coffee. While they waited, they talked about their day at school. After eating, they shared a basket of fruit for dessert. They both said the food was delicious and wanted to come back again soon.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "explanation": "Teks: \"While they waited, they talked about their day at school.\""
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "What did they share for dessert?",
+        "options": [
+          "A cup of coffee",
+          "A plate of noodles",
+          "A basket of fruit",
+          "A bowl of soup"
+        ],
+        "answer": 2,
+        "passageTitle": "Dinner at the Café",
+        "passage": "Last night, Olivia and her brother Ethan went to a small café near their house. A friendly worker gave them a table near the window. Olivia ordered a bowl of soup and a plate of noodles. She also asked for a glass of iced tea because the weather was warm. Ethan ordered a burger, a serving of fries, and a cup of hot coffee. While they waited, they talked about their day at school. After eating, they shared a basket of fruit for dessert. They both said the food was delicious and wanted to come back again soon.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "explanation": "Teks: \"they shared a basket of fruit for dessert.\""
+      }
+    ]
+  },
+  "notes": "Part 1B: butir 3 (\"a plate of ___ from the Chinese restaurant\" = fried rice) dan butir 8 (\"a plate of ___ with soy sauce\" = noodles) bisa tertukar karena keduanya cocok secara konteks; kunci mengikuti PDF, guru mungkin perlu meninjau jawaban siswa yang menukar keduanya. Part 2A (unscramble) dan Part 2B (temukan kesalahan lalu tulis ulang) dijadikan FILL_IN kalimat utuh; penilaian sistem exact-match (tanpa beda huruf besar/kecil), jadi acceptedAnswers memuat variasi tanpa tanda baca akhir/koma dan apostrof melengkung. Bagian \"circle the mistake\" tidak dinilai terpisah; penjelasan tiap butir menyebut kata yang salah. Part 3 READING MC dengan kunci PDF (b, b, c, b, c). Tidak ada butir bergambar; tidak ada butir dilewati."
+}

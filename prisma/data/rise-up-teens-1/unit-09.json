@@ -1,0 +1,433 @@
+{
+  "unit": 9,
+  "title": "We Took a Boat Ride",
+  "summary": "Siswa belajar menceritakan liburan di masa lalu dengan past simple, kosakata transportasi & tempat wisata, serta bertanya \"How long did ...?\".",
+  "content": "## Tujuan Belajar\n\n• Menceritakan kejadian dan pengalaman liburan di masa lalu.\n• Menyebutkan tempat wisata dan kegiatan yang dilakukan di sana.\n• Bertanya dan menjawab berapa lama sesuatu berlangsung dengan \"How long did ...?\".\n• Memakai kata kerja bentuk lampau (past simple), termasuk kata kerja tidak beraturan.\n\n## Kosakata Inti\n\nDi unit ini kamu belajar kata-kata tentang liburan: cara bepergian (travel by plane, go by boat, ride the train, take the bus), tempat tujuan (the beach, the mountains, a resort, a village, the city, the forest), dan kegiatan selama liburan (go camping, went sightseeing, bought souvenirs, took photos, tried local food).\n\nWe took the bus to the city and went sightseeing.\nMy family went camping in the forest last summer.\nI tried local food and bought souvenirs near the beach.\n\n## Tata Bahasa: Past Simple & \"How long did ...?\"\n\nPast simple dipakai untuk kegiatan yang sudah selesai di masa lalu (last week, yesterday, last year). Kata kerja beraturan cukup ditambah -ed, sedangkan kata kerja tidak beraturan berubah bentuk:\nstay → stayed | travel → traveled\ngo → went | take → took | ride → rode | buy → bought | see → saw\n\nUntuk bertanya, pakai did + kata kerja dasar: \"Where did you go?\" (bukan \"Where did you went?\"). Untuk menanyakan lama waktu, pakai \"How long did ...?\". Jawab dengan stayed + for + waktu, atau took + waktu (tanpa for).\n\nWhere did you go on vacation? — I went to the mountains.\nDid you stay at a hotel? — No, we didn't. We stayed at a resort.\nHow long did you stay at the resort? — We stayed there for two weeks.\nHow long did the bus ride take? — The bus ride took eight hours.\nShe rode the train to the beach last weekend.\n\n## Contoh Percakapan\n\nRani: Hi, Dimas! Where did you go last holiday?\nDimas: I went to Lombok with my family. We traveled by plane.\nRani: Cool! Did you stay at a hotel?\nDimas: No, we didn't. We stayed at a resort near the beach.\nRani: How long did you stay there?\nDimas: We stayed for five days. We also went by boat to a small island.\nRani: How long did the boat ride take?\nDimas: It took one hour. I took a lot of photos and tried local food!\n\n## Ayo Berlatih\n\nWhere did you go on your last vacation?\nContoh: I went to my grandparents' village.\n\nHow did you get there?\nContoh: We took the bus.\n\nHow long did you stay there?\nContoh: We stayed there for four days.\n\nWhat did you do there?\nContoh: I went sightseeing and bought souvenirs.\n\n## Tips\n\n• Hafalkan kata kerja tidak beraturan secara berpasangan, misalnya go–went, take–took, ride–rode, buy–bought. Buat kartu kecil dan uji dirimu setiap hari.\n• Ingat: setelah did, kata kerja kembali ke bentuk dasar. \"How long did you stay?\" benar, \"How long did you stayed?\" salah.",
+  "vocabulary": [
+    {
+      "en": "travel by plane",
+      "id": "bepergian naik pesawat"
+    },
+    {
+      "en": "go by boat",
+      "id": "pergi naik perahu"
+    },
+    {
+      "en": "ride the train",
+      "id": "naik kereta"
+    },
+    {
+      "en": "take the bus",
+      "id": "naik bus"
+    },
+    {
+      "en": "the beach",
+      "id": "pantai"
+    },
+    {
+      "en": "the mountains",
+      "id": "pegunungan"
+    },
+    {
+      "en": "a resort",
+      "id": "resor (tempat menginap untuk berlibur)"
+    },
+    {
+      "en": "go camping",
+      "id": "berkemah"
+    },
+    {
+      "en": "a village",
+      "id": "desa"
+    },
+    {
+      "en": "a city",
+      "id": "kota"
+    },
+    {
+      "en": "the forest",
+      "id": "hutan"
+    },
+    {
+      "en": "a hotel",
+      "id": "hotel"
+    },
+    {
+      "en": "bought souvenirs",
+      "id": "membeli oleh-oleh / suvenir"
+    },
+    {
+      "en": "went sightseeing",
+      "id": "jalan-jalan melihat tempat wisata"
+    },
+    {
+      "en": "went to an amusement park",
+      "id": "pergi ke taman hiburan"
+    },
+    {
+      "en": "took photos",
+      "id": "mengambil foto"
+    },
+    {
+      "en": "tried local food",
+      "id": "mencoba makanan khas setempat"
+    },
+    {
+      "en": "saw animals",
+      "id": "melihat hewan"
+    }
+  ],
+  "quiz": {
+    "title": "Progress Test Unit 9: We Took a Boat Ride",
+    "questions": [
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"travel by plane\".",
+        "options": [
+          "a place to stay with a pool and activities",
+          "a high, rocky place with tall peaks",
+          "to fly to another place",
+          "to sleep in a tent outdoors"
+        ],
+        "answer": 2
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"go camping\".",
+        "options": [
+          "to sleep in a tent outdoors",
+          "to fly to another place",
+          "a high, rocky place with tall peaks",
+          "to travel on a long vehicle on tracks"
+        ],
+        "answer": 0
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"ride the train\".",
+        "options": [
+          "a high, rocky place with tall peaks",
+          "to sleep in a tent outdoors",
+          "to travel with many people on a road vehicle",
+          "to travel on a long vehicle on tracks"
+        ],
+        "answer": 3
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"take the bus\".",
+        "options": [
+          "to sleep in a tent outdoors",
+          "to travel with many people on a road vehicle",
+          "to travel on a long vehicle on tracks",
+          "a place to stay with a pool and activities"
+        ],
+        "answer": 1
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"the mountains\".",
+        "options": [
+          "to travel with many people on a road vehicle",
+          "a place to stay with a pool and activities",
+          "a high, rocky place with tall peaks",
+          "to fly to another place"
+        ],
+        "answer": 2
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"a resort\".",
+        "options": [
+          "to fly to another place",
+          "a place to stay with a pool and activities",
+          "a high, rocky place with tall peaks",
+          "to sleep in a tent outdoors"
+        ],
+        "answer": 1
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "My family likes to go to _____ because we love swimming.",
+        "fillInAnswer": "the beach",
+        "fillInHint": "Pilih dari kotak kata: go camping / take the bus / a resort / travel by plane / the beach / go by boat / ride the train / the mountains / the city"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "We _____ when we visit my grandparents in another country.",
+        "fillInAnswer": "travel by plane",
+        "fillInHint": "Pilih dari kotak kata: go camping / take the bus / a resort / travel by plane / the beach / go by boat / ride the train / the mountains / the city"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "I _____ when I go on school trips in the city.",
+        "fillInAnswer": "take the bus",
+        "fillInHint": "Pilih dari kotak kata: go camping / take the bus / a resort / travel by plane / the beach / go by boat / ride the train / the mountains / the city"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "Last year, we stayed at _____ with a big swimming pool.",
+        "fillInAnswer": "a resort",
+        "fillInHint": "Pilih dari kotak kata: go camping / take the bus / a resort / travel by plane / the beach / go by boat / ride the train / the mountains / the city"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "My cousins _____ every summer because they love nature.",
+        "fillInAnswer": "go camping",
+        "fillInHint": "Pilih dari kotak kata: go camping / take the bus / a resort / travel by plane / the beach / go by boat / ride the train / the mountains / the city"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "We _____ across the lake during our vacation.",
+        "fillInAnswer": "go by boat",
+        "fillInHint": "Pilih dari kotak kata: go camping / take the bus / a resort / travel by plane / the beach / go by boat / ride the train / the mountains / the city"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "My brother wants to visit _____ to see tall buildings.",
+        "fillInAnswer": "the city",
+        "fillInHint": "Pilih dari kotak kata: go camping / take the bus / a resort / travel by plane / the beach / go by boat / ride the train / the mountains / the city"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "We _____ to get to the mountains for our vacation.",
+        "fillInAnswer": "ride the train",
+        "fillInHint": "Pilih dari kotak kata: go camping / take the bus / a resort / travel by plane / the beach / go by boat / ride the train / the mountains / the city"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "I want to hike in _____ next year because I love nature.",
+        "fillInAnswer": "the mountains",
+        "fillInHint": "Pilih dari kotak kata: go camping / take the bus / a resort / travel by plane / the beach / go by boat / ride the train / the mountains / the city"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Rewrite the word \"stay\" to complete the sentence about the past.\nWe stay at a resort near the beach.\nLast week, we _____ at a resort near the beach.",
+        "fillInAnswer": "stayed",
+        "fillInHint": "Tulis bentuk lampau (past simple) dari \"stay\".",
+        "explanation": "stay adalah kata kerja beraturan: stay + -ed = stayed."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Rewrite the word \"take\" to complete the sentence about the past.\nThey take a bus to the city to go shopping.\nYesterday, they _____ a bus to the city to go shopping.",
+        "fillInAnswer": "took",
+        "fillInHint": "Tulis bentuk lampau (past simple) dari \"take\".",
+        "explanation": "take adalah kata kerja tidak beraturan; bentuk lampaunya took."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Rewrite the word \"go\" to complete the sentence about the past.\nI go to the mountains with my cousins.\nLast vacation, I _____ to the mountains with my cousins.",
+        "fillInAnswer": "went",
+        "fillInHint": "Tulis bentuk lampau (past simple) dari \"go\".",
+        "explanation": "go adalah kata kerja tidak beraturan; bentuk lampaunya went."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Rewrite the word \"travels\" to complete the sentence about the past.\nShe travels by plane to visit her aunt in another city.\nLast month, she _____ by plane to visit her aunt in another city.",
+        "fillInAnswer": "traveled",
+        "acceptedAnswers": [
+          "travelled"
+        ],
+        "fillInHint": "Tulis bentuk lampau (past simple) dari \"travels\".",
+        "explanation": "travel + -ed = traveled (ejaan Inggris Britania: travelled)."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Rewrite the word \"rides\" to complete the sentence about the past.\nHe rides the train to the beach with his friends.\nLast weekend, he _____ to the beach with his friends.",
+        "fillInAnswer": "rode",
+        "fillInHint": "Tulis bentuk lampau (past simple) dari \"rides\".",
+        "explanation": "ride adalah kata kerja tidak beraturan; bentuk lampaunya rode."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Unscramble the words to make a correct question or sentence:\nat / did / vacation? / stay / long / your / on / the / resort / last / How / you",
+        "fillInAnswer": "How long did you stay at the resort on your last vacation?",
+        "acceptedAnswers": [
+          "How long did you stay at the resort on your last vacation"
+        ],
+        "fillInHint": "Tulis kalimat lengkap dengan urutan yang benar, akhiri dengan tanda baca yang sesuai.",
+        "explanation": "Pola pertanyaan: How long + did + subjek + kata kerja dasar + keterangan."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Unscramble the words to make a correct question or sentence:\nthe / at / stayed / resort / weeks. / We / for / two",
+        "fillInAnswer": "We stayed at the resort for two weeks.",
+        "acceptedAnswers": [
+          "We stayed at the resort for two weeks"
+        ],
+        "fillInHint": "Tulis kalimat lengkap dengan urutan yang benar, akhiri dengan tanda baca yang sesuai.",
+        "explanation": "Jawaban lama tinggal: subjek + stayed + tempat + for + waktu."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Unscramble the words to make a correct question or sentence:\ndid / bus / take / long / the / to / ride / there? / How / get",
+        "fillInAnswer": "How long did the bus ride take to get there?",
+        "acceptedAnswers": [
+          "How long did the bus ride take to get there"
+        ],
+        "fillInHint": "Tulis kalimat lengkap dengan urutan yang benar, akhiri dengan tanda baca yang sesuai.",
+        "explanation": "Pola pertanyaan: How long did + the bus ride + take ...?"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Unscramble the words to make a correct question or sentence:\nride / took / bus / hours / to / The / eight / get / there.",
+        "fillInAnswer": "The bus ride took eight hours to get there.",
+        "acceptedAnswers": [
+          "The bus ride took eight hours to get there"
+        ],
+        "fillInHint": "Tulis kalimat lengkap dengan urutan yang benar, akhiri dengan tanda baca yang sesuai.",
+        "explanation": "Jawaban lama perjalanan: The bus ride + took + waktu (tanpa for)."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Unscramble the words to make a correct question or sentence:\ndid / stay / in / long / they / mountains / year? / the / last / How",
+        "fillInAnswer": "How long did they stay in the mountains last year?",
+        "acceptedAnswers": [
+          "How long did they stay in the mountains last year"
+        ],
+        "fillInHint": "Tulis kalimat lengkap dengan urutan yang benar, akhiri dengan tanda baca yang sesuai.",
+        "explanation": "Pola pertanyaan: How long + did + they + stay + keterangan tempat & waktu."
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "Order the events from 1 to 6 in the order they happen. Which number is this event?\n\"They visited a market and bought souvenirs.\"",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6"
+        ],
+        "answer": 5,
+        "passageTitle": "A Trip to the Lake",
+        "passage": "Last weekend, Emma and her family went on a short vacation. They took the bus to a small town near a lake, and they stayed at a small resort by the water. On Saturday morning, they rented a boat and went across the lake. Emma loved the cool wind and the sound of the waves. After the boat ride, they walked through a forest and saw many birds. In the afternoon, they went camping near the mountains and stayed in a tent for one night. On Sunday, they visited a small market and bought souvenirs. Emma bought a keychain for her best friend. Her family took the bus home in the evening, feeling happy and relaxed.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "explanation": "Urutan dalam teks: naik bus ke kota kecil (1), menginap di resor (2), naik perahu (3), berjalan di hutan (4), berkemah (5), ke pasar membeli suvenir (6). Kejadian ini nomor 6."
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "Order the events from 1 to 6 in the order they happen. Which number is this event?\n\"Emma's family took the bus to a small town near a lake.\"",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6"
+        ],
+        "answer": 0,
+        "passageTitle": "A Trip to the Lake",
+        "passage": "Last weekend, Emma and her family went on a short vacation. They took the bus to a small town near a lake, and they stayed at a small resort by the water. On Saturday morning, they rented a boat and went across the lake. Emma loved the cool wind and the sound of the waves. After the boat ride, they walked through a forest and saw many birds. In the afternoon, they went camping near the mountains and stayed in a tent for one night. On Sunday, they visited a small market and bought souvenirs. Emma bought a keychain for her best friend. Her family took the bus home in the evening, feeling happy and relaxed.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "explanation": "Urutan dalam teks: naik bus ke kota kecil (1), menginap di resor (2), naik perahu (3), berjalan di hutan (4), berkemah (5), ke pasar membeli suvenir (6). Kejadian ini nomor 1."
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "Order the events from 1 to 6 in the order they happen. Which number is this event?\n\"They went camping near the mountains.\"",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6"
+        ],
+        "answer": 4,
+        "passageTitle": "A Trip to the Lake",
+        "passage": "Last weekend, Emma and her family went on a short vacation. They took the bus to a small town near a lake, and they stayed at a small resort by the water. On Saturday morning, they rented a boat and went across the lake. Emma loved the cool wind and the sound of the waves. After the boat ride, they walked through a forest and saw many birds. In the afternoon, they went camping near the mountains and stayed in a tent for one night. On Sunday, they visited a small market and bought souvenirs. Emma bought a keychain for her best friend. Her family took the bus home in the evening, feeling happy and relaxed.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "explanation": "Urutan dalam teks: naik bus ke kota kecil (1), menginap di resor (2), naik perahu (3), berjalan di hutan (4), berkemah (5), ke pasar membeli suvenir (6). Kejadian ini nomor 5."
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "Order the events from 1 to 6 in the order they happen. Which number is this event?\n\"They rented a boat and went across the lake.\"",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6"
+        ],
+        "answer": 2,
+        "passageTitle": "A Trip to the Lake",
+        "passage": "Last weekend, Emma and her family went on a short vacation. They took the bus to a small town near a lake, and they stayed at a small resort by the water. On Saturday morning, they rented a boat and went across the lake. Emma loved the cool wind and the sound of the waves. After the boat ride, they walked through a forest and saw many birds. In the afternoon, they went camping near the mountains and stayed in a tent for one night. On Sunday, they visited a small market and bought souvenirs. Emma bought a keychain for her best friend. Her family took the bus home in the evening, feeling happy and relaxed.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "explanation": "Urutan dalam teks: naik bus ke kota kecil (1), menginap di resor (2), naik perahu (3), berjalan di hutan (4), berkemah (5), ke pasar membeli suvenir (6). Kejadian ini nomor 3."
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "Order the events from 1 to 6 in the order they happen. Which number is this event?\n\"They stayed at a small resort by the water.\"",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6"
+        ],
+        "answer": 1,
+        "passageTitle": "A Trip to the Lake",
+        "passage": "Last weekend, Emma and her family went on a short vacation. They took the bus to a small town near a lake, and they stayed at a small resort by the water. On Saturday morning, they rented a boat and went across the lake. Emma loved the cool wind and the sound of the waves. After the boat ride, they walked through a forest and saw many birds. In the afternoon, they went camping near the mountains and stayed in a tent for one night. On Sunday, they visited a small market and bought souvenirs. Emma bought a keychain for her best friend. Her family took the bus home in the evening, feeling happy and relaxed.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "explanation": "Urutan dalam teks: naik bus ke kota kecil (1), menginap di resor (2), naik perahu (3), berjalan di hutan (4), berkemah (5), ke pasar membeli suvenir (6). Kejadian ini nomor 2."
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "Order the events from 1 to 6 in the order they happen. Which number is this event?\n\"They walked through a forest and saw many birds.\"",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6"
+        ],
+        "answer": 3,
+        "passageTitle": "A Trip to the Lake",
+        "passage": "Last weekend, Emma and her family went on a short vacation. They took the bus to a small town near a lake, and they stayed at a small resort by the water. On Saturday morning, they rented a boat and went across the lake. Emma loved the cool wind and the sound of the waves. After the boat ride, they walked through a forest and saw many birds. In the afternoon, they went camping near the mountains and stayed in a tent for one night. On Sunday, they visited a small market and bought souvenirs. Emma bought a keychain for her best friend. Her family took the bus home in the evening, feeling happy and relaxed.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "explanation": "Urutan dalam teks: naik bus ke kota kecil (1), menginap di resor (2), naik perahu (3), berjalan di hutan (4), berkemah (5), ke pasar membeli suvenir (6). Kejadian ini nomor 4."
+      }
+    ]
+  },
+  "notes": "Part 1A (mencocokkan kata–arti) diubah menjadi pilihan ganda 4 opsi: arti benar + 3 arti lain dari daftar a–f. Part 2A: kunci PDF \"traveled\"; ejaan Britania \"travelled\" juga diterima. Part 2B (menyusun kata) dijadikan FILL_IN kalimat utuh; pencocokan tidak peka huruf besar/kecil, tanda baca akhir boleh dihilangkan, tetapi spasi/kata harus persis sama dengan kunci. Part 3 (mengurutkan kejadian 1–6) dijadikan READING pilihan ganda: tiap kejadian a–f menjadi satu butir dengan opsi 1–6 (kunci a6, b1, c5, d3, e2, f4 sesuai PDF). Tidak ada soal bergambar. Total 31 butir = 31 poin tes."
+}

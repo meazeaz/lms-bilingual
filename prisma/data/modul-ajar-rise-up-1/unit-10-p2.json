@@ -1,0 +1,203 @@
+{
+  "book": "Rise Up! Teens 1",
+  "unit": 10,
+  "unitTitle": "I'll Wear a Heavy Coat",
+  "meeting": 2,
+  "title": "Listening & Reading",
+  "subject": "Bahasa Inggris",
+  "phase": "D",
+  "grade": 7,
+  "semester": "II (Genap)",
+  "duration": "2 x 40 menit",
+  "year": "2026",
+  "prerequisites": "Peserta didik telah mempelajari kosakata pakaian untuk cuaca dingin dan basah serta penggunaan “so” dan “because” untuk menjelaskan pilihan pakaian.",
+  "profiles": [
+    "Beriman",
+    "Berkebinekaan global",
+    "Bergotong royong",
+    "Mandiri",
+    "Bernalar kritis",
+    "Kreatif"
+  ],
+  "resources": [
+    "Sumber Belajar:  Rise Up! Teens! Student Book 1, page 83-85",
+    "Persiapan: Papan tulis, spidol",
+    "Laptop/ komputer, pengeras suara, projector, PPT"
+  ],
+  "learningModel": "Discovery Learning, Task-Based Learning, Tatap Muka.",
+  "approach": [
+    "DEEP LEARNING (Mindful, Meaningful, Joyful Learning)",
+    "Mindful Learning",
+    "Peserta didik diajak untuk fokus dan saksama saat menyimak audio, mengamati detail gambar/komik, dan memperhatikan struktur bahasa yang digunakan.",
+    "Meaningful Learning",
+    "Peserta didik menghubungkan materi pembelajaran dengan pengalaman dan kehidupan nyata mereka, sehingga pembelajaran terasa relevan dan bermanfaat.",
+    "Joyful Learning",
+    "Pembelajaran dikemas dalam aktivitas yang menyenangkan seperti permainan tebak hobi, kerja kelompok, penggunaan komik strip, dan survei interaktif."
+  ],
+  "objectives": [
+    "Learners will be able to understand and identify additional key vocabulary about hot, sunny weather and the clothes we wear in the dry season.",
+    "Learners will listen to and understand people talking about the clothing they will wear when the weather is hot.",
+    "Learners will read and understand a text about rainy, windy weather and what kind of clothes we wear."
+  ],
+  "steps": [
+    {
+      "sequence": "Warming up and introductions",
+      "minutes": 5,
+      "tag": null,
+      "details": [
+        "Greet the students and ask about their feelings. For example: “How are you feeling today?” or “How would you describe your mood in one word?”",
+        "Review the previous lesson: say a type of weather (e.g. “It’s very cold and windy.”) and ask students to answer with one piece of clothing from page 81 (e.g. “I will wear a heavy coat.”).",
+        "Ask a few students to make a sentence with “so” or “because”, e.g. “It will be wet tomorrow, so I will wear waterproof boots.”",
+        "Other alternatives to warm up the class: hot potato and throw the ball."
+      ]
+    },
+    {
+      "sequence": "Listen and circle",
+      "minutes": 10,
+      "tag": "Meaningful",
+      "details": [
+        "Ask students to look at the pictures in Listening A on Student Book page 83.",
+        "Tell them that they need to listen and circle the vocabulary word that they hear in the audio.",
+        "Before listening, practice pronunciation of the words in task A. The teacher says the two vocabulary choices given for each number, e.g. “Number 1. dry season. dry weather.” and students repeat them.",
+        "Play audio 10.3. If needed, the teacher can pause the audio after track 1 to check students’ understanding.",
+        "Ask students to check their answers with a partner, play the audio again, and then check the answers together on the board.",
+        "Play audio 10.3 again and ask students to write down the sentences they hear in their notebooks (this is a simple dictation activity). Then show the audio script and ask students to correct their sentences."
+      ]
+    },
+    {
+      "sequence": "Listen and repeat",
+      "minutes": 5,
+      "tag": "Mindful and joyful",
+      "details": [
+        "This activity is for pronunciation practice.",
+        "Play audio 10.4 and encourage students to repeat the words loudly: dry season, sunny, leather sandals, a pair of sunglasses, a short-sleeved top, a sun hat. Encourage them to try to copy the intonation they hear in the audio.",
+        "For variation, vocabulary drilling can be done in groups, pairs, loudly, quietly, etc.",
+        "In order to make vocabulary drilling more interesting, students could be guided to drill using different emotions (e.g. excited because it is sunny, or tired because it is too hot) or voices."
+      ]
+    },
+    {
+      "sequence": "Listening comprehension",
+      "minutes": 10,
+      "tag": "Meaningful",
+      "details": [
+        "Ask students to look at Listening task C. Explain the situation: it’s the dry season and the weather will be sunny and dry tomorrow. What will Mike and Sally wear tomorrow?",
+        "Tell students that there are two parts to this activity. First, they need to listen and complete the questions according to what they hear in the audio.",
+        "Play audio 10.5. If needed, the teacher can pause the audio after track 1 to check that the students understand how to do the task. Then, continue with the audio and play it again.",
+        "Read the completed questions aloud together as a class (e.g. “Will Mike wear a pair of leather sandals tomorrow?”).",
+        "Next, students look at the pictures of what Mike and Sally will wear and circle “Yes, s/he will.” or “No, s/he won’t.” Check the answers together and write them on the board.",
+        "Put students in pairs to take turns asking and answering the questions. Student A asks the questions first, and then Student B answers them. Then switch the roles."
+      ]
+    },
+    {
+      "sequence": "Lead-in for Reading",
+      "minutes": 5,
+      "tag": "Meaningful",
+      "details": [
+        "Ask students to look at the pictures on Student Book page 84-85 and ask the class, “What can you see on the page?”",
+        "Ask some specific questions about the pictures, for example, ‘How many people can you see?’, ‘Where is she? What is she wearing?’",
+        "Giving some personal questions is also suggested to make it more relatable to students, for example, “What do you take with you when it is rainy and windy?”"
+      ]
+    },
+    {
+      "sequence": "Match the words",
+      "minutes": 5,
+      "tag": "Meaningful",
+      "details": [
+        "Ask students to look at task A on Student Book page 84.",
+        "Read the vocabulary and the definitions aloud (rainy, windy, a big umbrella, a long raincoat), and ask students to repeat them after you.",
+        "Tell students that they will need to match these words to their definitions and to the correct pictures by writing the matching letters and numerals.",
+        "Do the first item together as a class to make sure students understand what to do. Then students complete the task in pairs.",
+        "Check the answers as a class and drill the pronunciation of the key vocabulary."
+      ]
+    },
+    {
+      "sequence": "Pre-reading discussion questions",
+      "minutes": 10,
+      "tag": "Meaningful",
+      "details": [
+        "Ask students to look at task B on Student Book page 84.",
+        "Put students in pairs and ask them to discuss the questions together, e.g. “Do you like rainy weather? Why or why not?” and “What should we wear and take with us if the weather is rainy and windy?”",
+        "Give students 3-5 minutes to complete the task.",
+        "Then ask some students to share their answers with the class. Answers will vary because these questions require students' own personal responses. It is a brainstorming task, so it’s not important if students don’t know all the answers in English yet."
+      ]
+    },
+    {
+      "sequence": "Reading",
+      "minutes": 5,
+      "tag": "Mindful and joyful",
+      "details": [
+        "Tell students that they will listen and read the story about Laura’s rainy and windy day. Play audio 10.6 and ask them to read the text silently.",
+        "Next, play audio 10.6 again and ask students to read the text aloud, following the audio. Ask if there are any questions about the language in the text.",
+        "As a way to make the reading session more engaging, teachers could divide the class into several groups and assign each group to read one paragraph alternately in different ways (e.g. loudly or quietly, or like a strong wind)."
+      ]
+    },
+    {
+      "sequence": "Match the descriptions",
+      "minutes": 10,
+      "tag": "Meaningful",
+      "details": [
+        "Ask students to look at task D on Student Book page 85.",
+        "Read Descriptions 1-6 aloud together as a class. Then, read Parts of the Text a-f aloud together as a class.",
+        "Tell students that they need to match the descriptions (1-6) to the parts of the text (a-f) by writing letters next to the descriptions.",
+        "Look at the example together and ask students to give reasons why number 1 matches letter c (the rain stops, Laura sits on a bench, watches the birds, and enjoys the moment). Tell them to look for clues in both the descriptions and the parts of the story.",
+        "Students read the text again and complete the task in pairs. Then they check their answers with another friend (not the partner they worked with).",
+        "Check the answers as a class. Write the answers on the board and ask students to explain each answer using information from the text."
+      ]
+    },
+    {
+      "sequence": "Post-reading discussion questions",
+      "minutes": 10,
+      "tag": "Meaningful",
+      "details": [
+        "Now ask students to look at task E on Student Book page 85.",
+        "Instruct them to discuss the questions in groups of three or four students, e.g. “How does rainy weather make you feel?”, “Did you ever need to change your plans because of the weather?”, and “What are some problems that might happen if the weather is very windy?”",
+        "After about 6-8 minutes, elicit some answers for each question from each group."
+      ]
+    },
+    {
+      "sequence": "Extension activity",
+      "minutes": 15,
+      "tag": "Meaningful",
+      "details": [
+        "This activity could be done if there is more time.",
+        "Ask students to write two of their own True/ False statements about the reading text in their notebooks (e.g. “The wind blows Laura’s umbrella away.”).",
+        "Put students in pairs and ask them to show each other their True/ False statements. Students must say either True or False about their partner’s statements. Then, each student should say whether the answer is correct or incorrect (Yes, that’s correct. / No, that’s not correct.) and explain why.",
+        "Ask around five individual students to write one of their T/F statements on the whiteboard.",
+        "Then ask the whole class to give their answers to each statement by putting their thumbs up if the statement is True, or thumbs down if the statement is False.",
+        "The students who wrote their statements on the board should tell the class the correct answers and explain why.",
+        "Alternative: draw a boy (Tom) and a girl (Lily) in different weather on the board and let students ask and answer “Will Lily wear a pair of sunglasses tomorrow? Why?” using vocabulary from pages 81 and 83."
+      ]
+    },
+    {
+      "sequence": "Closing",
+      "minutes": 5,
+      "tag": null,
+      "details": [
+        "Wrap up the class by asking the students what they will wear and take with them if it is rainy and windy on their way home today.",
+        "Conclude the lesson, give feedback, and appreciation toward the student(s) / the whole class. Dismiss the class."
+      ]
+    }
+  ],
+  "assessment": [
+    "Asesmen formatif: ketepatan jawaban tugas listening (menomori/menjodohkan/melengkapi).",
+    "Pertanyaan pemahaman bacaan (literal & inferensial) dan pembahasan bersama.",
+    "Pengamatan partisipasi saat diskusi berpasangan/kelompok."
+  ],
+  "reflectionStudent": [
+    "Apa hal baru yang kamu pelajari hari ini?",
+    "Bagian mana yang paling mudah dan paling sulit bagimu? Mengapa?",
+    "Kalimat bahasa Inggris apa yang sudah bisa kamu ucapkan dengan percaya diri?",
+    "Apa yang akan kamu lakukan untuk berlatih di rumah?"
+  ],
+  "reflectionTeacher": [
+    "Apakah tujuan pembelajaran tercapai? Bukti apa yang menunjukkannya?",
+    "Kegiatan mana yang paling efektif dan mana yang perlu diperbaiki?",
+    "Berapa persen instruksi kelas yang disampaikan dalam bahasa Inggris?",
+    "Peserta didik mana yang memerlukan pendampingan atau pengayaan?"
+  ],
+  "attachments": [
+    "Student’s book page 83-85",
+    "Workbook page 60-61",
+    "Answer key in Teacher’s Guide"
+  ]
+}

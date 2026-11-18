@@ -238,23 +238,135 @@ export function cefrFromToefl(score: number) {
 }
 
 // ─────────────── Peta jalan (Bab 1.3) ───────────────
-export const PHASES = [
-  { code: "F0", name: "Fase 0", title: "Asesmen awal, sosialisasi, pembentukan tim", start: "2026-04-01", end: "2026-04-30", target: "Peta kemampuan guru & siswa, SK Tim EDT" },
-  { code: "F1", name: "Fase 1", title: "Foundation & Habit Building", start: "2026-05-01", end: "2026-07-31", target: "70% guru aktif di program WA, 60% guru lulus Bronze" },
-  { code: "F2", name: "Fase 2", title: "Pilot Implementation", start: "2026-08-01", end: "2026-10-31", target: "3–5 pilot teacher mengajar full lesson bilingual, protokol observasi siap" },
-  { code: "F3", name: "Fase 3", title: "Operasionalisasi Sistem", start: "2026-11-01", end: "2027-04-30", target: "Seluruh guru memiliki level Duta Inggris, sistem monitoring berjalan" },
-  { code: "F4", name: "Fase 4", title: "Pemantapan & Ekspansi", start: "2027-05-01", end: "2028-04-30", target: "100% guru minimal B1, bilingual di 50% mata pelajaran" },
-  { code: "F5", name: "Fase 5", title: "Evaluasi Final & Persiapan Akreditasi", start: "2028-05-01", end: "2028-06-30", target: "Siap full bilingual Juli 2028" },
+// Tanggal start/end adalah RENCANA dari dokumen. Status fase (selesai/berjalan/terkunci) tidak dihitung
+// dari tanggal, tetapi diselesaikan manual oleh admin secara berurutan (lihat src/lib/phases-server.ts).
+export type PhaseChecklistItem = { id: string; label: string };
+export type Phase = {
+  code: string;
+  name: string;
+  title: string;
+  start: string;
+  end: string;
+  target: string;
+  source: string;
+  material: string[];
+  checklist: PhaseChecklistItem[];
+};
+
+export const PHASES: Phase[] = [
+  {
+    code: "F0", name: "Fase 0", title: "Asesmen awal, sosialisasi, pembentukan tim", start: "2026-04-01", end: "2026-04-30",
+    target: "Peta kemampuan guru & siswa, SK Tim EDT",
+    source: "Bab 1.3, Bab 2.1–2.2",
+    material: [
+      "Fase 0 berlangsung 1 bulan (April 2026) untuk memetakan titik awal sebelum program berjalan. Kemampuan guru dipetakan dengan TOEFL Prediction Test (membaca, mendengar, struktur), Cambridge Placement Test bila memungkinkan, serta observasi kelas dan wawancara untuk berbicara.",
+      "Hasil pemetaan dikelompokkan per level CEFR: C1 (TOEFL 550+), B2 (500–549), B1 (450–499), dan A2 (350–449). Pemetaan ulang dilakukan setiap 6 bulan, yaitu Juni dan Desember.",
+      "Kemampuan siswa kelas 7 dan 8 dipetakan dari riwayat kursus (banyak alumni Pare) dan tes awal oleh guru Bahasa Inggris. Perkiraan awal: ±60% A2, ±30% A1, ±10% Pre A1.",
+      "Pada fase ini Tim English Development Team (EDT) dibentuk melalui SK Kepala Sekolah dan program disosialisasikan ke guru, staf, siswa, dan orang tua.",
+    ],
+    checklist: [
+      { id: "F0-1", label: "Tim EDT dibentuk dan SK Kepala Sekolah diterbitkan" },
+      { id: "F0-2", label: "Pemetaan kemampuan guru (TOEFL Prediction + wawancara) selesai" },
+      { id: "F0-3", label: "Pemetaan kemampuan siswa kelas 7 & 8 selesai" },
+      { id: "F0-4", label: "Program disosialisasikan ke guru, staf, dan orang tua" },
+      { id: "F0-5", label: "Akun LMS seluruh guru dan siswa sudah dibuat" },
+    ],
+  },
+  {
+    code: "F1", name: "Fase 1", title: "Foundation & Habit Building", start: "2026-05-01", end: "2026-07-31",
+    target: "70% guru aktif di program WA, 60% guru lulus Bronze",
+    source: "Bab 3, Lampiran 2–3",
+    material: [
+      "Fase 1 (3 bulan) membangun kebiasaan berbahasa Inggris lewat program ELITE (English Language Immersion Through Everyday) di grup WhatsApp, Senin–Jumat. Pukul 05.30 admin memposting Mirror Morning; guru berlatih di depan cermin dan mengirim voice note sebelum 06.15. Pukul 06.30 admin memposting Misi Harian dengan batas 20.00.",
+      "Tema mingguan: Greetings & Gratitude, Instructions, Student Interaction, lalu Reflection. Prinsipnya communication over perfection: yang penting berani mencoba.",
+      "English Zone mewajibkan bahasa Inggris di area tertentu (Bronze: ruang guru 3×30 menit/minggu). English Buddy memasangkan guru A2 dengan guru B1/B2/C1, bertemu 2× seminggu selama 30 menit.",
+      "Setiap guru menerima Pocket Book 50 kalimat instruksi kelas. Di akhir fase dilakukan asesmen Bronze Ambassador (lisan 50%, tertulis 30%, simulasi 20%; lulus ≥ 66,5).",
+    ],
+    checklist: [
+      { id: "F1-1", label: "Grup WhatsApp ELITE berjalan Senin–Jumat dengan aturan grup" },
+      { id: "F1-2", label: "Mirror Morning & Misi Harian diposting rutin sesuai tema 4 minggu" },
+      { id: "F1-3", label: "English Zone dan pasangan English Buddy sudah berjalan" },
+      { id: "F1-4", label: "Pocket Book 50 kalimat dibagikan ke setiap guru" },
+      { id: "F1-5", label: "Asesmen Bronze Ambassador sudah dilaksanakan" },
+      { id: "F1-6", label: "Target tercapai: 70% guru aktif di ELITE dan 60% guru lulus Bronze" },
+    ],
+  },
+  {
+    code: "F2", name: "Fase 2", title: "Pilot Implementation", start: "2026-08-01", end: "2026-10-31",
+    target: "3–5 pilot teacher mengajar full lesson bilingual, protokol observasi siap",
+    source: "Bab 4",
+    material: [
+      "Bulan 4 diisi micro-teaching: guru mengajar 10–20 menit di depan rekan sejawat. Minggu 1 Opening & Instruction, minggu 2 Main Activity & Monitoring, minggu 3 Checking for Understanding, minggu 4 Full Mini-Lesson yang dinilai EDT.",
+      "Rubrik micro-teaching memiliki 4 aspek berbobot sama. Nilai ≥ 70 lulus ke Real-Class Pilot, 60–69 pendampingan dan ulang minggu depan, < 60 pendampingan intensif 2 minggu.",
+      "Pilot teacher dipilih dari guru yang menyelesaikan Fase 1 (partisipasi WA ≥ 70%), lulus micro-teaching, direkomendasikan EDT, dan bersedia direkam. Bulan 5 berisi workshop RPP bilingual lalu pilot mengajar di kelas nyata dengan observasi.",
+      "Setiap observasi diikuti sesi umpan balik wajib kurang dari 24 jam: apresiasi, refleksi guru, 2–3 saran konkret, dan kesepakatan tindak lanjut. Di akhir fase protokol observasi direvisi.",
+    ],
+    checklist: [
+      { id: "F2-1", label: "Micro-teaching 4 minggu selesai dan dinilai" },
+      { id: "F2-2", label: "3–5 pilot teacher terpilih sesuai kriteria" },
+      { id: "F2-3", label: "Real-Class Pilot berjalan dengan observasi kelas" },
+      { id: "F2-4", label: "Sesi umpan balik < 24 jam dilakukan setelah setiap observasi" },
+      { id: "F2-5", label: "Protokol dan lembar observasi sudah direvisi dan siap dipakai" },
+    ],
+  },
+  {
+    code: "F3", name: "Fase 3", title: "Operasionalisasi Sistem", start: "2026-11-01", end: "2027-04-30",
+    target: "Seluruh guru memiliki level Duta Inggris, sistem monitoring berjalan",
+    source: "Bab 5–6",
+    material: [
+      "Fase 3 (6 bulan) menjadikan program bilingual sistem tetap. SK Kepala Sekolah mengesahkan program, Tim EDT, Sistem Duta Inggris 3 level beserta insentif, dan instrumen operasional. Juknis menetapkan target bahasa Inggris di kelas: Bronze 30%, Silver 50%, Gold 70%, Mentor 85%.",
+      "SOP mengatur pendaftaran Duta Inggris tiap awal semester, asesmen level setiap 6 bulan, observasi kelas 2× per semester per guru, pencairan insentif bulanan, pelatihan rutin Jumat minggu ke-2, dan banding maksimal 14 hari.",
+      "Guru memakai template RPP bilingual (target level, minimal 3 kalimat Inggris, skenario, refleksi) dan Bank Kalimat 50+ situasi. Monitoring berjalan lewat dashboard guru dan Laporan Bulanan EDT kepada Kepala Sekolah.",
+      "Sanksi: 3 bulan tidak memenuhi kewajiban berarti turun level dan insentif dihentikan.",
+    ],
+    checklist: [
+      { id: "F3-1", label: "SK, Juknis, dan SOP program bilingual disahkan" },
+      { id: "F3-2", label: "Guru memakai template RPP bilingual dan Bank Kalimat" },
+      { id: "F3-3", label: "Sistem Duta Inggris 3 level beserta insentif berjalan" },
+      { id: "F3-4", label: "Observasi kelas 2× per semester per guru terjadwal dan berjalan" },
+      { id: "F3-5", label: "Laporan Bulanan EDT rutin dikirim ke Kepala Sekolah" },
+      { id: "F3-6", label: "Seluruh guru sudah memiliki level Duta Inggris" },
+    ],
+  },
+  {
+    code: "F4", name: "Fase 4", title: "Pemantapan & Ekspansi", start: "2027-05-01", end: "2028-04-30",
+    target: "100% guru minimal B1, bilingual di 50% mata pelajaran",
+    source: "Bab 1.2, Bab 2, Bab 7",
+    material: [
+      "Fase 4 (12 bulan) memperluas pembelajaran bilingual ke lebih banyak mata pelajaran dan memantapkan kemampuan guru. Target T1: 100% guru minimal B1; T2: 50% guru minimal B2 dan 20% minimal C1 (Desember 2027).",
+      "Target kenaikan level per tahun: A2 → B1, B1 → B2, B2 → C1. Pemetaan ulang CEFR dilakukan Juni dan Desember, dan asesmen Duta Inggris diulang setiap 6 bulan.",
+      "Pengembangan siswa diperkuat: Madani English Club setiap Sabtu 08.00–09.30, Peer Tutoring setiap Kamis sore oleh Student Ambassador, dan partisipasi lomba bahasa Inggris dari tingkat kecamatan sampai provinsi.",
+      "Target T4: 100% mata pelajaran non-bahasa memiliki perangkat pembelajaran bilingual.",
+    ],
+    checklist: [
+      { id: "F4-1", label: "Pemetaan ulang CEFR Juni dan Desember dilaksanakan" },
+      { id: "F4-2", label: "100% guru minimal B1 (CEFR)" },
+      { id: "F4-3", label: "Pembelajaran bilingual berjalan di minimal 50% mata pelajaran" },
+      { id: "F4-4", label: "English Club dan Peer Tutoring berjalan rutin" },
+      { id: "F4-5", label: "Partisipasi lomba sesuai target per jenjang" },
+      { id: "F4-6", label: "Asesmen ulang Duta Inggris setiap 6 bulan dilaksanakan" },
+    ],
+  },
+  {
+    code: "F5", name: "Fase 5", title: "Evaluasi Final & Persiapan Akreditasi", start: "2028-05-01", end: "2028-06-30",
+    target: "Siap full bilingual Juli 2028",
+    source: "Bab 1.2–1.4",
+    material: [
+      "Fase 5 (2 bulan) mengevaluasi seluruh capaian program terhadap tujuan SMART T1–T6 sebelum full bilingual Juli 2028.",
+      "Indikator utama: guru minimal B1 seluruhnya, sistem Duta Inggris berjalan, perangkat bilingual tersedia untuk semua mapel non-bahasa, dan rata-rata TOEFL Prediction siswa kelas 9 minimal 500.",
+      "Sekolah menyiapkan akreditasi sebagai Sekolah Bilingual dengan Integrasi Cambridge Pathway (Cambridge Lower Secondary ESL 0876), serta menyosialisasikan kesiapan full bilingual kepada orang tua.",
+    ],
+    checklist: [
+      { id: "F5-1", label: "Evaluasi akhir seluruh indikator SMART T1–T6 selesai" },
+      { id: "F5-2", label: "Rata-rata TOEFL Prediction siswa kelas 9 ≥ 500" },
+      { id: "F5-3", label: "Dokumen akreditasi Sekolah Bilingual & Cambridge Pathway siap" },
+      { id: "F5-4", label: "Kesiapan full bilingual disosialisasikan ke orang tua" },
+      { id: "F5-5", label: "Rencana pelaksanaan full bilingual Juli 2028 disahkan" },
+    ],
+  },
 ];
 
 export const FULL_BILINGUAL_DATE = new Date("2028-07-01T00:00:00");
-
-export function currentPhase(now = new Date()) {
-  const t = now.getTime();
-  const found = PHASES.find((p) => t >= new Date(p.start).getTime() && t <= new Date(p.end + "T23:59:59").getTime());
-  if (found) return found;
-  return t < new Date(PHASES[0].start).getTime() ? PHASES[0] : PHASES[PHASES.length - 1];
-}
 
 export const SMART_GOALS = [
   { code: "T1", text: "100% guru memiliki level bahasa Inggris minimal B1 (CEFR)", due: "Desember 2027" },

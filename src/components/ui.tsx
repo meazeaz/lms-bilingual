@@ -301,9 +301,13 @@ export function Td({ className, ...props }: ComponentProps<"td">) {
 // ───────────── Avatar ─────────────
 const AVATAR_COLORS = ["bg-brand-100 text-brand-700", "bg-coral-100 text-coral-700", "bg-mint-100 text-mint-700", "bg-gold-100 text-gold-700", "bg-sky-100 text-sky-700", "bg-violet-100 text-violet-700"];
 
-export function Avatar({ name, size = "md", className }: { name: string; size?: "sm" | "md" | "lg"; className?: string }) {
+export function Avatar({ name, size = "md", className, src }: { name: string; size?: "sm" | "md" | "lg"; className?: string; src?: string }) {
   const hash = [...name].reduce((s, c) => s + c.charCodeAt(0), 0);
   const sz = size === "sm" ? "size-8 text-xs" : size === "lg" ? "size-14 text-lg" : "size-10 text-sm";
+  if (src) {
+    // eslint-disable-next-line @next/next/no-img-element -- foto profil privat dari /api/avatar (tanpa optimasi next/image)
+    return <img src={src} alt={`Foto ${name}`} className={cn("clay-soft inline-block shrink-0 rounded-2xl object-cover", sz, className)} />;
+  }
   return <span className={cn("clay-soft inline-grid shrink-0 place-items-center rounded-2xl font-extrabold", sz, AVATAR_COLORS[hash % AVATAR_COLORS.length], className)}>{initials(name)}</span>;
 }
 

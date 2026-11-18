@@ -47,7 +47,7 @@ export default async function LessonPlanDetailPage({
     <div className="mx-auto max-w-4xl space-y-6 pb-12">
       {/* Navigation & Action Bar (Hidden when printing) */}
       <div className="flex flex-wrap items-center justify-between gap-3 print:hidden">
-        <Link href={user.role === "ADMIN" ? "/admin/verifikasi?tab=rpp" : "/guru/rpp"}>
+        <Link href={user.role === "ADMIN" ? "/admin/rpp" : "/guru/rpp?tab=arsip"}>
           <Button variant="ghost" size="sm">
             <ArrowLeft className="size-4" /> Kembali ke Daftar RPP
           </Button>

@@ -1,0 +1,546 @@
+{
+  "unit": 10,
+  "title": "I'll Wear a Heavy Coat",
+  "summary": "Siswa belajar kosakata cuaca & pakaian, memakai \"so\" dan \"because\", serta membuat prediksi dengan \"If it's ..., I'll/I won't ...\".",
+  "content": "## Tujuan Belajar\n\n• Membicarakan cuaca dan pakaian yang cocok untuk cuaca tersebut.\n• Menjelaskan sebab dan akibat dengan \"because\" dan \"so\".\n• Membuat prediksi dengan \"if\" dan \"will / won't\" tentang cuaca dan pakaian.\n• Menyebutkan kosakata cuaca (cloudy, windy, rainy, sunny) dan pakaian (heavy coat, thick gloves, sun hat).\n\n## Kosakata Inti\n\nUnit ini membahas cuaca dan pakaian. Saat cuaca dingin atau basah kita memakai a heavy coat, a woolen sweater, thick gloves, a knitted scarf, waterproof boots, atau a long raincoat. Saat musim kemarau (dry season) yang cerah, kita memakai a short-sleeved top, leather sandals, a sun hat, dan a pair of sunglasses.\n\nIt's cloudy and windy today, so I'm wearing a knitted scarf.\nBring a big umbrella because we are expecting wet weather.\nIn the dry season, I wear a sun hat and a pair of sunglasses.\n\n## Tata Bahasa: so / because & If it's ..., I'll ...\n\n\"because\" memberi alasan (sebab), sedangkan \"so\" menunjukkan hasil (akibat). Untuk rencana atau prediksi pakai will + kata kerja dasar, dan won't (will not) untuk bentuk negatif.\nAkibat: It will be cold, so I will wear a heavy coat.\nSebab: I will wear a heavy coat because it will be cold.\n\nKalimat pengandaian (first conditional): If + present simple, will / won't + kata kerja dasar. Bagian \"if\" menjelaskan cuaca, bagian lain menjelaskan pakaian. Jangan pakai will setelah if. Urutannya boleh dibalik; jika \"if\" di depan, pakai koma.\n\nIf it's cold tomorrow, I'll wear a woolen sweater.\nI'll wear a woolen sweater if it's cold tomorrow.\nIf it's sunny on Saturday, she will wear a sun hat.\nIf it's wet today, we won't wear sneakers.\nIt will be rainy, so I will take my umbrella.\nHe won't wear sandals because the weather will be cold.\n\n## Contoh Percakapan\n\nNadia: What will you wear to the school trip tomorrow?\nFajar: The weather will be cloudy and windy, so I'll wear a long-sleeved shirt.\nNadia: Will you bring a jacket?\nFajar: Yes, because it will be cold in the mountains. What about you?\nNadia: If it's rainy, I'll wear my long raincoat and waterproof boots.\nFajar: Good idea. I won't wear sandals because my feet will get wet.\nNadia: And if it's sunny, I'll wear a sun hat and sunglasses.\nFajar: Great! Let's bring a big umbrella, too.\n\n## Ayo Berlatih\n\nWhat's the weather like today?\nContoh: It's sunny and hot.\n\nWhat will you wear if it's cold tomorrow?\nContoh: If it's cold tomorrow, I'll wear a woolen sweater.\n\nWhat won't you wear if it's rainy?\nContoh: I won't wear leather sandals because my feet will get wet.\n\nWhy do you bring an umbrella?\nContoh: I bring an umbrella because it's rainy.\n\n## Tips\n\n• Cara mudah membedakan: \"because\" menjawab pertanyaan \"Why?\" (mengapa), sedangkan \"so\" menjawab \"What happens next?\" (lalu apa akibatnya).\n• Setiap pagi, lihat ke luar jendela dan ucapkan satu kalimat dalam bahasa Inggris, misalnya: \"If it's rainy, I'll take my umbrella.\"",
+  "vocabulary": [
+    {
+      "en": "wet weather",
+      "id": "cuaca basah / hujan"
+    },
+    {
+      "en": "cloudy",
+      "id": "berawan / mendung"
+    },
+    {
+      "en": "waterproof boots",
+      "id": "sepatu bot tahan air"
+    },
+    {
+      "en": "a heavy coat",
+      "id": "mantel tebal"
+    },
+    {
+      "en": "thick gloves",
+      "id": "sarung tangan tebal"
+    },
+    {
+      "en": "a long-sleeved shirt",
+      "id": "kemeja lengan panjang"
+    },
+    {
+      "en": "a knitted scarf",
+      "id": "syal rajutan"
+    },
+    {
+      "en": "a woolen sweater",
+      "id": "sweter wol"
+    },
+    {
+      "en": "dry season",
+      "id": "musim kemarau"
+    },
+    {
+      "en": "sunny",
+      "id": "cerah (banyak sinar matahari)"
+    },
+    {
+      "en": "leather sandals",
+      "id": "sandal kulit"
+    },
+    {
+      "en": "a pair of sunglasses",
+      "id": "sepasang kacamata hitam"
+    },
+    {
+      "en": "a short-sleeved top",
+      "id": "atasan lengan pendek"
+    },
+    {
+      "en": "a sun hat",
+      "id": "topi untuk melindungi dari matahari"
+    },
+    {
+      "en": "rainy",
+      "id": "hujan / sering turun hujan"
+    },
+    {
+      "en": "windy",
+      "id": "berangin"
+    },
+    {
+      "en": "a big umbrella",
+      "id": "payung besar"
+    },
+    {
+      "en": "a long raincoat",
+      "id": "jas hujan panjang"
+    }
+  ],
+  "quiz": {
+    "title": "Progress Test Unit 10: I'll Wear a Heavy Coat",
+    "questions": [
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"heavy coat\".",
+        "options": [
+          "warm clothing made of wool",
+          "a thick jacket you wear in very cold weather",
+          "when the sky is covered with clouds",
+          "shoes that keep your feet dry in wet weather"
+        ],
+        "answer": 1
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"waterproof boots\".",
+        "options": [
+          "a thick jacket you wear in very cold weather",
+          "when the sky is covered with clouds",
+          "warm clothing for your hands",
+          "shoes that keep your feet dry in wet weather"
+        ],
+        "answer": 3
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"knitted scarf\".",
+        "options": [
+          "something warm you wrap around your neck",
+          "when the sky is covered with clouds",
+          "shoes that keep your feet dry in wet weather",
+          "warm clothing for your hands"
+        ],
+        "answer": 0
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"thick gloves\".",
+        "options": [
+          "shoes that keep your feet dry in wet weather",
+          "something warm you wrap around your neck",
+          "warm clothing for your hands",
+          "warm clothing made of wool"
+        ],
+        "answer": 2
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"cloudy\".",
+        "options": [
+          "something warm you wrap around your neck",
+          "warm clothing made of wool",
+          "a thick jacket you wear in very cold weather",
+          "when the sky is covered with clouds"
+        ],
+        "answer": 3
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"woolen sweater\".",
+        "options": [
+          "warm clothing made of wool",
+          "a thick jacket you wear in very cold weather",
+          "when the sky is covered with clouds",
+          "shoes that keep your feet dry in wet weather"
+        ],
+        "answer": 0
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "The sky is grey and _____ today.",
+        "fillInAnswer": "cloudy",
+        "fillInHint": "Pilih dari kotak kata: long-sleeved shirt / wet weather / waterproof boots / heavy coat / cloudy / thick gloves / knitted scarf / windy / woolen sweater"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "It is very _____ outside, so hold onto your hat!",
+        "fillInAnswer": "windy",
+        "fillInHint": "Pilih dari kotak kata: long-sleeved shirt / wet weather / waterproof boots / heavy coat / cloudy / thick gloves / knitted scarf / windy / woolen sweater"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "I wear a _____ around my neck when it is cold.",
+        "fillInAnswer": "knitted scarf",
+        "fillInHint": "Pilih dari kotak kata: long-sleeved shirt / wet weather / waterproof boots / heavy coat / cloudy / thick gloves / knitted scarf / windy / woolen sweater"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "She wore _____ to keep her feet dry in the rain.",
+        "fillInAnswer": "waterproof boots",
+        "fillInHint": "Pilih dari kotak kata: long-sleeved shirt / wet weather / waterproof boots / heavy coat / cloudy / thick gloves / knitted scarf / windy / woolen sweater"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "He put on _____ because his hands were freezing.",
+        "fillInAnswer": "thick gloves",
+        "fillInHint": "Pilih dari kotak kata: long-sleeved shirt / wet weather / waterproof boots / heavy coat / cloudy / thick gloves / knitted scarf / windy / woolen sweater"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "In winter, I wear a _____ over my sweater.",
+        "fillInAnswer": "heavy coat",
+        "fillInHint": "Pilih dari kotak kata: long-sleeved shirt / wet weather / waterproof boots / heavy coat / cloudy / thick gloves / knitted scarf / windy / woolen sweater"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "My grandmother knitted me a warm _____ for Christmas.",
+        "fillInAnswer": "woolen sweater",
+        "acceptedAnswers": [
+          "woollen sweater"
+        ],
+        "fillInHint": "Pilih dari kotak kata: long-sleeved shirt / wet weather / waterproof boots / heavy coat / cloudy / thick gloves / knitted scarf / windy / woolen sweater"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "I wore a _____ because it wasn't too cold today.",
+        "fillInAnswer": "long-sleeved shirt",
+        "acceptedAnswers": [
+          "long sleeved shirt"
+        ],
+        "fillInHint": "Pilih dari kotak kata: long-sleeved shirt / wet weather / waterproof boots / heavy coat / cloudy / thick gloves / knitted scarf / windy / woolen sweater"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "Take an umbrella because we are expecting _____ this afternoon.",
+        "fillInAnswer": "wet weather",
+        "fillInHint": "Pilih dari kotak kata: long-sleeved shirt / wet weather / waterproof boots / heavy coat / cloudy / thick gloves / knitted scarf / windy / woolen sweater"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Complete the sentence using 'so' or 'because':\nIt will be rainy today, _____ I will take my umbrella.",
+        "fillInAnswer": "so",
+        "fillInHint": "Pilih: so / because",
+        "explanation": "\"so\" dipakai karena bagian setelahnya adalah akibat/hasil."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Complete the sentence using 'so' or 'because':\nI won't wear sandals _____ the weather will be cold.",
+        "fillInAnswer": "because",
+        "fillInHint": "Pilih: so / because",
+        "explanation": "\"because\" dipakai karena bagian setelahnya adalah alasan/sebab."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Complete the sentence using 'so' or 'because':\nShe will wear a long raincoat _____ it is wet and windy.",
+        "fillInAnswer": "because",
+        "fillInHint": "Pilih: so / because",
+        "explanation": "\"because\" dipakai karena bagian setelahnya adalah alasan/sebab."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Complete the sentence using 'so' or 'because':\nIt will be sunny _____ we will wear sunglasses.",
+        "fillInAnswer": "so",
+        "fillInHint": "Pilih: so / because",
+        "explanation": "\"so\" dipakai karena bagian setelahnya adalah akibat/hasil."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Complete the sentence using 'so' or 'because':\nHe will wear a heavy coat _____ he doesn't want to feel cold.",
+        "fillInAnswer": "because",
+        "fillInHint": "Pilih: so / because",
+        "explanation": "\"because\" dipakai karena bagian setelahnya adalah alasan/sebab."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Write a sentence with the information below using 'if it's' and either 'will' or 'won't':\ncold tomorrow (I / wear / a woolen sweater)",
+        "fillInAnswer": "If it's cold tomorrow, I will wear a woolen sweater.",
+        "acceptedAnswers": [
+          "If it's cold tomorrow, I will wear a woolen sweater",
+          "If it's cold tomorrow I will wear a woolen sweater.",
+          "If it's cold tomorrow I will wear a woolen sweater",
+          "I will wear a woolen sweater if it's cold tomorrow.",
+          "I will wear a woolen sweater if it's cold tomorrow",
+          "If it’s cold tomorrow, I will wear a woolen sweater.",
+          "If it’s cold tomorrow, I will wear a woolen sweater",
+          "If it’s cold tomorrow I will wear a woolen sweater.",
+          "If it’s cold tomorrow I will wear a woolen sweater",
+          "I will wear a woolen sweater if it’s cold tomorrow.",
+          "I will wear a woolen sweater if it’s cold tomorrow",
+          "If it's cold tomorrow, I'll wear a woolen sweater.",
+          "If it's cold tomorrow, I'll wear a woolen sweater",
+          "If it's cold tomorrow I'll wear a woolen sweater.",
+          "If it's cold tomorrow I'll wear a woolen sweater",
+          "I'll wear a woolen sweater if it's cold tomorrow.",
+          "I'll wear a woolen sweater if it's cold tomorrow",
+          "If it’s cold tomorrow, I’ll wear a woolen sweater.",
+          "If it’s cold tomorrow, I’ll wear a woolen sweater",
+          "If it’s cold tomorrow I’ll wear a woolen sweater.",
+          "If it’s cold tomorrow I’ll wear a woolen sweater",
+          "I’ll wear a woolen sweater if it’s cold tomorrow.",
+          "I’ll wear a woolen sweater if it’s cold tomorrow",
+          "If it's cold tomorrow, I will wear a woollen sweater.",
+          "If it's cold tomorrow, I will wear a woollen sweater",
+          "If it's cold tomorrow I will wear a woollen sweater.",
+          "If it's cold tomorrow I will wear a woollen sweater",
+          "I will wear a woollen sweater if it's cold tomorrow.",
+          "I will wear a woollen sweater if it's cold tomorrow",
+          "If it’s cold tomorrow, I will wear a woollen sweater.",
+          "If it’s cold tomorrow, I will wear a woollen sweater",
+          "If it’s cold tomorrow I will wear a woollen sweater.",
+          "If it’s cold tomorrow I will wear a woollen sweater",
+          "I will wear a woollen sweater if it’s cold tomorrow.",
+          "I will wear a woollen sweater if it’s cold tomorrow",
+          "If it's cold tomorrow, I'll wear a woollen sweater.",
+          "If it's cold tomorrow, I'll wear a woollen sweater",
+          "If it's cold tomorrow I'll wear a woollen sweater.",
+          "If it's cold tomorrow I'll wear a woollen sweater",
+          "I'll wear a woollen sweater if it's cold tomorrow.",
+          "I'll wear a woollen sweater if it's cold tomorrow",
+          "If it’s cold tomorrow, I’ll wear a woollen sweater.",
+          "If it’s cold tomorrow, I’ll wear a woollen sweater",
+          "If it’s cold tomorrow I’ll wear a woollen sweater.",
+          "If it’s cold tomorrow I’ll wear a woollen sweater",
+          "I’ll wear a woollen sweater if it’s cold tomorrow.",
+          "I’ll wear a woollen sweater if it’s cold tomorrow"
+        ],
+        "fillInHint": "Pola: If it's + cuaca, subjek + will/won't + wear + pakaian. (Urutan boleh dibalik: ... if it's ...)",
+        "explanation": "First conditional: If + present simple (it's), will/won't + kata kerja dasar. Kedua urutan kalimat benar."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Write a sentence with the information below using 'if it's' and either 'will' or 'won't':\nsunny on Saturday (she / wear / a sun hat)",
+        "fillInAnswer": "If it's sunny on Saturday, she will wear a sun hat.",
+        "acceptedAnswers": [
+          "If it's sunny on Saturday, she will wear a sun hat",
+          "If it's sunny on Saturday she will wear a sun hat.",
+          "If it's sunny on Saturday she will wear a sun hat",
+          "She will wear a sun hat if it's sunny on Saturday.",
+          "She will wear a sun hat if it's sunny on Saturday",
+          "If it’s sunny on Saturday, she will wear a sun hat.",
+          "If it’s sunny on Saturday, she will wear a sun hat",
+          "If it’s sunny on Saturday she will wear a sun hat.",
+          "If it’s sunny on Saturday she will wear a sun hat",
+          "She will wear a sun hat if it’s sunny on Saturday.",
+          "She will wear a sun hat if it’s sunny on Saturday",
+          "If it's sunny on Saturday, she'll wear a sun hat.",
+          "If it's sunny on Saturday, she'll wear a sun hat",
+          "If it's sunny on Saturday she'll wear a sun hat.",
+          "If it's sunny on Saturday she'll wear a sun hat",
+          "She'll wear a sun hat if it's sunny on Saturday.",
+          "She'll wear a sun hat if it's sunny on Saturday",
+          "If it’s sunny on Saturday, she’ll wear a sun hat.",
+          "If it’s sunny on Saturday, she’ll wear a sun hat",
+          "If it’s sunny on Saturday she’ll wear a sun hat.",
+          "If it’s sunny on Saturday she’ll wear a sun hat",
+          "She’ll wear a sun hat if it’s sunny on Saturday.",
+          "She’ll wear a sun hat if it’s sunny on Saturday"
+        ],
+        "fillInHint": "Pola: If it's + cuaca, subjek + will/won't + wear + pakaian. (Urutan boleh dibalik: ... if it's ...)",
+        "explanation": "First conditional: If + present simple (it's), will/won't + kata kerja dasar. Kedua urutan kalimat benar."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Write a sentence with the information below using 'if it's' and either 'will' or 'won't':\nwet today (we / not wear / sneakers)",
+        "fillInAnswer": "If it's wet today, we won't wear sneakers.",
+        "acceptedAnswers": [
+          "If it's wet today, we won't wear sneakers",
+          "If it's wet today we won't wear sneakers.",
+          "If it's wet today we won't wear sneakers",
+          "We won't wear sneakers if it's wet today.",
+          "We won't wear sneakers if it's wet today",
+          "If it’s wet today, we won’t wear sneakers.",
+          "If it’s wet today, we won’t wear sneakers",
+          "If it’s wet today we won’t wear sneakers.",
+          "If it’s wet today we won’t wear sneakers",
+          "We won’t wear sneakers if it’s wet today.",
+          "We won’t wear sneakers if it’s wet today",
+          "If it's wet today, we will not wear sneakers.",
+          "If it's wet today, we will not wear sneakers",
+          "If it's wet today we will not wear sneakers.",
+          "If it's wet today we will not wear sneakers",
+          "We will not wear sneakers if it's wet today.",
+          "We will not wear sneakers if it's wet today",
+          "If it’s wet today, we will not wear sneakers.",
+          "If it’s wet today, we will not wear sneakers",
+          "If it’s wet today we will not wear sneakers.",
+          "If it’s wet today we will not wear sneakers",
+          "We will not wear sneakers if it’s wet today.",
+          "We will not wear sneakers if it’s wet today"
+        ],
+        "fillInHint": "Pola: If it's + cuaca, subjek + will/won't + wear + pakaian. (Urutan boleh dibalik: ... if it's ...)",
+        "explanation": "First conditional: If + present simple (it's), will/won't + kata kerja dasar. Kedua urutan kalimat benar."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Write a sentence with the information below using 'if it's' and either 'will' or 'won't':\nwindy on Thursday (he / wear / a long-sleeved shirt)",
+        "fillInAnswer": "If it's windy on Thursday, he will wear a long-sleeved shirt.",
+        "acceptedAnswers": [
+          "If it's windy on Thursday, he will wear a long-sleeved shirt",
+          "If it's windy on Thursday he will wear a long-sleeved shirt.",
+          "If it's windy on Thursday he will wear a long-sleeved shirt",
+          "He will wear a long-sleeved shirt if it's windy on Thursday.",
+          "He will wear a long-sleeved shirt if it's windy on Thursday",
+          "If it’s windy on Thursday, he will wear a long-sleeved shirt.",
+          "If it’s windy on Thursday, he will wear a long-sleeved shirt",
+          "If it’s windy on Thursday he will wear a long-sleeved shirt.",
+          "If it’s windy on Thursday he will wear a long-sleeved shirt",
+          "He will wear a long-sleeved shirt if it’s windy on Thursday.",
+          "He will wear a long-sleeved shirt if it’s windy on Thursday",
+          "If it's windy on Thursday, he'll wear a long-sleeved shirt.",
+          "If it's windy on Thursday, he'll wear a long-sleeved shirt",
+          "If it's windy on Thursday he'll wear a long-sleeved shirt.",
+          "If it's windy on Thursday he'll wear a long-sleeved shirt",
+          "He'll wear a long-sleeved shirt if it's windy on Thursday.",
+          "He'll wear a long-sleeved shirt if it's windy on Thursday",
+          "If it’s windy on Thursday, he’ll wear a long-sleeved shirt.",
+          "If it’s windy on Thursday, he’ll wear a long-sleeved shirt",
+          "If it’s windy on Thursday he’ll wear a long-sleeved shirt.",
+          "If it’s windy on Thursday he’ll wear a long-sleeved shirt",
+          "He’ll wear a long-sleeved shirt if it’s windy on Thursday.",
+          "He’ll wear a long-sleeved shirt if it’s windy on Thursday"
+        ],
+        "fillInHint": "Pola: If it's + cuaca, subjek + will/won't + wear + pakaian. (Urutan boleh dibalik: ... if it's ...)",
+        "explanation": "First conditional: If + present simple (it's), will/won't + kata kerja dasar. Kedua urutan kalimat benar."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "Write a sentence with the information below using 'if it's' and either 'will' or 'won't':\nfine on Friday (they / not wear / heavy coats)",
+        "fillInAnswer": "If it's fine on Friday, they won't wear heavy coats.",
+        "acceptedAnswers": [
+          "If it's fine on Friday, they won't wear heavy coats",
+          "If it's fine on Friday they won't wear heavy coats.",
+          "If it's fine on Friday they won't wear heavy coats",
+          "They won't wear heavy coats if it's fine on Friday.",
+          "They won't wear heavy coats if it's fine on Friday",
+          "If it’s fine on Friday, they won’t wear heavy coats.",
+          "If it’s fine on Friday, they won’t wear heavy coats",
+          "If it’s fine on Friday they won’t wear heavy coats.",
+          "If it’s fine on Friday they won’t wear heavy coats",
+          "They won’t wear heavy coats if it’s fine on Friday.",
+          "They won’t wear heavy coats if it’s fine on Friday",
+          "If it's fine on Friday, they will not wear heavy coats.",
+          "If it's fine on Friday, they will not wear heavy coats",
+          "If it's fine on Friday they will not wear heavy coats.",
+          "If it's fine on Friday they will not wear heavy coats",
+          "They will not wear heavy coats if it's fine on Friday.",
+          "They will not wear heavy coats if it's fine on Friday",
+          "If it’s fine on Friday, they will not wear heavy coats.",
+          "If it’s fine on Friday, they will not wear heavy coats",
+          "If it’s fine on Friday they will not wear heavy coats.",
+          "If it’s fine on Friday they will not wear heavy coats",
+          "They will not wear heavy coats if it’s fine on Friday.",
+          "They will not wear heavy coats if it’s fine on Friday"
+        ],
+        "fillInHint": "Pola: If it's + cuaca, subjek + will/won't + wear + pakaian. (Urutan boleh dibalik: ... if it's ...)",
+        "explanation": "First conditional: If + present simple (it's), will/won't + kata kerja dasar. Kedua urutan kalimat benar."
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "Match the sentence beginning with the correct ending:\n\"The weather was cold and cloudy, so ...\"",
+        "options": [
+          "they went inside the warm classroom.",
+          "she wore a heavy coat and a woolen sweater.",
+          "felt really cold.",
+          "there was wet weather the night before.",
+          "started to get windy."
+        ],
+        "answer": 1,
+        "passageTitle": "A Cold Morning Walk",
+        "passage": "Yesterday morning, Susan walked to school. The weather was very cold and cloudy, so she wore a heavy coat and a woolen sweater. She also put on thick gloves and her waterproof boots because there was wet weather the night before. Halfway to school, it started to get windy. Susan was happy she brought her knitted scarf. When she arrived at school, her friend Mia said she forgot her gloves and felt very cold. Susan shared her scarf with Mia until they went inside the warm classroom. Their teacher smiled and said everyone was lucky to stay warm and dry that day.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "explanation": "Sesuai teks: \"The weather was cold and cloudy, so she wore a heavy coat and a woolen sweater.\""
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "Match the sentence beginning with the correct ending:\n\"Susan wore thick gloves and waterproof boots because ...\"",
+        "options": [
+          "they went inside the warm classroom.",
+          "she wore a heavy coat and a woolen sweater.",
+          "felt really cold.",
+          "there was wet weather the night before.",
+          "started to get windy."
+        ],
+        "answer": 3,
+        "passageTitle": "A Cold Morning Walk",
+        "passage": "Yesterday morning, Susan walked to school. The weather was very cold and cloudy, so she wore a heavy coat and a woolen sweater. She also put on thick gloves and her waterproof boots because there was wet weather the night before. Halfway to school, it started to get windy. Susan was happy she brought her knitted scarf. When she arrived at school, her friend Mia said she forgot her gloves and felt very cold. Susan shared her scarf with Mia until they went inside the warm classroom. Their teacher smiled and said everyone was lucky to stay warm and dry that day.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "explanation": "Sesuai teks: \"Susan wore thick gloves and waterproof boots because there was wet weather the night before.\""
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "Match the sentence beginning with the correct ending:\n\"Halfway to school, it ...\"",
+        "options": [
+          "they went inside the warm classroom.",
+          "she wore a heavy coat and a woolen sweater.",
+          "felt really cold.",
+          "there was wet weather the night before.",
+          "started to get windy."
+        ],
+        "answer": 4,
+        "passageTitle": "A Cold Morning Walk",
+        "passage": "Yesterday morning, Susan walked to school. The weather was very cold and cloudy, so she wore a heavy coat and a woolen sweater. She also put on thick gloves and her waterproof boots because there was wet weather the night before. Halfway to school, it started to get windy. Susan was happy she brought her knitted scarf. When she arrived at school, her friend Mia said she forgot her gloves and felt very cold. Susan shared her scarf with Mia until they went inside the warm classroom. Their teacher smiled and said everyone was lucky to stay warm and dry that day.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "explanation": "Sesuai teks: \"Halfway to school, it started to get windy.\""
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "Match the sentence beginning with the correct ending:\n\"Mia forgot her gloves and ...\"",
+        "options": [
+          "they went inside the warm classroom.",
+          "she wore a heavy coat and a woolen sweater.",
+          "felt really cold.",
+          "there was wet weather the night before.",
+          "started to get windy."
+        ],
+        "answer": 2,
+        "passageTitle": "A Cold Morning Walk",
+        "passage": "Yesterday morning, Susan walked to school. The weather was very cold and cloudy, so she wore a heavy coat and a woolen sweater. She also put on thick gloves and her waterproof boots because there was wet weather the night before. Halfway to school, it started to get windy. Susan was happy she brought her knitted scarf. When she arrived at school, her friend Mia said she forgot her gloves and felt very cold. Susan shared her scarf with Mia until they went inside the warm classroom. Their teacher smiled and said everyone was lucky to stay warm and dry that day.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "explanation": "Sesuai teks: \"Mia forgot her gloves and felt really cold.\""
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "Match the sentence beginning with the correct ending:\n\"Susan shared her scarf until ...\"",
+        "options": [
+          "they went inside the warm classroom.",
+          "she wore a heavy coat and a woolen sweater.",
+          "felt really cold.",
+          "there was wet weather the night before.",
+          "started to get windy."
+        ],
+        "answer": 0,
+        "passageTitle": "A Cold Morning Walk",
+        "passage": "Yesterday morning, Susan walked to school. The weather was very cold and cloudy, so she wore a heavy coat and a woolen sweater. She also put on thick gloves and her waterproof boots because there was wet weather the night before. Halfway to school, it started to get windy. Susan was happy she brought her knitted scarf. When she arrived at school, her friend Mia said she forgot her gloves and felt very cold. Susan shared her scarf with Mia until they went inside the warm classroom. Their teacher smiled and said everyone was lucky to stay warm and dry that day.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "explanation": "Sesuai teks: \"Susan shared her scarf until they went inside the warm classroom.\""
+      }
+    ]
+  },
+  "notes": "Part 1A (mencocokkan kata–arti) diubah menjadi pilihan ganda 4 opsi: arti benar + 3 arti lain dari daftar a–f. Part 1B: diterima juga ejaan \"woollen sweater\" dan \"long sleeved shirt\". Part 2B (menulis kalimat if it's + will/won't, tanpa label poin di tes; Part 2 = 10 poin sehingga 5 poin) dijadikan FILL_IN dengan variasi jawaban: kedua urutan kalimat sesuai PDF (If ..., ... / ... if ...), bentuk pendek & panjang (I'll/I will, won't/will not), apostrof lurus maupun miring, koma setelah klausa if opsional, titik akhir opsional. PDF kunci memuat salah ketik \"wollen sweater\" (no. 1) dan \"longsleeved\" (no. 4); dipakai ejaan yang benar. Karena penilaian FILL_IN berupa pencocokan persis, kalimat benar dengan susunan lain (mis. \"If it is cold tomorrow, ...\") akan dinilai salah; guru sebaiknya meninjau. Part 3 (mencocokkan awal–akhir kalimat) dijadikan READING pilihan ganda dengan 5 opsi akhiran a–e dalam urutan asli (kunci b, d, e, c, a sesuai PDF). Tidak ada soal bergambar. Total 30 butir = 30 poin tes."
+}

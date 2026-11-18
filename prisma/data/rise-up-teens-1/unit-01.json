@@ -1,0 +1,440 @@
+{
+  "unit": 1,
+  "title": "Let Me Introduce Myself",
+  "summary": "Siswa belajar menyapa, memperkenalkan diri dan teman, serta menanyakan nama, umur, dan alamat memakai am/is/are dan kata tanya Wh-.",
+  "content": "## Tujuan Belajar\n\n• Menyapa orang lain dan membalas sapaan dalam bahasa Inggris.\n• Memperkenalkan diri sendiri dan memperkenalkan teman.\n• Menanyakan dan memberi informasi pribadi: nama, umur, dan alamat.\n• Membuat pertanyaan dengan What, Where, When, dan Who.\n\n## Kosakata Inti\n\nDi unit ini kamu belajar kata-kata untuk menyapa, berpamitan, dan bercerita tentang dirimu: nama, umur, kelas, ulang tahun, dan tempat tinggal. Perhatikan contoh berikut.\n\nGood morning! My name is Rina. I am 12 years old and I am in 7th grade.\nI live in an apartment on Melati Street. It is close to my school.\nMy birthday is in May. Goodbye, see you tomorrow!\n\n## Tata Bahasa: am / is / are dan Kata Tanya Wh-\n\nKata kerja \"to be\" (am, is, are) dipakai untuk menyebut identitas, umur, kelas, perasaan, dan fakta tentang seseorang. Pasangkan subjek dengan bentuk yang tepat. Untuk kegiatan yang sedang terjadi sekarang, pakai am / is / are + kata kerja berakhiran -ing.\n\nI → am\nHe / She / It / satu nama → is\nYou / We / They / banyak orang → are\n\nI am in 7th grade.\nShe is twelve years old.\nThey are new students.\nMy address is 15 Kenanga Road.\nWe are waiting for our teacher. (sedang terjadi sekarang)\n\nUntuk menanyakan informasi, pakai kata tanya: What (apa), Where (di mana), When (kapan), Who (siapa). Pertanyaan dengan is / are tidak memakai do / does.\n\nWhat is your name?\nWhere do you live?\nWhen is your birthday?\nWho is your English teacher?\n\n## Contoh Percakapan\n\nDina: Good morning! I'm Dina. What's your name?\nRaka: Hi, Dina! My name is Raka. Nice to meet you.\nDina: Nice to meet you, too. How are you today?\nRaka: I'm fine, thank you. I'm a new student in 7th grade.\nDina: Me too! How old are you?\nRaka: I'm twelve years old. My birthday is in June.\nDina: Where do you live?\nRaka: I live in a house on Mawar Street. It's far from school.\nDina: This is my friend, Sari. She lives close to the school.\nRaka: Hello, Sari! Goodbye for now, see you tomorrow!\n\n## Ayo Berlatih\n\nWhat is your name and how old are you?\nContoh: My name is Fajar. I am 13 years old.\n\nWhere do you live?\nContoh: I live in an apartment on Anggrek Road.\n\nWhen is your birthday?\nContoh: My birthday is in October.\n\nCan you introduce your friend?\nContoh: This is Nadia. She is in 7th grade. She is a new student.\n\n## Tips\n\n• Ucapkan \"Good morning\" sebelum jam 12 siang dan \"Good afternoon\" setelahnya. Saat berpisah, pakai \"Goodbye\" atau \"See you tomorrow\".\n\n• Latih pola I am / He is / They are dengan memperkenalkan dirimu dan anggota keluargamu di depan cermin setiap hari.",
+  "vocabulary": [
+    {
+      "en": "Good morning",
+      "id": "Selamat pagi"
+    },
+    {
+      "en": "Good afternoon",
+      "id": "Selamat siang / selamat sore"
+    },
+    {
+      "en": "Goodbye",
+      "id": "Selamat tinggal / sampai jumpa"
+    },
+    {
+      "en": "name",
+      "id": "nama"
+    },
+    {
+      "en": "years old",
+      "id": "berumur … tahun"
+    },
+    {
+      "en": "in 7th grade",
+      "id": "di kelas 7"
+    },
+    {
+      "en": "birthday",
+      "id": "ulang tahun"
+    },
+    {
+      "en": "live",
+      "id": "tinggal"
+    },
+    {
+      "en": "house",
+      "id": "rumah"
+    },
+    {
+      "en": "an apartment",
+      "id": "sebuah apartemen"
+    },
+    {
+      "en": "a street",
+      "id": "sebuah jalan"
+    },
+    {
+      "en": "a road",
+      "id": "sebuah jalan (raya)"
+    },
+    {
+      "en": "my address",
+      "id": "alamatku"
+    },
+    {
+      "en": "close to",
+      "id": "dekat dengan"
+    },
+    {
+      "en": "far from",
+      "id": "jauh dari"
+    },
+    {
+      "en": "new",
+      "id": "baru"
+    },
+    {
+      "en": "today",
+      "id": "hari ini"
+    },
+    {
+      "en": "fine",
+      "id": "baik-baik saja"
+    }
+  ],
+  "quiz": {
+    "title": "Progress Test Unit 1: Let Me Introduce Myself",
+    "questions": [
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"name\".",
+        "options": [
+          "a place where people live",
+          "what people call you",
+          "the day you were born",
+          "this day"
+        ],
+        "answer": 1
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"house\".",
+        "options": [
+          "not close to",
+          "a school year",
+          "a place where people live",
+          "what people call you"
+        ],
+        "answer": 2
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"far from\".",
+        "options": [
+          "not close to",
+          "this day",
+          "a place where people live",
+          "the day you were born"
+        ],
+        "answer": 0
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"birthday\".",
+        "options": [
+          "a school year",
+          "what people call you",
+          "this day",
+          "the day you were born"
+        ],
+        "answer": 3
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"7th grade\".",
+        "options": [
+          "the day you were born",
+          "a school year",
+          "not close to",
+          "a greeting you say when you see someone"
+        ],
+        "answer": 1
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"today\".",
+        "options": [
+          "a school year",
+          "a greeting you say when you see someone",
+          "this day",
+          "not close to"
+        ],
+        "answer": 2
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "David’s _____ is 130 Main Street.",
+        "fillInAnswer": "address",
+        "acceptedAnswers": [
+          "address"
+        ],
+        "fillInHint": "Pilih dari kotak kata: live / apartment / new / Road / address / fine / Goodbye / old / close"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "_____! See you tomorrow.",
+        "fillInAnswer": "Goodbye",
+        "acceptedAnswers": [
+          "Goodbye",
+          "goodbye"
+        ],
+        "fillInHint": "Pilih dari kotak kata: live / apartment / new / Road / address / fine / Goodbye / old / close"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "How are you today? I’m _____, thank you.",
+        "fillInAnswer": "fine",
+        "acceptedAnswers": [
+          "fine"
+        ],
+        "fillInHint": "Pilih dari kotak kata: live / apartment / new / Road / address / fine / Goodbye / old / close"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "I _____ in a big house.",
+        "fillInAnswer": "live",
+        "acceptedAnswers": [
+          "live"
+        ],
+        "fillInHint": "Pilih dari kotak kata: live / apartment / new / Road / address / fine / Goodbye / old / close"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "I am thirteen years _____.",
+        "fillInAnswer": "old",
+        "acceptedAnswers": [
+          "old"
+        ],
+        "fillInHint": "Pilih dari kotak kata: live / apartment / new / Road / address / fine / Goodbye / old / close"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "Shelly lives in an _____ with her family.",
+        "fillInAnswer": "apartment",
+        "acceptedAnswers": [
+          "apartment"
+        ],
+        "fillInHint": "Pilih dari kotak kata: live / apartment / new / Road / address / fine / Goodbye / old / close"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "I live _____ to my school.",
+        "fillInAnswer": "close",
+        "acceptedAnswers": [
+          "close"
+        ],
+        "fillInHint": "Pilih dari kotak kata: live / apartment / new / Road / address / fine / Goodbye / old / close"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "My address is 27 Forest _____.",
+        "fillInAnswer": "Road",
+        "acceptedAnswers": [
+          "Road",
+          "road"
+        ],
+        "fillInHint": "Pilih dari kotak kata: live / apartment / new / Road / address / fine / Goodbye / old / close"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "Hello! My name is Lily and I am a _____ student.",
+        "fillInAnswer": "new",
+        "acceptedAnswers": [
+          "new"
+        ],
+        "fillInHint": "Pilih dari kotak kata: live / apartment / new / Road / address / fine / Goodbye / old / close"
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 2 · Language",
+        "q": "Choose the correct word: Mr. Smith _____ an 8th grade teacher.",
+        "options": [
+          "is",
+          "are"
+        ],
+        "answer": 0,
+        "explanation": "Mr. Smith = satu orang (he), jadi memakai is."
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 2 · Language",
+        "q": "Choose the correct word: Sarah _____ in 7th grade.",
+        "options": [
+          "is",
+          "am"
+        ],
+        "answer": 0,
+        "explanation": "Sarah = she, jadi memakai is. 'am' hanya untuk I."
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 2 · Language",
+        "q": "Choose the correct word: The students _____ waiting.",
+        "options": [
+          "is",
+          "are"
+        ],
+        "answer": 1,
+        "explanation": "The students = banyak orang (they), jadi memakai are."
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 2 · Language",
+        "q": "Choose the correct word: I _____ fine.",
+        "options": [
+          "be",
+          "am"
+        ],
+        "answer": 1,
+        "explanation": "Subjek I selalu memakai am."
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 2 · Language",
+        "q": "Choose the correct word: They _____ new students.",
+        "options": [
+          "is",
+          "are"
+        ],
+        "answer": 1,
+        "explanation": "They selalu memakai are."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "I _____ in 7th grade.",
+        "fillInAnswer": "am",
+        "acceptedAnswers": [
+          "am"
+        ],
+        "fillInHint": "Tulis is / am / are",
+        "explanation": "I → am."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "She _____ 12 years old.",
+        "fillInAnswer": "is",
+        "acceptedAnswers": [
+          "is"
+        ],
+        "fillInHint": "Tulis is / am / are",
+        "explanation": "She → is."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "They _____ from New York City.",
+        "fillInAnswer": "are",
+        "acceptedAnswers": [
+          "are"
+        ],
+        "fillInHint": "Tulis is / am / are",
+        "explanation": "They → are."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "We _____ happy today.",
+        "fillInAnswer": "are",
+        "acceptedAnswers": [
+          "are"
+        ],
+        "fillInHint": "Tulis is / am / are",
+        "explanation": "We → are."
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 2 · Language",
+        "q": "He _____ a new student.",
+        "fillInAnswer": "is",
+        "acceptedAnswers": [
+          "is"
+        ],
+        "fillInHint": "Tulis is / am / are",
+        "explanation": "He → is."
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "What grade is Aria in?",
+        "passageTitle": "A New Friend",
+        "passage": "Good afternoon! My name is Aria, and I am in 7th grade. Today is my first day at a new school. I am a little nervous, but I am also excited.\n\nI am 12 years old and my birthday is in August. I live in an apartment on Green Street. It is close to the school, so I walk every morning.\n\nRight now, I am waiting in front of the classroom for our teacher, Mr. Smith. A girl is smiling at me. She says, “Hi! I’m Amanda. What’s your name?” I feel fine now because I am making a new friend.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "options": [
+          "6th grade",
+          "7th grade",
+          "8th grade",
+          "9th grade"
+        ],
+        "answer": 1
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "How does Aria feel at the beginning of the day?",
+        "passageTitle": "A New Friend",
+        "passage": "Good afternoon! My name is Aria, and I am in 7th grade. Today is my first day at a new school. I am a little nervous, but I am also excited.\n\nI am 12 years old and my birthday is in August. I live in an apartment on Green Street. It is close to the school, so I walk every morning.\n\nRight now, I am waiting in front of the classroom for our teacher, Mr. Smith. A girl is smiling at me. She says, “Hi! I’m Amanda. What’s your name?” I feel fine now because I am making a new friend.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "options": [
+          "angry",
+          "tired",
+          "nervous but excited",
+          "bored"
+        ],
+        "answer": 2
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "Where does Aria live?",
+        "passageTitle": "A New Friend",
+        "passage": "Good afternoon! My name is Aria, and I am in 7th grade. Today is my first day at a new school. I am a little nervous, but I am also excited.\n\nI am 12 years old and my birthday is in August. I live in an apartment on Green Street. It is close to the school, so I walk every morning.\n\nRight now, I am waiting in front of the classroom for our teacher, Mr. Smith. A girl is smiling at me. She says, “Hi! I’m Amanda. What’s your name?” I feel fine now because I am making a new friend.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "options": [
+          "in a house on Pine Street",
+          "in an apartment on Green Street",
+          "in a house near the park",
+          "in an apartment on River Road"
+        ],
+        "answer": 1
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "Why does Aria walk to school?",
+        "passageTitle": "A New Friend",
+        "passage": "Good afternoon! My name is Aria, and I am in 7th grade. Today is my first day at a new school. I am a little nervous, but I am also excited.\n\nI am 12 years old and my birthday is in August. I live in an apartment on Green Street. It is close to the school, so I walk every morning.\n\nRight now, I am waiting in front of the classroom for our teacher, Mr. Smith. A girl is smiling at me. She says, “Hi! I’m Amanda. What’s your name?” I feel fine now because I am making a new friend.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "options": [
+          "She likes walking with her friends.",
+          "Her home is far from school.",
+          "She doesn’t have a bicycle.",
+          "Her home is close to the school."
+        ],
+        "answer": 3
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "Who talks to Aria while she is waiting?",
+        "passageTitle": "A New Friend",
+        "passage": "Good afternoon! My name is Aria, and I am in 7th grade. Today is my first day at a new school. I am a little nervous, but I am also excited.\n\nI am 12 years old and my birthday is in August. I live in an apartment on Green Street. It is close to the school, so I walk every morning.\n\nRight now, I am waiting in front of the classroom for our teacher, Mr. Smith. A girl is smiling at me. She says, “Hi! I’m Amanda. What’s your name?” I feel fine now because I am making a new friend.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "options": [
+          "Amanda",
+          "her teacher",
+          "Aria",
+          "Mr. Smith"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  "notes": "Part 1A: butir Example (1. Good morning! = c) tidak dimasukkan; 6 butir pencocokan diubah menjadi pilihan ganda 4 opsi yang diambil dari daftar arti a–g, posisi jawaban diacak. Part 1B: jawaban 'Road' juga menerima 'road'. Part 2A dikonversi menjadi pilihan ganda 2 opsi sesuai urutan asli di soal. Part 3: di PDF, butir bacaan dicetak dengan tata letak 1, (halaman berikut) 2–5; urutan di sini mengikuti nomor soal 1–5. Semua kunci dicek terhadap PDF ANSWER (Part 1A: d, b, f, g, e, a; Part 1B: address, Goodbye, fine, live, old, apartment, close, Road, new; Part 2A: is, is, are, am, are; Part 2B: am, is, are, are, is; Part 3: b, c, b, d, a). Total 30 butir = 30 poin tes. Tidak ada soal bergambar."
+}

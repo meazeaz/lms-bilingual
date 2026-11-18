@@ -1,0 +1,440 @@
+{
+  "unit": 2,
+  "title": "My Favorite Subject",
+  "summary": "Siswa belajar nama mata pelajaran, kata sifat untuk menilainya, serta menyampaikan pendapat dan alasan dengan pola I think … because ….",
+  "content": "## Tujuan Belajar\n\n• Menyebutkan nama-nama mata pelajaran sekolah dalam bahasa Inggris.\n• Mendeskripsikan mata pelajaran dengan kata sifat seperti fun, difficult, dan useful.\n• Menyatakan pendapat tentang mata pelajaran dan memberi alasan dengan \"because\".\n• Bertanya dan menjawab \"Which subject do you think is …?\"\n\n## Kosakata Inti\n\nDi unit ini kamu belajar nama mata pelajaran (English, biology, physics, chemistry, geography, history, social studies, P.E.) dan kata sifat untuk menilainya. Kata sifat positif: fun, interesting, amazing, useful, enjoyable. Kata sifat negatif: boring, difficult, confusing.\n\nMy favorite subject is biology because it's interesting.\nI think chemistry is confusing, but physics is fun.\nGeography is useful because we learn about the world.\n\n## Tata Bahasa: because dan I think …\n\n\"Because\" (karena) menghubungkan pendapat dengan alasannya. Satu mata pelajaran dianggap satu benda, jadi kita memakai \"it's\", bukan \"he\" atau \"they're\". Untuk menyatakan pendapat, pakai pola: I think + mata pelajaran + is + kata sifat + because + alasan. Ingat, untuk he / she kata kerjanya mendapat -s (thinks, likes), dan pertanyaan \"Why\" memakai do / does.\n\nWhat is your favorite subject? → My favorite subject is … because it's …\nWhy do you like …? / Why does she like …?\nWhich subject do you think is …? → I think … is … because …\n\nMy favorite subject is English because it's fun.\nI like history because we learn about the past.\nWhy does he like P.E.? He likes P.E. because he can play games.\nI think physics is difficult because we have to remember many formulas.\nShe thinks social studies is useful because she learns about people.\n\n## Contoh Percakapan\n\nBima: Hi, Laila! What is your favorite subject?\nLaila: My favorite subject is biology because it's amazing.\nBima: Really? I think biology is confusing.\nLaila: Why do you think so?\nBima: Because there are too many new words. I like P.E. because we can play football.\nLaila: Which subject do you think is boring?\nBima: Hmm, I think history is boring.\nLaila: I don't agree. I think history is interesting because we learn about the past.\nBima: OK! And which subject do you think is useful?\nLaila: English! It's useful because we can talk to people around the world.\n\n## Ayo Berlatih\n\nWhat is your favorite subject? Why?\nContoh: My favorite subject is math because it's fun.\n\nWhich subject do you think is difficult?\nContoh: I think chemistry is difficult because we have to remember many formulas.\n\nWhy do you like English?\nContoh: I like English because it's useful.\n\nWhich subject does your friend think is boring?\nContoh: My friend thinks geography is boring.\n\n## Tips\n\n• Buat kartu kosakata: tulis nama mata pelajaran di satu sisi dan kata sifat yang cocok di sisi lainnya, lalu buat satu kalimat pendapat setiap hari.\n\n• Saat menjawab pertanyaan \"Why\", selalu mulai dengan \"because\" dan berikan alasan yang jelas.",
+  "vocabulary": [
+    {
+      "en": "subject",
+      "id": "mata pelajaran"
+    },
+    {
+      "en": "English",
+      "id": "bahasa Inggris"
+    },
+    {
+      "en": "biology",
+      "id": "biologi"
+    },
+    {
+      "en": "physics",
+      "id": "fisika"
+    },
+    {
+      "en": "chemistry",
+      "id": "kimia"
+    },
+    {
+      "en": "geography",
+      "id": "geografi"
+    },
+    {
+      "en": "history",
+      "id": "sejarah"
+    },
+    {
+      "en": "social studies",
+      "id": "IPS (ilmu pengetahuan sosial)"
+    },
+    {
+      "en": "physical education (P.E.)",
+      "id": "pendidikan jasmani (olahraga)"
+    },
+    {
+      "en": "language",
+      "id": "bahasa"
+    },
+    {
+      "en": "difficult",
+      "id": "sulit"
+    },
+    {
+      "en": "boring",
+      "id": "membosankan"
+    },
+    {
+      "en": "confusing",
+      "id": "membingungkan"
+    },
+    {
+      "en": "amazing",
+      "id": "luar biasa / menakjubkan"
+    },
+    {
+      "en": "fun",
+      "id": "seru / menyenangkan"
+    },
+    {
+      "en": "enjoyable",
+      "id": "mengasyikkan, enak dinikmati"
+    },
+    {
+      "en": "interesting",
+      "id": "menarik"
+    },
+    {
+      "en": "useful",
+      "id": "berguna / bermanfaat"
+    }
+  ],
+  "quiz": {
+    "title": "Progress Test Unit 2: My Favorite Subject",
+    "questions": [
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"subject\".",
+        "options": [
+          "not interesting",
+          "a topic or class you study at school",
+          "very good or exciting",
+          "not easy to understand"
+        ],
+        "answer": 1
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"confusing\".",
+        "options": [
+          "very good or exciting",
+          "not interesting",
+          "a class where you play sports and move your body",
+          "not easy to understand"
+        ],
+        "answer": 3
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"social studies\".",
+        "options": [
+          "a subject about history, geography, civics, and people",
+          "a topic or class you study at school",
+          "not easy to understand",
+          "a class where you play sports and move your body"
+        ],
+        "answer": 0
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"boring\".",
+        "options": [
+          "very good or exciting",
+          "not easy to understand",
+          "not interesting",
+          "a topic or class you study at school"
+        ],
+        "answer": 2
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"amazing\".",
+        "options": [
+          "not interesting",
+          "very good or exciting",
+          "a subject about history, geography, civics, and people",
+          "not easy to understand"
+        ],
+        "answer": 1
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 1 · Vocabulary",
+        "q": "Choose the meaning of \"P.E.\".",
+        "options": [
+          "a topic or class you study at school",
+          "not interesting",
+          "a class where you play sports and move your body",
+          "a subject about history, geography, civics, and people"
+        ],
+        "answer": 2
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "I think _____ is hard because we learn many numbers.",
+        "fillInAnswer": "math",
+        "acceptedAnswers": [
+          "math",
+          "maths"
+        ],
+        "fillInHint": "Pilih dari kotak kata: English / geography / difficult / interesting / math / history / language / fun / biology"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "My favorite subject is _____ because we read stories and learn new words.",
+        "fillInAnswer": "English",
+        "acceptedAnswers": [
+          "English",
+          "english"
+        ],
+        "fillInHint": "Pilih dari kotak kata: English / geography / difficult / interesting / math / history / language / fun / biology"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "Learning about the world in _____ is very interesting.",
+        "fillInAnswer": "geography",
+        "acceptedAnswers": [
+          "geography"
+        ],
+        "fillInHint": "Pilih dari kotak kata: English / geography / difficult / interesting / math / history / language / fun / biology"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "In _____ class, we learn about the human body.",
+        "fillInAnswer": "biology",
+        "acceptedAnswers": [
+          "biology"
+        ],
+        "fillInHint": "Pilih dari kotak kata: English / geography / difficult / interesting / math / history / language / fun / biology"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "P.E. is _____ because we can do exercise and play ball games.",
+        "fillInAnswer": "fun",
+        "acceptedAnswers": [
+          "fun"
+        ],
+        "fillInHint": "Pilih dari kotak kata: English / geography / difficult / interesting / math / history / language / fun / biology"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "In _____ class, we learn about the past.",
+        "fillInAnswer": "history",
+        "acceptedAnswers": [
+          "history"
+        ],
+        "fillInHint": "Pilih dari kotak kata: English / geography / difficult / interesting / math / history / language / fun / biology"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "Learning a new _____ is useful when we travel to different countries.",
+        "fillInAnswer": "language",
+        "acceptedAnswers": [
+          "language"
+        ],
+        "fillInHint": "Pilih dari kotak kata: English / geography / difficult / interesting / math / history / language / fun / biology"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "Laura likes learning physics because it is very _____.",
+        "fillInAnswer": "interesting",
+        "acceptedAnswers": [
+          "interesting"
+        ],
+        "fillInHint": "Pilih dari kotak kata: English / geography / difficult / interesting / math / history / language / fun / biology"
+      },
+      {
+        "type": "FILL_IN",
+        "section": "Part 1 · Vocabulary",
+        "q": "My brother thinks chemistry is _____, but I think it’s easy.",
+        "fillInAnswer": "difficult",
+        "acceptedAnswers": [
+          "difficult"
+        ],
+        "fillInHint": "Pilih dari kotak kata: English / geography / difficult / interesting / math / history / language / fun / biology"
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 2 · Language",
+        "q": "Choose the correct word: What _____ your favorite school subject?",
+        "options": [
+          "is",
+          "are"
+        ],
+        "answer": 0,
+        "explanation": "'your favorite school subject' adalah satu hal, jadi memakai is."
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 2 · Language",
+        "q": "Choose the correct word: I like biology because _____ interesting.",
+        "options": [
+          "it's",
+          "they're"
+        ],
+        "answer": 0,
+        "explanation": "Biology adalah satu mata pelajaran, jadi memakai it's."
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 2 · Language",
+        "q": "Choose the correct word: Why _____ he like P.E.?",
+        "options": [
+          "do",
+          "does"
+        ],
+        "answer": 1,
+        "explanation": "Subjek he memakai does dalam pertanyaan."
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 2 · Language",
+        "q": "Choose the correct word: She _____ English because it's fun.",
+        "options": [
+          "likes",
+          "like"
+        ],
+        "answer": 0,
+        "explanation": "Subjek she: kata kerja mendapat -s (likes)."
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 2 · Language",
+        "q": "Choose the correct word: They don't like physics because _____ confusing.",
+        "options": [
+          "it's",
+          "they're"
+        ],
+        "answer": 0,
+        "explanation": "Yang dibicarakan adalah physics (satu mata pelajaran), jadi it's, walaupun subjek kalimatnya they."
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 2 · Language",
+        "q": "Choose the correct answer to the question: Which subject do you think is interesting?",
+        "options": [
+          "I think history is interesting because we can learn about the past.",
+          "I think history interesting is because we can learn about the past."
+        ],
+        "answer": 0
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 2 · Language",
+        "q": "Choose the correct answer to the question: Which subject does your sister think is difficult?",
+        "options": [
+          "She think physics is difficult because remember many formulas we have to.",
+          "She thinks physics is difficult because we have to remember many formulas."
+        ],
+        "answer": 1
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 2 · Language",
+        "q": "Choose the correct answer to the question: Which subject do you think is useful?",
+        "options": [
+          "I thinking English useful because can we communicate with people around the world.",
+          "I think English is useful because we can communicate with people around the world."
+        ],
+        "answer": 1
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 2 · Language",
+        "q": "Choose the correct answer to the question: Which subject do you think is confusing?",
+        "options": [
+          "I thinks geography is confusing because there are too many maps.",
+          "I think geography is confusing because there are too many maps."
+        ],
+        "answer": 1
+      },
+      {
+        "type": "MULTIPLE_CHOICE",
+        "section": "Part 2 · Language",
+        "q": "Choose the correct answer to the question: Which subject do you think is enjoyable?",
+        "options": [
+          "I think art are enjoyable because we can be creative.",
+          "I think art is enjoyable because we can be creative."
+        ],
+        "answer": 1
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "Choose the correct ending: Mina likes English because …",
+        "passageTitle": "Walking Home After School",
+        "passage": "Mina and Tom are walking home after school. Mina says, “I really like English because it’s fun and we read amazing stories.”\n\nTom replies, “I like science. It’s interesting, but sometimes it’s difficult.”\n\nMina nods. “Yes, science can be confusing, but it’s also useful. It helps us understand the world around us.”\n\nTom smiles. “That’s true! But my favorite subject is P.E. because we can run and play games.”\n\nThey arrive at Tom’s house. “See you tomorrow!” Mina says.\n\n“Goodbye!” Tom answers.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "options": [
+          "say goodbye.",
+          "it’s interesting but sometimes difficult.",
+          "they can run and play games.",
+          "it helps her understand the world.",
+          "it’s fun and they read amazing stories."
+        ],
+        "answer": 4
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "Choose the correct ending: Tom thinks science is …",
+        "passageTitle": "Walking Home After School",
+        "passage": "Mina and Tom are walking home after school. Mina says, “I really like English because it’s fun and we read amazing stories.”\n\nTom replies, “I like science. It’s interesting, but sometimes it’s difficult.”\n\nMina nods. “Yes, science can be confusing, but it’s also useful. It helps us understand the world around us.”\n\nTom smiles. “That’s true! But my favorite subject is P.E. because we can run and play games.”\n\nThey arrive at Tom’s house. “See you tomorrow!” Mina says.\n\n“Goodbye!” Tom answers.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "options": [
+          "say goodbye.",
+          "it’s interesting but sometimes difficult.",
+          "they can run and play games.",
+          "it helps her understand the world.",
+          "it’s fun and they read amazing stories."
+        ],
+        "answer": 1
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "Choose the correct ending: Mina says science is useful because …",
+        "passageTitle": "Walking Home After School",
+        "passage": "Mina and Tom are walking home after school. Mina says, “I really like English because it’s fun and we read amazing stories.”\n\nTom replies, “I like science. It’s interesting, but sometimes it’s difficult.”\n\nMina nods. “Yes, science can be confusing, but it’s also useful. It helps us understand the world around us.”\n\nTom smiles. “That’s true! But my favorite subject is P.E. because we can run and play games.”\n\nThey arrive at Tom’s house. “See you tomorrow!” Mina says.\n\n“Goodbye!” Tom answers.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "options": [
+          "say goodbye.",
+          "it’s interesting but sometimes difficult.",
+          "they can run and play games.",
+          "it helps her understand the world.",
+          "it’s fun and they read amazing stories."
+        ],
+        "answer": 3
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "Choose the correct ending: Tom’s favourite subject is P.E. because …",
+        "passageTitle": "Walking Home After School",
+        "passage": "Mina and Tom are walking home after school. Mina says, “I really like English because it’s fun and we read amazing stories.”\n\nTom replies, “I like science. It’s interesting, but sometimes it’s difficult.”\n\nMina nods. “Yes, science can be confusing, but it’s also useful. It helps us understand the world around us.”\n\nTom smiles. “That’s true! But my favorite subject is P.E. because we can run and play games.”\n\nThey arrive at Tom’s house. “See you tomorrow!” Mina says.\n\n“Goodbye!” Tom answers.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "options": [
+          "say goodbye.",
+          "it’s interesting but sometimes difficult.",
+          "they can run and play games.",
+          "it helps her understand the world.",
+          "it’s fun and they read amazing stories."
+        ],
+        "answer": 2
+      },
+      {
+        "type": "READING",
+        "section": "Part 3 · Reading",
+        "q": "Choose the correct ending: At the end of the text, Mina and Tom …",
+        "passageTitle": "Walking Home After School",
+        "passage": "Mina and Tom are walking home after school. Mina says, “I really like English because it’s fun and we read amazing stories.”\n\nTom replies, “I like science. It’s interesting, but sometimes it’s difficult.”\n\nMina nods. “Yes, science can be confusing, but it’s also useful. It helps us understand the world around us.”\n\nTom smiles. “That’s true! But my favorite subject is P.E. because we can run and play games.”\n\nThey arrive at Tom’s house. “See you tomorrow!” Mina says.\n\n“Goodbye!” Tom answers.",
+        "readingFormat": "MC",
+        "allowAudio": true,
+        "options": [
+          "say goodbye.",
+          "it’s interesting but sometimes difficult.",
+          "they can run and play games.",
+          "it helps her understand the world.",
+          "it’s fun and they read amazing stories."
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  "notes": "Part 1A: tes ini tidak punya butir Example, jadi ke-6 butir pencocokan dimasukkan sebagai pilihan ganda 4 opsi (dari daftar arti a–f), posisi jawaban diacak. Part 1B: 'math' (juga menerima 'maths') dan 'art' (Part 2B) tidak termasuk Key Vocabulary di Teacher's Guide, tetapi dipertahankan sesuai tes. Part 2A dikonversi menjadi pilihan ganda 2 opsi sesuai urutan asli; Part 2B (pilih a/b) menjadi pilihan ganda dengan dua kalimat sebagai opsi. Part 3 aslinya mencocokkan awal kalimat (1–5) dengan akhiran (a–e); dikonversi menjadi READING pilihan ganda dengan 5 opsi akhiran yang sama (urutan asli a–e) di setiap butir. Ejaan 'favourite' (soal 4) vs 'favorite' (teks) dibiarkan seperti di tes. Akhiran d 'it helps her understand the world' sedangkan di teks Mina berkata 'It helps us understand the world' – kunci tetap d sesuai PDF. Semua kunci dicek terhadap PDF ANSWER (Part 1A: b, e, f, c, a, d; Part 1B: math, English, geography, biology, fun, history, language, interesting, difficult; Part 2A: is, it's, does, likes, it's; Part 2B: a, b, b, b, b; Part 3: e, b, d, c, a). Total 30 butir = 30 poin tes. Tidak ada soal bergambar."
+}
